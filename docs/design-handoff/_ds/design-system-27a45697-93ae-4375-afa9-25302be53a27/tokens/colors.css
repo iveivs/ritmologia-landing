@@ -1,0 +1,28 @@
+:root{
+/* base — warm cream paper */
+--cream-50:#FBF6F0;--cream-100:#F5EBE1;--cream-200:#EEDFD2;--sand-300:#E4CDB9;--sand-400:#D8B695;
+/* ink */
+--ink-900:#17120F;--ink-800:#241D18;--ink-700:#3C322B;--ink-500:#6B5C52;--ink-400:#8C7C71;--ink-300:#B6A69A;
+/* brand red */
+--red-700:#8E1B12;--red-600:#A81F15;--red-500:#C62A1E;--red-400:#D6493B;--red-100:#F3DAD4;
+/* muted supporting */
+--olive-500:#5E6B4A;--amber-500:#B8801F;
+
+/* semantic surfaces */
+--surface-page:var(--cream-100);--surface-raised:var(--cream-50);--surface-sunken:var(--cream-200);
+--surface-ink:var(--ink-900);--surface-accent:var(--red-500);--surface-accent-soft:var(--red-100);
+--surface-card:var(--cream-50);--surface-card-ink:var(--ink-800);
+/* semantic text */
+--text-strong:var(--ink-900);--text-body:var(--ink-700);--text-muted:var(--ink-500);--text-faint:var(--ink-400);
+--text-on-ink:var(--cream-100);--text-on-ink-muted:var(--sand-300);--text-on-accent:#FFF6F2;--text-accent:var(--red-600);
+/* semantic lines */
+--line-hairline:rgba(23,18,15,.12);--line-strong:rgba(23,18,15,.28);--line-ink:var(--ink-900);
+--line-accent:var(--red-500);--line-on-ink:rgba(245,235,225,.22);
+/* states */
+--state-hover-ink:var(--ink-800);--state-hover-accent:var(--red-600);--state-press-accent:var(--red-700);
+--focus-ring:var(--red-500);
+/* semantic status */
+--status-ok:var(--olive-500);--status-warn:var(--amber-500);--status-error:var(--red-600);
+/* link */
+--link:var(--ink-900);--link-hover:var(--red-600);
+}

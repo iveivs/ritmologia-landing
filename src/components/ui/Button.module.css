@@ -1,0 +1,103 @@
+.button {
+  font-family: var(--font-text);
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-3);
+  border: var(--border-strong) solid transparent;
+  border-radius: var(--radius-1);
+  cursor: pointer;
+  text-decoration: none;
+  transition: var(--transition-ui), var(--transition-move);
+  white-space: nowrap;
+}
+
+.button:active {
+  transform: translateY(1px);
+}
+
+.button:disabled,
+.button[aria-disabled="true"] {
+  opacity: 0.4;
+  pointer-events: none;
+}
+
+.full {
+  width: 100%;
+}
+
+/* sizes */
+.sm {
+  font-size: var(--body-sm);
+  padding: 8px 16px;
+}
+.md {
+  font-size: var(--body);
+  padding: 13px 24px;
+}
+.lg {
+  font-size: var(--body-lg);
+  padding: 17px 34px;
+}
+
+/* variants */
+.primary {
+  background: var(--surface-accent);
+  color: var(--text-on-accent);
+  border-color: var(--surface-accent);
+}
+.primary:hover {
+  background: var(--state-hover-accent);
+  border-color: var(--state-hover-accent);
+}
+.primary:active {
+  background: var(--state-press-accent);
+  border-color: var(--state-press-accent);
+}
+
+.ink {
+  background: var(--surface-ink);
+  color: var(--text-on-ink);
+  border-color: var(--surface-ink);
+}
+.ink:hover {
+  background: var(--state-hover-ink);
+  border-color: var(--state-hover-ink);
+}
+
+.outline {
+  background: transparent;
+  color: var(--text-strong);
+  border-color: var(--line-ink);
+}
+.outline:hover {
+  background: var(--surface-ink);
+  color: var(--text-on-ink);
+  border-color: var(--surface-ink);
+}
+
+.ghost {
+  background: transparent;
+  color: var(--text-strong);
+  border-color: transparent;
+  padding: 0;
+  border-bottom: var(--border-strong) solid var(--line-strong);
+  padding-bottom: 4px;
+  border-radius: 0;
+}
+.ghost:hover {
+  color: var(--text-accent);
+  border-bottom-color: var(--line-accent);
+}
+
+.onInk {
+  background: var(--cream-100);
+  color: var(--ink-900);
+  border-color: var(--cream-100);
+}
+.onInk:hover {
+  background: var(--sand-300);
+  border-color: var(--sand-300);
+}

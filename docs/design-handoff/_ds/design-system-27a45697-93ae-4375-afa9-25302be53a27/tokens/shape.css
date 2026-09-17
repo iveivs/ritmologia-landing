@@ -1,0 +1,15 @@
+:root{
+/* Radii are near-square: the brand is editorial, not app-rounded. Pills only for tags/buttons. */
+--radius-0:0px;--radius-1:2px;--radius-2:4px;--radius-3:8px;--radius-pill:999px;
+--border-hairline:1px;--border-strong:1.5px;--border-heavy:2px;
+/* shadows are rare and warm; elevation is expressed by paper tone and rules */
+--shadow-none:none;
+--shadow-1:0 1px 2px rgba(23,18,15,.05);
+--shadow-2:0 12px 32px -18px rgba(23,18,15,.28);
+--shadow-inset-hairline:inset 0 0 0 1px var(--line-hairline);
+/* rhythm stripes — the logo motif, reusable as a texture */
+--stripe-gap:7px; /* @kind spacing */
+--stripe-weight:3px; /* @kind spacing */
+--stripe-accent:repeating-linear-gradient(180deg,var(--red-500) 0 var(--stripe-weight),transparent var(--stripe-weight) var(--stripe-gap));
+--stripe-ink:repeating-linear-gradient(180deg,var(--ink-900) 0 var(--stripe-weight),transparent var(--stripe-weight) var(--stripe-gap));
+}

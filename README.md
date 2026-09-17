@@ -1,36 +1,115 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Ритмология — лендинг школы барабанов
 
-## Getting Started
+Одностраничный лендинг школы ударных в Санкт-Петербурге. Главная цель —
+запись на бесплатный пробный урок (секция «Запись»), второстепенная —
+продажа разовых занятий и абонемента, плюс онлайн-занятия для тех, кто не в
+Петербурге.
 
-First, run the development server:
+Собран на Next.js по дизайн-референсу, сделанному в Claude Design
+(HTML-прототип + дизайн-система). Исходный пакет хэндоффа сохранён в
+[`docs/design-handoff/`](./docs/design-handoff) — там же
+`Landing.dc.html` (эталон, открывается в браузере как есть),
+`README.md` хэндоффа со спецификацией всех секций, дизайн-система `_ds/`
+и скриншоты прокрутки для визуальной сверки.
+
+## Стек
+
+- **Next.js 16** (App Router, TypeScript, Turbopack)
+- **CSS Modules** — без Tailwind/UI-фреймворков, стили 1:1 повторяют
+  дизайн-систему из хэндоффа
+- **next/font/google** — Golos Text (400–900, кириллица) + JetBrains Mono
+- Никакого стейт-менеджера — состояние формы и карусели живёт в
+  компонентах (`useState`)
+
+## Запуск
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm install
+npm run dev      # http://localhost:3000
+npm run build    # production-сборка
+npm run lint
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Структура
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```
+src/
+  app/
+    layout.tsx        # шрифты, метаданные, global.css
+    globals.css        # все дизайн-токены (цвета/типографика/отступы/тени/motion)
+    page.tsx           # сборка страницы из секций
+  components/
+    Header.tsx          # шапка (не sticky, кастомная, без SiteHeader — см. ниже)
+    Hero.tsx
+    Skills.tsx          # 01 / Чему учим
+    Studio.tsx          # 02 / Студия
+    Teacher.tsx          # 03 / Преподаватель (фотоколлаж)
+    Online.tsx           # 04 / Онлайн
+    Diary.tsx            # 05 / Дневник барабанщика (Beat by Bit)
+    Reviews.tsx          # 06 / Отзывы (карусель, client component)
+    Prices.tsx            # блок цен, id="prices"
+    Address.tsx           # 07 / Адрес
+    Booking.tsx            # форма записи, id="booking", client component
+    Footer.tsx
+    ui/                     # переиспользуемые примитивы дизайн-системы:
+                            # Button, Tag, StripeRule, PriceCard,
+                            # Input, Select, Checkbox
+  lib/
+    content.ts           # весь копирайт и контент-данные одним файлом:
+                          # nav, отзывы, тарифы, факты о преподавателе,
+                          # колонки футера, контакты
+public/images/            # ассеты, скопированные из хэндоффа
+docs/design-handoff/       # оригинальный пакет хэндоффа (для сверки/истории)
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Дизайн-токены
 
-## Learn More
+Все токены (`--cream-*`, `--ink-*`, `--red-*`, шрифты, отступы, радиусы,
+motion) продублированы в `src/app/globals.css` как CSS-переменные —
+1 в 1 из `_ds/design-system-*/tokens/*.css` оригинального хэндоффа.
+Контейнер 1240px, гаттер 24px, вертикальный ритм секций 112px
+(`--section-y`).
 
-To learn more about Next.js, take a look at the following resources:
+Если нужно поменять цвет/отступ глобально — правьте переменную в
+`globals.css`, а не значения в компонентах.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Контент и копирайт
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Копирайт (тексты, отзывы, цены, контакты) — **финальный, согласован с
+заказчиком**. Не менять без согласования. Весь контент вынесен в
+`src/lib/content.ts`, чтобы редактировать в одном месте, не трогая
+разметку компонентов.
 
-## Deploy on Vercel
+## Осознанные отклонения от прототипа
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- **Header не использует компонент `SiteHeader`** из дизайн-системы —
+  как и в оригинальном прототипе, потому что `SiteHeader` жёстко
+  фиксирует размер знака логотипа. Шапка реализована как отдельный
+  компонент `Header.tsx`.
+- **Кнопки в карточках цен (`PriceCard`)**: в прототипе `Button` дизайн-
+  системы имел `white-space: nowrap`, из-за чего длинные подписи
+  («Попробовать бесплатно», «Записаться на занятие») обрезались на
+  вьюпортах уже ~1100px (задокументированный баг прототипа). В этой
+  реализации кнопка внутри `PriceCard` получает `white-space: normal` и
+  центрированный текст — подпись переносится на две строки вместо обрезки.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Известные ограничения / TODO
+
+- **Форма записи** (`Booking.tsx`) валидирует поля и показывает состояния
+  `idle → submitting → success/error`, но **не отправляет данные никуда** —
+  по договорённости пока без бэкенда. Нужно подключить реальный
+  endpoint/CRM в `handleSubmit`.
+- **Карта в секции «Адрес»** — статичный скриншот (`map-address.png`),
+  предоставленный заказчиком. Планируется заменить на встроенную
+  Яндекс.Карту с пином и ссылкой «построить маршрут».
+- Время пешком от метро, вход и этаж — заказчик не подтвердил, в копирайт
+  не добавлялись.
+
+## Адаптив
+
+- Двухколоночные секции складываются в одну колонку ниже ~900px (текст —
+  выше фото).
+- Сетка 2×2 в «Чему учим» — в одну колонку ниже ~640px.
+- Карточки цен переносятся автоматически (`repeat(auto-fit, minmax(260px, 1fr))`).
+- `prefers-reduced-motion` обнуляет все transition-длительности
+  (см. `globals.css`).

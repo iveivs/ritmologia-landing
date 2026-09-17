@@ -1,0 +1,132 @@
+.section {
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: var(--section-y) 24px;
+  display: grid;
+  grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
+  gap: clamp(32px, 4vw, 64px);
+  align-items: center;
+}
+
+.copy {
+  order: 2;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.photoWrap {
+  order: 1;
+  position: relative;
+  padding: 0 0 clamp(16px, 2.5vw, 32px) clamp(12px, 2vw, 28px);
+}
+
+.mainPhoto {
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--radius-2);
+  aspect-ratio: 3 / 2;
+}
+
+.mainPhoto img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.phone {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 27%;
+  min-width: 112px;
+  border: 8px solid var(--cream-100);
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 18px 40px -20px rgba(23, 18, 15, 0.35);
+}
+
+.phoneInner {
+  position: relative;
+  aspect-ratio: 9 / 16;
+  background: var(--ink-900);
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+.phoneInner img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 18%;
+}
+
+.label {
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.heading {
+  font-weight: 800;
+  font-size: clamp(1.8rem, 3.4vw, 2.6rem);
+  line-height: 1.05;
+  letter-spacing: -0.005em;
+  text-transform: uppercase;
+  color: var(--ink-900);
+  margin: 0;
+  max-width: 17ch;
+}
+
+.accent {
+  color: var(--red-500);
+}
+
+.lead {
+  font-size: 19px;
+  line-height: 1.55;
+  margin: 0;
+  max-width: 46ch;
+}
+
+.body {
+  font-size: 15px;
+  line-height: 1.55;
+  margin: 0;
+  max-width: 56ch;
+}
+
+.ctaRow {
+  margin-top: 8px;
+  display: flex;
+}
+
+.monoNote {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  letter-spacing: 0.04em;
+  color: var(--text-muted);
+  border-top: 1px solid var(--line-hairline);
+  padding-top: 20px;
+}
+
+@media (max-width: 900px) {
+  .section {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  .copy {
+    order: 1;
+  }
+
+  .photoWrap {
+    order: 2;
+  }
+}

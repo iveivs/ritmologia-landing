@@ -1,0 +1,94 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+  border-radius: var(--radius-2);
+  padding: var(--space-6);
+  transition: var(--transition-ui), var(--transition-move);
+}
+
+.paper {
+  background: var(--surface-card);
+  color: var(--text-body);
+  border: 1px solid var(--line-hairline);
+}
+
+.ink {
+  background: var(--surface-card-ink);
+  color: var(--text-on-ink);
+  border: 1px solid var(--line-on-ink);
+}
+
+.head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4);
+}
+
+.title {
+  font-family: var(--font-text);
+  font-size: var(--label);
+  font-weight: var(--weight-label);
+  letter-spacing: var(--ls-label);
+  text-transform: uppercase;
+}
+
+.priceRow {
+  display: flex;
+  align-items: baseline;
+  gap: var(--space-2);
+}
+
+.price {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: var(--h1);
+  letter-spacing: var(--ls-display);
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+}
+
+.unit {
+  font-family: var(--font-mono);
+  font-size: var(--mono);
+  letter-spacing: var(--ls-mono);
+}
+
+.unitPaper {
+  color: var(--text-muted);
+}
+.unitInk {
+  color: var(--text-on-ink-muted);
+}
+
+.features {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  padding-top: var(--space-5);
+}
+
+.featuresPaper {
+  border-top: 1px solid var(--line-hairline);
+}
+.featuresInk {
+  border-top: 1px solid var(--line-on-ink);
+}
+
+.feature {
+  display: flex;
+  gap: var(--space-3);
+  font-size: var(--body-sm);
+}
+
+.featureIndex {
+  color: var(--text-accent);
+  font-family: var(--font-mono);
+  font-size: var(--mono);
+  flex-shrink: 0;
+}
+
+.cta {
+  margin-top: auto;
+}

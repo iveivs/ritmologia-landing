@@ -1,0 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Golos+Text:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;700&display=swap");
+/* Golos Text — Cyrillic-native geometric grotesque (substitute for the poster lettering; see readme "Font substitution").
+   JetBrains Mono — tabular numerals, tempo/BPM labels, technical metadata. */
+:root{--font-display:"Golos Text",system-ui,sans-serif;--font-text:"Golos Text",system-ui,sans-serif;--font-mono:"JetBrains Mono",ui-monospace,monospace}

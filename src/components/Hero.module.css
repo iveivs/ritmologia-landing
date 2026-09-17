@@ -1,0 +1,98 @@
+.hero {
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 40px 24px 64px;
+  display: grid;
+  grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
+  gap: clamp(32px, 4vw, 96px);
+  align-items: stretch;
+  padding-top: 100px;
+}
+
+.copy {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  justify-content: flex-end;
+}
+
+.eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.eyebrowLabel {
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.title {
+  font-weight: 800;
+  font-size: clamp(2.6rem, 6vw, 6rem);
+  line-height: 1.14;
+  letter-spacing: -0.005em;
+  text-transform: uppercase;
+  color: var(--ink-900);
+  margin: 0;
+}
+
+.accent {
+  color: var(--red-500);
+}
+
+.lead {
+  font-size: 19px;
+  line-height: 1.55;
+  max-width: 42ch;
+  margin: 0;
+}
+
+.ctaRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  align-items: center;
+}
+
+.monoNote {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  letter-spacing: 0.04em;
+  color: var(--text-muted);
+}
+
+.photo {
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--radius-2);
+}
+
+.photo img {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: scale-down;
+  object-position: center bottom;
+}
+
+@media (max-width: 900px) {
+  .hero {
+    grid-template-columns: 1fr;
+    padding-top: 48px;
+  }
+
+  .photo {
+    min-height: 360px;
+    order: 2;
+  }
+
+  .copy {
+    order: 1;
+  }
+}
