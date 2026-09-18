@@ -14,12 +14,43 @@
 
 ## Стек
 
-- **Next.js 16** (App Router, TypeScript, Turbopack)
+- **Next.js 16** (App Router, TypeScript, Turbopack), сборка как
+  **статический экспорт** (`output: "export"`) — деплой на GitHub Pages,
+  без Node-сервера
 - **CSS Modules** — без Tailwind/UI-фреймворков, стили 1:1 повторяют
   дизайн-систему из хэндоффа
 - **next/font/google** — Golos Text (400–900, кириллица) + JetBrains Mono
 - Никакого стейт-менеджера — состояние формы и карусели живёт в
   компонентах (`useState`)
+
+## Деплой (GitHub Pages)
+
+Сайт живёт на `https://iveivs.github.io/ritmologia-landing/`.
+
+- `next.config.ts` собирает статический экспорт (`output: "export"`,
+  `images.unoptimized: true` — на GitHub Pages нет Node-сервера, а значит
+  и API оптимизации изображений).
+- Сайт раздаётся из под-пути `/ritmologia-landing/`, а не из корня домена.
+  Next.js сам добавляет этот префикс только к своим внутренним ссылкам
+  (`next/link`) и бандлам (`_next/...`), но **не** к `src` картинок в
+  `next/image`, если путь — обычная строка на файл из `public/`. Поэтому
+  все `<Image src="/images/...">` в компонентах обёрнуты хелпером
+  `withBasePath()` из `src/lib/basePath.ts` — там же лежит единственная
+  константа `basePath`, которую импортирует и `next.config.ts`.
+- **`.github/workflows/deploy.yml`** — при пуше в `main` собирает
+  `npm run build` и публикует папку `out/` через официальные экшены
+  `actions/upload-pages-artifact` + `actions/deploy-pages`.
+- В настройках репозитория: **Settings → Pages → Source** должно быть
+  выставлено на **«GitHub Actions»** (не «Deploy from a branch» — GitHub
+  Pages сам не умеет собирать Next.js).
+- `public/.nojekyll` обязателен: без него GitHub Pages прогоняет вывод
+  через Jekyll, который по умолчанию игнорирует папки с `_` в начале
+  имени (`_next`) — сайт без стилей и скриптов.
+
+Если проект переедет на хостинг без под-пути (Vercel, свой домен и т.п.) —
+`basePath`/`assetPrefix` в `next.config.ts` нужно убрать или обнулить, и
+`withBasePath()` можно будет либо оставить (вернёт пустую строку), либо
+убрать вовсе.
 
 ## Запуск
 
@@ -58,8 +89,10 @@ src/
     content.ts           # весь копирайт и контент-данные одним файлом:
                           # nav, отзывы, тарифы, факты о преподавателе,
                           # колонки футера, контакты
+    basePath.ts           # basePath для GitHub Pages + хелпер withBasePath()
 public/images/            # ассеты, скопированные из хэндоффа
 docs/design-handoff/       # оригинальный пакет хэндоффа (для сверки/истории)
+.github/workflows/deploy.yml  # сборка + деплой на GitHub Pages при пуше в main
 ```
 
 ## Дизайн-токены

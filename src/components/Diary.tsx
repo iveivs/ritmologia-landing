@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { withBasePath } from "@/lib/basePath";
 import { Tag } from "./ui/Tag";
 import styles from "./Diary.module.css";
 
@@ -41,7 +42,7 @@ export function Diary() {
               <span className={`${styles.dot} ${styles.dotGreen}`} />
             </div>
             <Image
-              src="/images/bbb-desktop.png"
+              src={withBasePath("/images/bbb-desktop.png")}
               alt="Beat by Bit — дневник занятий, десктоп"
               width={2976}
               height={1454}
@@ -49,7 +50,7 @@ export function Diary() {
           </div>
           <div className={styles.mobileMockup}>
             <Image
-              src="/images/bbb-mobile.png"
+              src={withBasePath("/images/bbb-mobile.png")}
               alt="Beat by Bit — дневник занятий, мобильная версия"
               width={1320}
               height={2868}

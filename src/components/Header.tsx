@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { Button } from "./ui/Button";
 import { navLinks } from "@/lib/content";
+import { withBasePath } from "@/lib/basePath";
 import styles from "./Header.module.css";
 
 export function Header() {
@@ -8,7 +9,7 @@ export function Header() {
     <header className={styles.header}>
       <a href="#" className={styles.logoLink}>
         <Image
-          src="/images/logo-mark.svg"
+          src={withBasePath("/images/logo-mark.svg")}
           alt="Ритмология"
           width={1024}
           height={1024}

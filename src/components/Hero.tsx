@@ -2,6 +2,7 @@ import Image from "next/image";
 import { Button } from "./ui/Button";
 import { StripeRule } from "./ui/StripeRule";
 import { heroCopy } from "@/lib/content";
+import { withBasePath } from "@/lib/basePath";
 import styles from "./Hero.module.css";
 
 export function Hero() {
@@ -34,7 +35,13 @@ export function Hero() {
         <span className={styles.monoNote}>Сыграй свой первый бит</span>
       </div>
       <div className={styles.photo}>
-        <Image src="/images/hero.png" alt="" fill sizes="(max-width: 900px) 100vw, 60vw" priority />
+        <Image
+          src={withBasePath("/images/hero.png")}
+          alt=""
+          fill
+          sizes="(max-width: 900px) 100vw, 60vw"
+          priority
+        />
       </div>
     </section>
   );

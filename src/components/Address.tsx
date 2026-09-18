@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { withBasePath } from "@/lib/basePath";
 import styles from "./Address.module.css";
 
 export function Address() {
@@ -7,7 +8,7 @@ export function Address() {
       <div className={styles.inner}>
         <div className={styles.mapWrap}>
           <Image
-            src="/images/map-address.png"
+            src={withBasePath("/images/map-address.png")}
             alt="Карта: 13-я линия Васильевского острова, 72 — 10 минут от метро Василеостровская"
             fill
             sizes="(max-width: 900px) 100vw, 55vw"

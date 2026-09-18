@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { teacherFacts } from "@/lib/content";
+import { withBasePath } from "@/lib/basePath";
 import styles from "./Teacher.module.css";
 
 export function Teacher() {
@@ -42,7 +43,7 @@ export function Teacher() {
         <div className={styles.collage}>
           <div className={styles.mainPhoto}>
             <Image
-              src="/images/teacher-studio.png"
+              src={withBasePath("/images/teacher-studio.png")}
               alt="Светослав Богданов за установкой в студии"
               fill
               sizes="(max-width: 900px) 100vw, 40vw"
@@ -51,7 +52,7 @@ export function Teacher() {
           <div className={styles.subGrid}>
             <div className={styles.subPhoto}>
               <Image
-                src="/images/teacher-lesson.jpg"
+                src={withBasePath("/images/teacher-lesson.jpg")}
                 alt="Занятие с учеником"
                 fill
                 sizes="(max-width: 900px) 50vw, 20vw"
@@ -59,7 +60,7 @@ export function Teacher() {
             </div>
             <div className={styles.subPhoto}>
               <Image
-                src="/images/teacher-concert.webp"
+                src={withBasePath("/images/teacher-concert.webp")}
                 alt="Концерт с группой"
                 fill
                 sizes="(max-width: 900px) 50vw, 20vw"
