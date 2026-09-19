@@ -36,7 +36,7 @@ export function Hero() {
       </div>
       <div className={styles.photo}>
         <Image
-          src={withBasePath("/images/hero.png")}
+          src={withBasePath("/images/hero.webp")}
           alt=""
           fill
           sizes="(max-width: 900px) 100vw, 60vw"

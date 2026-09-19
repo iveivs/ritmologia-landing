@@ -8,7 +8,7 @@ export function Studio() {
       <div className={styles.inner}>
         <div className={styles.photo}>
           <Image
-            src={withBasePath("/images/studio-pro.png")}
+            src={withBasePath("/images/studio-pro.webp")}
             alt="Студия школы: установка Sonor, мониторы Yamaha"
             fill
             sizes="(max-width: 900px) 100vw, 45vw"

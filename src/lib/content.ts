@@ -135,11 +135,13 @@ export const monthFeatures = [
   "Регулярность, которая даёт результат",
 ];
 
-export const experienceOptions = [
-  "Никогда не играл",
-  "Играл немного",
-  "Играю давно",
-];
+export const contactLinks = {
+  phoneLabel: "8 (931) 00-77-390",
+  phoneHref: "tel:+79310077390",
+  telegramLabel: "@iveivs",
+  telegramHref: "https://t.me/iveivs",
+  vkHref: "https://vk.com/motions",
+};
 
 export const footerColumns = [
   { title: "Школа", links: ["Программы", "Педагоги", "Студия"] },

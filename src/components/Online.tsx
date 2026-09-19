@@ -35,7 +35,7 @@ export function Online() {
       <div className={styles.photoWrap}>
         <div className={styles.mainPhoto}>
           <Image
-            src={withBasePath("/images/online-lesson.png")}
+            src={withBasePath("/images/online-lesson.webp")}
             alt="Онлайн-занятие: преподаватель за ноутбуком, пэд и палочки"
             fill
             sizes="(max-width: 900px) 100vw, 50vw"
@@ -44,7 +44,7 @@ export function Online() {
         <div className={styles.phone}>
           <div className={styles.phoneInner}>
             <Image
-              src={withBasePath("/images/online-call.jpg")}
+              src={withBasePath("/images/online-call.webp")}
               alt="Видеозвонок с учеником во время онлайн-занятия"
               fill
               sizes="20vw"

@@ -28,6 +28,14 @@
   width: 100%;
 }
 
+@media (max-width: 640px) {
+  /* Длинные подписи ("Записаться на бесплатный урок") иначе распирают колонку. */
+  .button {
+    white-space: normal;
+    text-align: center;
+  }
+}
+
 /* sizes */
 .sm {
   font-size: var(--body-sm);
@@ -100,4 +108,14 @@
 .onInk:hover {
   background: var(--sand-300);
   border-color: var(--sand-300);
+}
+
+.outlineOnInk {
+  background: transparent;
+  color: var(--text-on-ink);
+  border-color: var(--cream-100);
+}
+.outlineOnInk:hover {
+  background: var(--cream-100);
+  color: var(--ink-900);
 }

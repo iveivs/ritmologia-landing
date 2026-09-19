@@ -82,9 +82,16 @@
   padding-top: 20px;
 }
 
+@media (max-width: 360px) {
+  /* «ПРОФЕССИОНАЛЬНАЯ» не помещается в 272px при минимальном кегле. */
+  .heading {
+    font-size: 1.5rem;
+  }
+}
+
 @media (max-width: 900px) {
   .inner {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
     gap: 32px;
   }
 }

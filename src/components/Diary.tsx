@@ -42,18 +42,18 @@ export function Diary() {
               <span className={`${styles.dot} ${styles.dotGreen}`} />
             </div>
             <Image
-              src={withBasePath("/images/bbb-desktop.png")}
+              src={withBasePath("/images/bbb-desktop.webp")}
               alt="Beat by Bit — дневник занятий, десктоп"
-              width={2976}
-              height={1454}
+              width={1600}
+              height={782}
             />
           </div>
           <div className={styles.mobileMockup}>
             <Image
-              src={withBasePath("/images/bbb-mobile.png")}
+              src={withBasePath("/images/bbb-mobile.webp")}
               alt="Beat by Bit — дневник занятий, мобильная версия"
-              width={1320}
-              height={2868}
+              width={640}
+              height={1391}
             />
           </div>
         </div>

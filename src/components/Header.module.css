@@ -92,6 +92,11 @@
     height: 64px;
   }
 
+  .nav {
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+
   .navList {
     gap: 16px;
   }

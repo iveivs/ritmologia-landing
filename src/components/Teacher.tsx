@@ -43,7 +43,7 @@ export function Teacher() {
         <div className={styles.collage}>
           <div className={styles.mainPhoto}>
             <Image
-              src={withBasePath("/images/teacher-studio.png")}
+              src={withBasePath("/images/teacher-studio.webp")}
               alt="Светослав Богданов за установкой в студии"
               fill
               sizes="(max-width: 900px) 100vw, 40vw"
@@ -52,7 +52,7 @@ export function Teacher() {
           <div className={styles.subGrid}>
             <div className={styles.subPhoto}>
               <Image
-                src={withBasePath("/images/teacher-lesson.jpg")}
+                src={withBasePath("/images/teacher-lesson.webp")}
                 alt="Занятие с учеником"
                 fill
                 sizes="(max-width: 900px) 50vw, 20vw"
