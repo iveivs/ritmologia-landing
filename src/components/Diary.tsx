@@ -1,45 +1,52 @@
 import Image from "next/image";
 import { withBasePath } from "@/lib/basePath";
 import { Tag } from "./ui/Tag";
+import {
+  Accent,
+  Body,
+  Lead,
+  Meta,
+  SectionHeading,
+  SectionLabel,
+} from "./ui/Typography";
 import styles from "./Diary.module.css";
 
 export function Diary() {
   return (
-    <section className={styles.section}>
-      <div className={styles.inner}>
-        <div className={styles.copy}>
+    // Same background as the "Online" section above: no top padding.
+    <section className="section section--flush-top">
+      <div className="container split split--5-7">
+        <div className="stack">
           <div className={styles.eyebrow}>
-            <span className={styles.label}>05 / Дневник барабанщика</span>
+            <SectionLabel>05 / Дневник барабанщика</SectionLabel>
             <Tag tone="accent">Только для учеников</Tag>
           </div>
-          <h2 className={styles.heading}>
+          <SectionHeading>
             ПРОГРЕСС,
             <br />
-            <span className={styles.accent}>КОТОРЫЙ ВИДНО</span>
-          </h2>
-          <p className={styles.lead}>
+            <Accent>КОТОРЫЙ ВИДНО</Accent>
+          </SectionHeading>
+          <Lead>
             Для учеников «Ритмологии» я создал Beat by Bit — дневник
             самостоятельных занятий.
-          </p>
-          <p className={styles.body}>
+          </Lead>
+          <Body>
             Добавляй упражнения, ставь себе задачи и оценивай каждую
             тренировку. Так ты видишь, что уже получается и над чем ещё нужно
             поработать.
-          </p>
-          <p className={styles.body}>
+          </Body>
+          <Body>
             Дневник работает на телефоне и компьютере. Доступ — только для
             учеников школы.
-          </p>
-          <div className={styles.monoNote}>
-            задачи · оценки · заметки · история занятий
-          </div>
+          </Body>
+          <Meta ruled>задачи · оценки · заметки · история занятий</Meta>
         </div>
         <div className={styles.mockup}>
           <div className={styles.window}>
             <div className={styles.windowBar}>
               <span className={`${styles.dot} ${styles.dotRed}`} />
-              <span className={`${styles.dot} ${styles.dotYellow}`} />
-              <span className={`${styles.dot} ${styles.dotGreen}`} />
+              <span className={`${styles.dot} ${styles.dotAmber}`} />
+              <span className={`${styles.dot} ${styles.dotOlive}`} />
             </div>
             <Image
               src={withBasePath("/images/bbb-desktop.webp")}
@@ -48,7 +55,7 @@ export function Diary() {
               height={782}
             />
           </div>
-          <div className={styles.mobileMockup}>
+          <div className={styles.phone}>
             <Image
               src={withBasePath("/images/bbb-mobile.webp")}
               alt="Beat by Bit — дневник занятий, мобильная версия"

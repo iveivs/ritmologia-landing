@@ -35,7 +35,7 @@ export const skillsItems = [
 
 export const teacherFacts = [
   { index: "01", text: "15+ лет преподавания" },
-  { index: "02", text: "2 музыкальных образования" },
+  { index: "02", text: "Высшее муз. образование" },
   { index: "03", text: "Концертный и студийный опыт" },
 ];
 

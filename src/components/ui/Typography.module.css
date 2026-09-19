@@ -1,0 +1,85 @@
+/* The only place where text styles are defined. Sections must use these
+   components instead of styling text themselves. */
+
+.display {
+  font-size: var(--fs-display);
+  font-weight: var(--fw-bold);
+  line-height: var(--lh-tight);
+  letter-spacing: var(--ls-tight);
+  text-transform: uppercase;
+  color: var(--text-strong);
+}
+
+.heading {
+  font-size: var(--fs-h2);
+  font-weight: var(--fw-bold);
+  line-height: var(--lh-tight);
+  letter-spacing: var(--ls-tight);
+  text-transform: uppercase;
+  color: var(--text-strong);
+  text-wrap: balance;
+}
+.headingOnInk {
+  color: var(--text-on-ink);
+}
+
+.accent {
+  color: var(--red-500);
+}
+
+.label {
+  font-size: var(--fs-sm);
+  font-weight: var(--fw-semibold);
+  line-height: var(--lh-snug);
+  letter-spacing: var(--ls-caps);
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+.labelOnInk {
+  color: var(--text-on-ink-muted);
+}
+
+.lead {
+  font-size: var(--fs-lg);
+  line-height: var(--lh-body);
+  max-width: var(--measure-lead);
+  color: var(--text-body);
+}
+.leadOnInk {
+  color: var(--text-on-ink-muted);
+}
+
+.body {
+  font-size: var(--fs-md);
+  line-height: var(--lh-body);
+  max-width: var(--measure-body);
+  color: var(--text-body);
+}
+
+.meta {
+  font-family: var(--font-mono);
+  font-size: var(--fs-sm);
+  line-height: var(--lh-snug);
+  letter-spacing: var(--ls-mono);
+  color: var(--text-muted);
+}
+.metaOnInk {
+  color: var(--text-on-ink-muted);
+}
+.metaRuled {
+  border-top: var(--border-hairline) solid var(--line-hairline);
+  padding-top: var(--space-5);
+}
+.metaInline {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3) var(--space-6);
+}
+
+.index {
+  font-family: var(--font-mono);
+  font-size: var(--fs-sm);
+  line-height: var(--lh-snug);
+  letter-spacing: var(--ls-mono);
+  color: var(--red-500);
+}

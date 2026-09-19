@@ -1,26 +1,27 @@
 import { skillsItems } from "@/lib/content";
+import { Body, Index, SectionHeading, SectionLabel } from "./ui/Typography";
 import styles from "./Skills.module.css";
 
 export function Skills() {
   return (
-    <section className={styles.section}>
-      <div className={styles.inner}>
-        <div className={styles.head}>
-          <span className={styles.label}>01 / Чему учим</span>
-          <h2 className={styles.heading}>
+    <section className="section section--sunken">
+      <div className="container split split--5-7 split--start">
+        <div className="stack">
+          <SectionLabel>01 / Чему учим</SectionLabel>
+          <SectionHeading>
             НЕ ПРОСТО
             <br />
             ПОВТОРЯТЬ —
             <br />
             А ИГРАТЬ ОСОЗНАННО
-          </h2>
+          </SectionHeading>
         </div>
         <div className={styles.grid}>
           {skillsItems.map((item) => (
             <div key={item.index} className={styles.item}>
-              <span className={styles.index}>{item.index}</span>
+              <Index>{item.index}</Index>
               <h3 className={styles.itemTitle}>{item.title}</h3>
-              <p className={styles.itemText}>{item.text}</p>
+              <Body>{item.text}</Body>
             </div>
           ))}
         </div>

@@ -1,5 +1,6 @@
 import { Button } from "./Button";
 import { Tag } from "./Tag";
+import { Index } from "./Typography";
 import styles from "./PriceCard.module.css";
 
 type PriceCardProps = {
@@ -8,7 +9,8 @@ type PriceCardProps = {
   unit: string;
   cta: string;
   features: string[];
-  featured?: boolean;
+  /** Highlighted (dark) card with a badge, e.g. "Выгодно". */
+  badge?: string;
   href?: string;
 };
 
@@ -18,16 +20,16 @@ export function PriceCard({
   unit,
   cta,
   features,
-  featured = false,
+  badge,
   href = "#booking",
 }: PriceCardProps) {
-  const tone = featured ? "ink" : "paper";
+  const featured = Boolean(badge);
 
   return (
-    <div className={`${styles.card} ${styles[tone]}`}>
+    <div className={`${styles.card} ${featured ? styles.ink : styles.paper}`}>
       <div className={styles.head}>
         <span className={styles.title}>{title}</span>
-        {featured ? <Tag tone="accent">Популярно</Tag> : null}
+        {badge ? <Tag tone="accent">{badge}</Tag> : null}
       </div>
       <div className={styles.priceRow}>
         <span className={styles.price}>{price}</span>
@@ -37,26 +39,24 @@ export function PriceCard({
           {unit}
         </span>
       </div>
-      {features.length ? (
-        <ul
-          className={`${styles.features} ${featured ? styles.featuresInk : styles.featuresPaper}`}
-        >
-          {features.map((feature, i) => (
-            <li key={feature} className={styles.feature}>
-              <span className={styles.featureIndex}>
-                {String(i + 1).padStart(2, "0")}
-              </span>
-              <span>{feature}</span>
-            </li>
-          ))}
-        </ul>
-      ) : null}
+      <ul
+        className={`${styles.features} ${featured ? styles.featuresInk : styles.featuresPaper}`}
+      >
+        {features.map((feature, i) => (
+          <li
+            key={feature}
+            className={`${styles.feature} ${featured ? styles.featureInk : ""}`}
+          >
+            <Index>{String(i + 1).padStart(2, "0")}</Index>
+            <span>{feature}</span>
+          </li>
+        ))}
+      </ul>
       <Button
         variant={featured ? "onInk" : "outline"}
         full
         href={href}
         className={styles.cta}
-        style={{ whiteSpace: "normal", textAlign: "center" }}
       >
         {cta}
       </Button>

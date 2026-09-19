@@ -1,54 +1,64 @@
 import Image from "next/image";
 import { withBasePath } from "@/lib/basePath";
 import { Button } from "./ui/Button";
+import {
+  Accent,
+  Body,
+  Lead,
+  Meta,
+  SectionHeading,
+  SectionLabel,
+} from "./ui/Typography";
 import styles from "./Online.module.css";
 
 export function Online() {
   return (
-    <section className={styles.section}>
-      <div className={styles.copy}>
-        <span className={styles.label}>04 / Онлайн</span>
-        <h2 className={styles.heading}>
-          НЕ В ПЕТЕРБУРГЕ?
-          <br />
-          <span className={styles.accent}>
-            МОЖНО
+    <section className="section">
+      <div className="container split split--6-6 split--reverse">
+        <div className="stack">
+          <SectionLabel>04 / Онлайн</SectionLabel>
+          <SectionHeading>
+            НЕ В ПЕТЕРБУРГЕ?
             <br />
-            ОНЛАЙН!
-          </span>
-        </h2>
-        <p className={styles.lead}>
-          Провожу индивидуальные онлайн-занятия: разбираем технику, ритм,
-          координацию, упражнения — и ваши любимые треки.
-        </p>
-        <p className={styles.body}>
-          Для начала достаточно камеры и пэда с палочками. Я вижу и слышу
-          вашу игру в реальном времени, сразу замечаю ошибки и корректирую их
-          прямо на занятии.
-        </p>
-        <p className={styles.body}>Подходит и тем, кто начинает с нуля.</p>
-        <div className={styles.ctaRow}>
-          <Button href="#booking">ПОПРОБОВАТЬ ОНЛАЙН БЕСПЛАТНО →</Button>
+            <Accent>
+              МОЖНО
+              <br />
+              ОНЛАЙН!
+            </Accent>
+          </SectionHeading>
+          <Lead>
+            Провожу индивидуальные онлайн-занятия: разбираем технику, ритм,
+            координацию, упражнения — и ваши любимые треки.
+          </Lead>
+          <Body>
+            Для начала достаточно камеры и пэда с палочками. Я вижу и слышу
+            вашу игру в реальном времени, сразу замечаю ошибки и корректирую их
+            прямо на занятии.
+          </Body>
+          <Body>Подходит и тем, кто начинает с нуля.</Body>
+          <Button href="#booking" className={styles.cta}>
+            ПОПРОБОВАТЬ ОНЛАЙН БЕСПЛАТНО →
+          </Button>
+          <Meta ruled>камера · пэд с палочками</Meta>
         </div>
-        <div className={styles.monoNote}>камера · пэд с палочками</div>
-      </div>
-      <div className={styles.photoWrap}>
-        <div className={styles.mainPhoto}>
-          <Image
-            src={withBasePath("/images/online-lesson.webp")}
-            alt="Онлайн-занятие: преподаватель за ноутбуком, пэд и палочки"
-            fill
-            sizes="(max-width: 900px) 100vw, 50vw"
-          />
-        </div>
-        <div className={styles.phone}>
-          <div className={styles.phoneInner}>
+        <div className={styles.media}>
+          <div className={styles.photo}>
             <Image
-              src={withBasePath("/images/online-call.webp")}
-              alt="Видеозвонок с учеником во время онлайн-занятия"
+              src={withBasePath("/images/online-lesson.webp")}
+              alt="Онлайн-занятие: преподаватель за ноутбуком, пэд и палочки"
               fill
-              sizes="20vw"
+              sizes="(max-width: 900px) 100vw, 50vw"
             />
+          </div>
+          <div className={styles.phone}>
+            <div className={styles.phoneScreen}>
+              <Image
+                src={withBasePath("/images/online-call.webp")}
+                alt="Видеозвонок с учеником во время онлайн-занятия"
+                fill
+                sizes="20vw"
+              />
+            </div>
           </div>
         </div>
       </div>

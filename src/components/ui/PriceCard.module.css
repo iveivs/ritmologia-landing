@@ -2,59 +2,60 @@
   display: flex;
   flex-direction: column;
   gap: var(--space-5);
-  border-radius: var(--radius-2);
   padding: var(--space-6);
-  transition: var(--transition-ui), var(--transition-move);
+  border-radius: var(--radius-2);
 }
 
 .paper {
   background: var(--surface-card);
   color: var(--text-body);
-  border: 1px solid var(--line-hairline);
+  border: var(--border-hairline) solid var(--line-hairline);
 }
 
 .ink {
   background: var(--surface-card-ink);
   color: var(--text-on-ink);
-  border: 1px solid var(--line-on-ink);
+  border: var(--border-hairline) solid var(--line-on-ink);
 }
 
 .head {
   display: flex;
+  flex-wrap: wrap; /* the badge drops below the title when the card is narrow */
   align-items: center;
   justify-content: space-between;
-  gap: var(--space-4);
+  gap: var(--space-2) var(--space-4);
+  min-height: 1.75rem; /* same header height with or without a badge */
 }
 
 .title {
-  font-family: var(--font-text);
-  font-size: var(--label);
-  font-weight: var(--weight-label);
-  letter-spacing: var(--ls-label);
+  font-size: var(--fs-sm);
+  font-weight: var(--fw-semibold);
+  line-height: var(--lh-snug);
+  letter-spacing: var(--ls-caps);
   text-transform: uppercase;
 }
 
 .priceRow {
   display: flex;
   align-items: baseline;
+  flex-wrap: wrap;
   gap: var(--space-2);
 }
 
 .price {
-  font-family: var(--font-display);
-  font-weight: 800;
-  font-size: var(--h1);
-  letter-spacing: var(--ls-display);
-  line-height: 1;
+  font-size: var(--fs-xl);
+  font-weight: var(--fw-bold);
+  line-height: var(--lh-tight);
+  letter-spacing: var(--ls-tight);
   font-variant-numeric: tabular-nums;
+  white-space: nowrap;
 }
 
 .unit {
   font-family: var(--font-mono);
-  font-size: var(--mono);
+  font-size: var(--fs-sm);
   letter-spacing: var(--ls-mono);
 }
-
 .unitPaper {
   color: var(--text-muted);
 }
@@ -68,25 +69,21 @@
   gap: var(--space-3);
   padding-top: var(--space-5);
 }
-
 .featuresPaper {
-  border-top: 1px solid var(--line-hairline);
+  border-top: var(--border-hairline) solid var(--line-hairline);
 }
 .featuresInk {
-  border-top: 1px solid var(--line-on-ink);
+  border-top: var(--border-hairline) solid var(--line-on-ink);
 }
 
 .feature {
   display: flex;
   gap: var(--space-3);
-  font-size: var(--body-sm);
+  font-size: var(--fs-md);
+  line-height: var(--lh-body);
 }
-
-.featureIndex {
-  color: var(--text-accent);
-  font-family: var(--font-mono);
-  font-size: var(--mono);
-  flex-shrink: 0;
+.featureInk {
+  color: var(--text-on-ink-muted);
 }
 
 .cta {

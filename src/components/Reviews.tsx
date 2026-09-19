@@ -2,6 +2,7 @@
 
 import { useRef } from "react";
 import { reviews } from "@/lib/content";
+import { Accent, Body, Meta, SectionHeading, SectionLabel } from "./ui/Typography";
 import styles from "./Reviews.module.css";
 
 export function Reviews() {
@@ -17,22 +18,22 @@ export function Reviews() {
   };
 
   return (
-    <section className={styles.section}>
-      <div className={styles.inner}>
+    <section className="section section--sunken">
+      <div className="container stack stack--xl">
         <div className={styles.headRow}>
-          <div className={styles.head}>
-            <span className={styles.label}>06 / Отзывы</span>
-            <h2 className={styles.heading}>
+          <div className="stack">
+            <SectionLabel>06 / Отзывы</SectionLabel>
+            <SectionHeading>
               ЧТО ГОВОРЯТ
               <br />
-              <span className={styles.accent}>УЧЕНИКИ</span>
-            </h2>
+              <Accent>УЧЕНИКИ</Accent>
+            </SectionHeading>
           </div>
           <div className={styles.arrows}>
             <button
               type="button"
               aria-label="Предыдущий отзыв"
-              className={styles.arrowButton}
+              className={styles.arrow}
               onClick={() => scroll(-1)}
             >
               ‹
@@ -40,7 +41,7 @@ export function Reviews() {
             <button
               type="button"
               aria-label="Следующий отзыв"
-              className={styles.arrowButton}
+              className={styles.arrow}
               onClick={() => scroll(1)}
             >
               ›
@@ -57,15 +58,15 @@ export function Reviews() {
                 <span>★</span>
                 <span>★</span>
               </div>
-              <p className={styles.text}>{review.text}</p>
+              <Body>{review.text}</Body>
               <div className={styles.footer}>
                 <span className={styles.name}>{review.name}</span>
-                <span className={styles.meta}>{review.meta}</span>
+                <Meta>{review.meta}</Meta>
               </div>
             </div>
           ))}
         </div>
-        <span className={styles.caption}>Отзывы с сайтов репетиторов</span>
+        <Meta>Отзывы с сайтов репетиторов</Meta>
       </div>
     </section>
   );

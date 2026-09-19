@@ -1,7 +1,7 @@
 import type { AnchorHTMLAttributes, ButtonHTMLAttributes } from "react";
 import styles from "./Button.module.css";
 
-type Variant = "primary" | "ink" | "outline" | "ghost" | "onInk" | "outlineOnInk";
+type Variant = "primary" | "ink" | "outline" | "onInk" | "outlineOnInk";
 type Size = "sm" | "md" | "lg";
 
 type CommonProps = {

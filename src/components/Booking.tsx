@@ -1,27 +1,30 @@
 import { Button } from "./ui/Button";
+import { Lead, Meta, SectionHeading, SectionLabel } from "./ui/Typography";
 import { contactLinks } from "@/lib/content";
 import styles from "./Booking.module.css";
 
 export function Booking() {
   return (
-    <section id="booking" className={styles.section}>
-      <div className={styles.inner}>
-        <div className={styles.copy}>
-          <span className={styles.label}>Запись</span>
-          <h2 className={styles.heading}>Бесплатный первый урок</h2>
-          <p className={styles.lead}>
+    <section id="booking" className="section section--ink">
+      <div className="container split split--6-6">
+        <div className="stack">
+          <SectionLabel tone="onInk">Запись</SectionLabel>
+          <SectionHeading tone="onInk">Бесплатный первый урок</SectionHeading>
+          <Lead tone="onInk">
             Познакомимся, определим цель и сыграем первый ритм за установкой.
             Продолжительность — 30 минут.
-          </p>
+          </Lead>
           <div className={styles.contacts}>
-            <a href={contactLinks.phoneHref}>{contactLinks.phoneLabel}</a>
-            <a
-              href={contactLinks.telegramHref}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              {contactLinks.telegramLabel}
-            </a>
+            <Meta tone="onInk" inline>
+              <a href={contactLinks.phoneHref}>{contactLinks.phoneLabel}</a>
+              <a
+                href={contactLinks.telegramHref}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                {contactLinks.telegramLabel}
+              </a>
+            </Meta>
           </div>
         </div>
         <div className={styles.card}>
