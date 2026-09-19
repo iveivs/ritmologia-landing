@@ -17,3 +17,50 @@
   object-fit: scale-down;
   object-position: center bottom;
 }
+
+/* Tablets and phones: the poster comes first and the button sits right under
+   it, then the tagline, headline and lead.
+   Visual order:  1 photo · 2 button · 3 button note · 4 city · 5 h1 · 6 lead.
+   DOM order (copy children): 1 city · 2 h1 · 3 lead · 4 button · 5 note. */
+@media (max-width: 900px) {
+  div.copy {
+    display: contents;
+  }
+
+  .photo {
+    order: 1;
+    min-height: 0;
+    /* Tall enough to read the poster, short enough that the button stays
+       on the first screen. */
+    height: min(28.5rem, 56vh);
+    height: min(28.5rem, 56svh);
+  }
+
+  .photo img {
+    /* Poster's left edge lines up with the text below. */
+    object-position: left bottom;
+  }
+
+  .copy > :nth-child(4) {
+    order: 2;
+    justify-self: start;
+  }
+  .copy > :nth-child(5) {
+    order: 3;
+  }
+  .copy > :nth-child(1) {
+    order: 4;
+  }
+  .copy > :nth-child(2) {
+    order: 5;
+  }
+  .copy > :nth-child(3) {
+    order: 6;
+  }
+}
+
+@media (max-width: 640px) {
+  .copy > :nth-child(4) {
+    justify-self: stretch;
+  }
+}

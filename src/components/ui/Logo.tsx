@@ -7,11 +7,21 @@ type LogoProps = {
   mark?: boolean;
   /** "cream" is for dark backgrounds. */
   tone?: "ink" | "cream";
+  /** On phones, pin the mark and the wordmark to opposite edges. */
+  spread?: boolean;
 };
 
-export function Logo({ mark = false, tone = "ink" }: LogoProps) {
+export function Logo({ mark = false, tone = "ink", spread = false }: LogoProps) {
+  const classes = [
+    styles.logo,
+    tone === "cream" ? styles.cream : "",
+    spread ? styles.spread : "",
+  ]
+    .filter(Boolean)
+    .join(" ");
+
   return (
-    <span className={`${styles.logo} ${tone === "cream" ? styles.cream : ""}`}>
+    <span className={classes}>
       {mark ? (
         <Image
           src={withBasePath("/images/logo-mark.svg")}

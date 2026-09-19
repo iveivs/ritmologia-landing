@@ -8,6 +8,7 @@
   line-height: var(--lh-snug);
   letter-spacing: var(--ls-btn);
   text-align: center;
+  text-wrap: balance; /* "Записаться на / бесплатный урок", not "…урок" alone */
   text-decoration: none;
   border: var(--border-strong) solid transparent;
   border-radius: var(--radius-1);

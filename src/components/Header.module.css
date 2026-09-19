@@ -71,6 +71,10 @@
     padding-bottom: 0;
   }
 
+  .brand {
+    display: flex;
+  }
+
   .nav {
     border-top: var(--border-hairline) solid var(--line-hairline);
   }

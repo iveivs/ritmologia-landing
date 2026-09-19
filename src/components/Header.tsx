@@ -8,7 +8,7 @@ export function Header() {
     <header className={styles.header}>
       <div className={`container ${styles.inner}`}>
         <a href="#" className={styles.brand}>
-          <Logo mark />
+          <Logo mark spread />
         </a>
         <nav className={styles.nav} aria-label="Основная навигация">
           <ul className={styles.links}>

@@ -220,6 +220,12 @@ button {
 .section--flush-top {
   padding-top: 0;
 }
+/* Pulls the first block up under the header on tablets and phones. */
+@media (max-width: 900px) {
+  .section--tight-top {
+    padding-top: var(--space-5);
+  }
+}
 
 /* Vertical stack with the standard gap. */
 .stack {

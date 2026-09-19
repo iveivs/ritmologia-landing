@@ -13,8 +13,12 @@ import styles from "./Hero.module.css";
 
 export function Hero() {
   return (
-    <section className="section">
+    <section className="section section--tight-top">
       <div className="container split split--5-7 split--stretch">
+        {/* On tablets/phones `.copy` dissolves (display: contents) and its
+            children are re-ordered around the photo in Hero.module.css.
+            If you add/remove/reorder children here, update the nth-child
+            order rules there. */}
         <div className={`stack stack--lg ${styles.copy}`}>
           <SectionLabel>Санкт-Петербург</SectionLabel>
           <DisplayHeading>

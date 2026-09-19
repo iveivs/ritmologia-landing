@@ -47,4 +47,15 @@
   .logo {
     --logo-mark: 3rem; /* 48px */
   }
+
+  /* Header on phones: mark in the left corner, wordmark in the right one. */
+  .spread {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+  }
+  .spread .words {
+    align-items: flex-end;
+    text-align: right;
+  }
 }
