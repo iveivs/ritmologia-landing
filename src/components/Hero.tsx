@@ -1,6 +1,5 @@
 import Image from "next/image";
 import { Button } from "./ui/Button";
-import { StripeRule } from "./ui/StripeRule";
 import {
   Accent,
   DisplayHeading,
@@ -17,10 +16,7 @@ export function Hero() {
     <section className="section">
       <div className="container split split--5-7 split--stretch">
         <div className={`stack stack--lg ${styles.copy}`}>
-          <div className={styles.eyebrow}>
-            <StripeRule count={12} thickness={16} length="96px" />
-            <SectionLabel>Санкт-Петербург · школа барабанов</SectionLabel>
-          </div>
+          <SectionLabel>Санкт-Петербург</SectionLabel>
           <DisplayHeading>
             {heroCopy.line1}
             <br />

@@ -2,12 +2,6 @@
   justify-content: flex-end;
 }
 
-.eyebrow {
-  display: flex;
-  align-items: center;
-  gap: var(--space-4);
-}
-
 .cta {
   align-self: flex-start;
 }
