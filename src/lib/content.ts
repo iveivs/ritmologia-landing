@@ -187,14 +187,16 @@ export const faqItems = [
   },
 ];
 
-// Studio location (13-я линия В.О., 72). Coordinates come from the owner's
-// Yandex Maps link; lon/lat order differs between Yandex URL parameters.
-const studioLon = 30.267066;
-const studioLat = 59.944866;
+// Studio location (13-я линия В.О., 72). Coordinates are the house object's
+// own position from its Yandex Maps page (NOT the `ll` parameter of a shared
+// link: that is only the centre of the visitor's current view).
+// Yandex URLs use lon,lat in `ll`/`pt` but lat,lon in `rtext`.
+const studioLon = 30.264305;
+const studioLat = 59.946247;
 
 export const studioMap = {
   openHref:
-    "https://yandex.ru/maps/2/saint-petersburg/house/13_ya_liniya_vasilyevskogo_ostrova_72/Z0kYdAFkSkUCQFtjfXV1d35nYw==/?ll=30.267066%2C59.944866&z=16.95",
+    "https://yandex.ru/maps/2/saint-petersburg/house/13_ya_liniya_vasilyevskogo_ostrova_72/Z0kYdAFkSkUCQFtjfXV1d35nYw==/?ll=30.264305%2C59.946247&z=17",
   // Empty start point: Yandex asks for the visitor's location itself.
   routeHref: `https://yandex.ru/maps/?rtext=~${studioLat}%2C${studioLon}&rtt=mt`,
   embedSrc: `https://yandex.ru/map-widget/v1/?ll=${studioLon}%2C${studioLat}&z=17&pt=${studioLon},${studioLat},pm2rdm`,
