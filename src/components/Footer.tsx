@@ -17,11 +17,17 @@ export function Footer() {
             {footerColumns.map((column) => (
               <div key={column.title} className={styles.column}>
                 <span className={styles.columnTitle}>{column.title}</span>
-                {column.links.map((link) => (
-                  <span key={link} className={styles.link}>
-                    {link}
-                  </span>
-                ))}
+                {column.links.map((link) =>
+                  link.href ? (
+                    <a key={link.label} href={link.href} className={styles.link}>
+                      {link.label}
+                    </a>
+                  ) : (
+                    <span key={link.label} className={styles.link}>
+                      {link.label}
+                    </span>
+                  ),
+                )}
               </div>
             ))}
             <div className={`${styles.column} ${styles.contacts}`}>

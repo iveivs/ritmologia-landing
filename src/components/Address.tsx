@@ -8,7 +8,7 @@ export function Address() {
     <section className="section section--sunken">
       <div className="container split split--7-5 split--reverse">
         <div className="stack">
-          <SectionLabel>07 / Адрес</SectionLabel>
+          <SectionLabel>08 / Адрес</SectionLabel>
           <SectionHeading>
             ВАСИЛЬЕВСКИЙ
             <br />

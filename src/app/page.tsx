@@ -7,6 +7,7 @@ import { Online } from "@/components/Online";
 import { Diary } from "@/components/Diary";
 import { Reviews } from "@/components/Reviews";
 import { Prices } from "@/components/Prices";
+import { Faq } from "@/components/Faq";
 import { Address } from "@/components/Address";
 import { Booking } from "@/components/Booking";
 import { Footer } from "@/components/Footer";
@@ -23,6 +24,7 @@ export default function Home() {
       <Diary />
       <Reviews />
       <Prices />
+      <Faq />
       <Address />
       <Booking />
       <Footer />

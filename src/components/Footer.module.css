@@ -33,6 +33,11 @@
   font-size: var(--fs-md);
   line-height: var(--lh-snug);
   color: var(--text-on-ink);
+  transition: var(--transition-ui);
+}
+
+a.link:hover {
+  color: var(--sand-300);
 }
 
 .contact {
