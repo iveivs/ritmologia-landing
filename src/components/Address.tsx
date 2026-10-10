@@ -1,6 +1,7 @@
-import Image from "next/image";
-import { withBasePath } from "@/lib/basePath";
+import { Button } from "./ui/Button";
+import { MapEmbed } from "./ui/MapEmbed";
 import { Accent, Lead, SectionHeading, SectionLabel } from "./ui/Typography";
+import { studioMap } from "@/lib/content";
 import styles from "./Address.module.css";
 
 export function Address() {
@@ -17,15 +18,28 @@ export function Address() {
           <div className={styles.address}>
             <Lead>13-я линия Васильевского острова, дом 72, студия А1.</Lead>
           </div>
+          <div className={styles.actions}>
+            <Button
+              href={studioMap.routeHref}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Построить маршрут
+            </Button>
+            <Button
+              variant="outline"
+              href={studioMap.openHref}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Открыть в Яндекс Картах
+            </Button>
+          </div>
         </div>
-        <div className={styles.map}>
-          <Image
-            src={withBasePath("/images/map-address.webp")}
-            alt="Карта: 13-я линия Васильевского острова, 72 — 10 минут от метро Василеостровская"
-            fill
-            sizes="(max-width: 900px) 100vw, 55vw"
-          />
-        </div>
+        <MapEmbed
+          src={studioMap.embedSrc}
+          alt="Карта: 13-я линия Васильевского острова, 72"
+        />
       </div>
     </section>
   );

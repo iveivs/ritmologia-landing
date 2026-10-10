@@ -187,6 +187,19 @@ export const faqItems = [
   },
 ];
 
+// Studio location (13-я линия В.О., 72). Coordinates come from the owner's
+// Yandex Maps link; lon/lat order differs between Yandex URL parameters.
+const studioLon = 30.267066;
+const studioLat = 59.944866;
+
+export const studioMap = {
+  openHref:
+    "https://yandex.ru/maps/2/saint-petersburg/house/13_ya_liniya_vasilyevskogo_ostrova_72/Z0kYdAFkSkUCQFtjfXV1d35nYw==/?ll=30.267066%2C59.944866&z=16.95",
+  // Empty start point: Yandex asks for the visitor's location itself.
+  routeHref: `https://yandex.ru/maps/?rtext=~${studioLat}%2C${studioLon}&rtt=mt`,
+  embedSrc: `https://yandex.ru/map-widget/v1/?ll=${studioLon}%2C${studioLat}&z=17&pt=${studioLon},${studioLat},pm2rdm`,
+};
+
 export const contactLinks = {
   phoneLabel: "8 (931) 00-77-390",
   phoneHref: "tel:+79310077390",
