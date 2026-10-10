@@ -143,6 +143,11 @@ export const contactLinks = {
   vkHref: "https://vk.com/motions",
 };
 
+// Seller details shown in the footer. Same spelling as the owner's published
+// legal documents (tyuttori.ru/legal/privacy).
+export const sellerInfo =
+  "Самозанятый (плательщик НПД) Богданов Светослав Богомилов, ИНН 110115205853";
+
 export const footerColumns = [
   { title: "Школа", links: ["Программы", "Педагоги", "Студия"] },
   { title: "Ученикам", links: ["Расписание", "Оплата", "Вопросы"] },

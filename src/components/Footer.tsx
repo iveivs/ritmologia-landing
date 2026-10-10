@@ -1,7 +1,7 @@
 import { StripeRule } from "./ui/StripeRule";
 import { Logo } from "./ui/Logo";
 import { Meta } from "./ui/Typography";
-import { footerColumns, contacts } from "@/lib/content";
+import { footerColumns, contacts, sellerInfo } from "@/lib/content";
 import styles from "./Footer.module.css";
 
 export function Footer() {
@@ -37,6 +37,7 @@ export function Footer() {
             <Meta tone="onInk">
               Ритмология · школа барабанов · пробный урок бесплатно
             </Meta>
+            <Meta tone="onInk">{sellerInfo}</Meta>
           </div>
         </div>
       </div>
