@@ -2,8 +2,9 @@
   max-width: var(--measure-narrow);
 }
 
+/* Two buttons of the same width, stacked. */
 .actions {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
   gap: var(--space-3);
+  max-width: 20rem;
 }

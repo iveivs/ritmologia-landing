@@ -27,6 +27,7 @@ export function Address() {
           <Body>От метро «Василеостровская» пешком около 12 минут.</Body>
           <div className={styles.actions}>
             <Button
+              full
               href={studioMap.routeHref}
               target="_blank"
               rel="noopener noreferrer"
@@ -34,6 +35,7 @@ export function Address() {
               Построить маршрут
             </Button>
             <Button
+              full
               variant="outline"
               href={studioMap.openHref}
               target="_blank"
