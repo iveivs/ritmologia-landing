@@ -1,6 +1,12 @@
 import { Button } from "./ui/Button";
 import { MapEmbed } from "./ui/MapEmbed";
-import { Accent, Lead, SectionHeading, SectionLabel } from "./ui/Typography";
+import {
+  Accent,
+  Body,
+  Lead,
+  SectionHeading,
+  SectionLabel,
+} from "./ui/Typography";
 import { studioMap } from "@/lib/content";
 import styles from "./Address.module.css";
 
@@ -18,6 +24,7 @@ export function Address() {
           <div className={styles.address}>
             <Lead>13-я линия Васильевского острова, дом 72, студия А1.</Lead>
           </div>
+          <Body>От метро «Василеостровская» пешком около 12 минут.</Body>
           <div className={styles.actions}>
             <Button
               href={studioMap.routeHref}
