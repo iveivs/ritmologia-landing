@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Golos_Text, JetBrains_Mono } from "next/font/google";
-import "./globals.css";
+import "@/styles/tokens.css";
+import "@/styles/base.css";
+import "@/styles/layout.css";
 
 // Two families, three weights in total: 400 (text), 600 (labels, UI),
 // 800 (display headings). Do not add weights without updating --fw-* tokens.

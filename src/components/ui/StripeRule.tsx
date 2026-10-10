@@ -1,29 +1,21 @@
+// token-check:allow-file inline-style px (per-instance size and per-stripe opacity)
 type StripeRuleProps = {
-  tone?: "accent" | "ink" | "sand";
   count?: number;
   length?: string;
   thickness?: number;
 };
 
+/** The "rhythm lines" motif from the logo, in the accent colour. */
 export function StripeRule({
-  tone = "accent",
   count = 16,
   length = "100%",
   thickness = 28,
 }: StripeRuleProps) {
-  const color =
-    tone === "accent"
-      ? "var(--red-500)"
-      : tone === "ink"
-        ? "var(--ink-900)"
-        : "var(--sand-300)";
-
   return (
     <div
       aria-hidden="true"
       style={{
         display: "flex",
-        flexDirection: "row",
         gap: "var(--space-1)",
         width: length,
         height: thickness,
@@ -33,7 +25,7 @@ export function StripeRule({
         <div
           key={i}
           style={{
-            background: color,
+            background: "var(--color-accent)",
             flex: "1 1 0",
             minWidth: "3px",
             opacity: 1 - (i / count) * 0.75,

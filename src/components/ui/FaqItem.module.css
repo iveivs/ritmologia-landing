@@ -31,7 +31,7 @@
 }
 
 .question:hover {
-  color: var(--red-600);
+  color: var(--color-accent-hover);
 }
 
 /* "+" / "−" built from two bars: the vertical one disappears when open. */
@@ -55,14 +55,14 @@
   top: 50%;
   left: 0;
   width: 100%;
-  height: 2px;
+  height: var(--border-heavy);
   transform: translateY(-50%);
 }
 
 .icon::after {
   top: 0;
   left: 50%;
-  width: 2px;
+  width: var(--border-heavy);
   height: 100%;
   transform: translateX(-50%);
 }

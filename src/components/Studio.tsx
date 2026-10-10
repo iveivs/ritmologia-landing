@@ -1,5 +1,5 @@
-import Image from "next/image";
-import { withBasePath } from "@/lib/basePath";
+import { Frame } from "./ui/Frame";
+import { Photo } from "./ui/Photo";
 import {
   Accent,
   Body,
@@ -8,7 +8,6 @@ import {
   SectionHeading,
   SectionLabel,
 } from "./ui/Typography";
-import styles from "./Studio.module.css";
 
 export function Studio() {
   return (
@@ -35,14 +34,13 @@ export function Studio() {
             <span>звукоизолированный зал</span>
           </Meta>
         </div>
-        <div className={styles.photo}>
-          <Image
-            src={withBasePath("/images/studio-pro.webp")}
+        <Frame ratio="4/3">
+          <Photo
+            src="/images/studio-pro.webp"
             alt="Студия школы: установка Sonor, мониторы Yamaha"
-            fill
             sizes="(max-width: 900px) 100vw, 45vw"
           />
-        </div>
+        </Frame>
       </div>
     </section>
   );

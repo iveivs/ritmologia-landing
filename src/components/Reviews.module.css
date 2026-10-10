@@ -11,24 +11,6 @@
   gap: var(--space-3);
 }
 
-.arrow {
-  width: var(--control-size);
-  height: var(--control-size);
-  font-size: var(--fs-lg);
-  line-height: 1;
-  color: var(--text-strong);
-  background: transparent;
-  border: var(--border-strong) solid var(--line-ink);
-  border-radius: var(--radius-1);
-  cursor: pointer;
-  transition: var(--transition-ui);
-}
-
-.arrow:hover {
-  background: var(--surface-ink);
-  color: var(--text-on-ink);
-}
-
 .rail {
   display: flex;
   gap: var(--space-5);
@@ -38,16 +20,9 @@
   scrollbar-width: thin;
 }
 
-.card {
+.slide {
   flex: 0 0 min(100%, 22.5rem);
   scroll-snap-align: start;
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-5);
-  padding: var(--space-6);
-  background: var(--surface-page);
-  border: var(--border-hairline) solid var(--line-hairline);
-  border-radius: var(--radius-2);
 }
 
 .stars {
@@ -55,7 +30,7 @@
   gap: var(--space-1);
   font-size: var(--fs-md);
   line-height: 1;
-  color: var(--red-500);
+  color: var(--color-accent);
 }
 
 .footer {

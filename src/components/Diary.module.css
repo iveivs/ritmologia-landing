@@ -8,12 +8,13 @@
 .mockup {
   position: relative;
   padding-bottom: var(--space-7);
-  padding-right: clamp(0px, 5vw, var(--space-8));
+  padding-right: min(5vw, var(--space-8));
 }
 
+/* Browser-window mockup. */
 .window {
   overflow: hidden;
-  background: var(--ink-900);
+  background: var(--surface-inverse);
   border: var(--border-hairline) solid var(--line-hairline);
   border-radius: var(--radius-2);
 }
@@ -22,7 +23,7 @@
   display: flex;
   gap: var(--space-2);
   padding: var(--space-3) var(--space-4);
-  background: var(--ink-800);
+  background: var(--surface-inverse-raised);
 }
 
 .dot {
@@ -31,13 +32,13 @@
   border-radius: var(--radius-pill);
 }
 .dotRed {
-  background: var(--red-500);
+  background: var(--color-accent);
 }
 .dotAmber {
-  background: var(--amber-500);
+  background: var(--status-warn);
 }
 .dotOlive {
-  background: var(--olive-500);
+  background: var(--status-ok);
 }
 
 .window img {
@@ -45,22 +46,11 @@
   height: auto;
 }
 
-/* Phone mockup, bottom-right corner. */
+/* Phone mockup pinned to the bottom-right corner of the window. */
 .phone {
   position: absolute;
   right: 0;
   bottom: 0;
   width: 26%;
   min-width: 7.75rem;
-  overflow: hidden;
-  background: var(--ink-900);
-  border: var(--device-border) solid var(--ink-900);
-  border-radius: var(--device-radius);
-  box-shadow: var(--shadow-2);
-}
-
-.phone img {
-  width: 100%;
-  height: auto;
-  border-radius: calc(var(--device-radius) - var(--device-border));
 }

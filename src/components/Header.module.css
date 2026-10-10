@@ -46,8 +46,8 @@
 
 .linkActive,
 .linkActive:hover {
-  color: var(--red-500);
-  border-bottom-color: var(--red-500);
+  color: var(--color-accent);
+  border-bottom-color: var(--color-accent);
 }
 
 .cta {

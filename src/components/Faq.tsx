@@ -2,7 +2,6 @@ import { Button } from "./ui/Button";
 import { FaqItem } from "./ui/FaqItem";
 import { Accent, Body, SectionHeading, SectionLabel } from "./ui/Typography";
 import { contactLinks, faqItems } from "@/lib/content";
-import styles from "./Faq.module.css";
 
 // schema.org FAQPage, built from the same data as the visible list.
 const faqJsonLd = JSON.stringify({
@@ -33,7 +32,7 @@ export function Faq() {
             href={contactLinks.telegramHref}
             target="_blank"
             rel="noopener noreferrer"
-            className={styles.cta}
+            className="self-start"
           >
             Написать в Telegram
           </Button>

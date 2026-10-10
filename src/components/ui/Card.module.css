@@ -1,0 +1,49 @@
+/* One card for the whole site. Tones set local --card-* colours from the
+   semantic tokens; spacing comes from the scales. */
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+  padding: var(--space-6);
+  color: var(--card-fg);
+  background: var(--card-bg);
+  border: var(--border-hairline) solid var(--card-line);
+  border-radius: var(--radius-2);
+}
+
+/* tones */
+.paper {
+  --card-bg: var(--surface-raised);
+  --card-fg: var(--text-body);
+  --card-line: var(--line-hairline);
+}
+.plain {
+  --card-bg: var(--surface-page);
+  --card-fg: var(--text-body);
+  --card-line: var(--line-hairline);
+}
+.inverse {
+  --card-bg: var(--surface-inverse-raised);
+  --card-fg: var(--text-inverse);
+  --card-line: var(--line-inverse);
+}
+/* transparent outlined block on a dark band */
+.inverseOutline {
+  --card-bg: transparent;
+  --card-fg: var(--text-inverse);
+  --card-line: var(--line-inverse);
+}
+
+/* padding and gap variants */
+.padXl {
+  padding: var(--space-7);
+}
+.gapSm {
+  gap: var(--space-4);
+}
+
+@media (max-width: 640px) {
+  .padXl {
+    padding: var(--space-5);
+  }
+}

@@ -2,6 +2,8 @@
 
 import { useRef } from "react";
 import { reviews } from "@/lib/content";
+import { Button } from "./ui/Button";
+import { Card } from "./ui/Card";
 import { Accent, Body, Meta, SectionHeading, SectionLabel } from "./ui/Typography";
 import styles from "./Reviews.module.css";
 
@@ -30,27 +32,31 @@ export function Reviews() {
             </SectionHeading>
           </div>
           <div className={styles.arrows}>
-            <button
-              type="button"
+            <Button
+              variant="outline"
+              square
               aria-label="Предыдущий отзыв"
-              className={styles.arrow}
               onClick={() => scroll(-1)}
             >
               ‹
-            </button>
-            <button
-              type="button"
+            </Button>
+            <Button
+              variant="outline"
+              square
               aria-label="Следующий отзыв"
-              className={styles.arrow}
               onClick={() => scroll(1)}
             >
               ›
-            </button>
+            </Button>
           </div>
         </div>
         <div ref={railRef} className={styles.rail}>
           {reviews.map((review) => (
-            <div key={`${review.name}-${review.meta}`} className={styles.card}>
+            <Card
+              key={`${review.name}-${review.meta}`}
+              tone="plain"
+              className={styles.slide}
+            >
               <div className={styles.stars} aria-label="Оценка 5 из 5">
                 <span>★</span>
                 <span>★</span>
@@ -63,7 +69,7 @@ export function Reviews() {
                 <span className={styles.name}>{review.name}</span>
                 <Meta>{review.meta}</Meta>
               </div>
-            </div>
+            </Card>
           ))}
         </div>
         <Meta>Отзывы с сайтов репетиторов</Meta>

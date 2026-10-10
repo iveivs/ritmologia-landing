@@ -1,0 +1,24 @@
+.photo {
+  object-fit: cover;
+}
+
+.contain {
+  object-fit: contain;
+}
+.scaleDown {
+  object-fit: scale-down;
+}
+
+/* where the crop is anchored */
+.center {
+  object-position: center;
+}
+.upper {
+  object-position: center 30%;
+}
+.top {
+  object-position: center 18%;
+}
+.bottom {
+  object-position: center bottom;
+}

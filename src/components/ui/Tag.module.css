@@ -17,7 +17,7 @@
 }
 
 .accent {
-  color: var(--text-on-accent);
-  background: var(--surface-accent);
-  border-color: var(--surface-accent);
+  color: var(--color-on-accent);
+  background: var(--color-accent);
+  border-color: var(--color-accent);
 }

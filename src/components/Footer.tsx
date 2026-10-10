@@ -11,8 +11,8 @@ export function Footer() {
         <div className={styles.rule}>
           <div className={styles.grid}>
             <div className={`stack ${styles.brand}`}>
-              <Logo tone="cream" />
-              <StripeRule tone="accent" count={14} thickness={18} length="180px" />
+              <Logo tone="inverse" />
+              <StripeRule count={14} thickness={18} length="180px" />
             </div>
             {footerColumns.map((column) => (
               <div key={column.title} className={styles.column}>
@@ -40,10 +40,10 @@ export function Footer() {
             </div>
           </div>
           <div className={styles.note}>
-            <Meta tone="onInk">
+            <Meta tone="inverse">
               Ритмология · школа барабанов · пробный урок бесплатно
             </Meta>
-            <Meta tone="onInk">{sellerInfo}</Meta>
+            <Meta tone="inverse">{sellerInfo}</Meta>
           </div>
         </div>
       </div>

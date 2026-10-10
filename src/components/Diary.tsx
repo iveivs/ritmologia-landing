@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { withBasePath } from "@/lib/basePath";
+import { PhoneFrame } from "./ui/PhoneFrame";
 import { Tag } from "./ui/Tag";
 import {
   Accent,
@@ -56,12 +57,14 @@ export function Diary() {
             />
           </div>
           <div className={styles.phone}>
-            <Image
-              src={withBasePath("/images/bbb-mobile.webp")}
-              alt="Beat by Bit — дневник занятий, мобильная версия"
-              width={640}
-              height={1391}
-            />
+            <PhoneFrame tone="dark">
+              <Image
+                src={withBasePath("/images/bbb-mobile.webp")}
+                alt="Beat by Bit — дневник занятий, мобильная версия"
+                width={640}
+                height={1391}
+              />
+            </PhoneFrame>
           </div>
         </div>
       </div>

@@ -2,20 +2,11 @@
   justify-content: flex-end;
 }
 
-.cta {
-  align-self: flex-start;
-}
-
 /* The photo's own background matches --surface-page, so no frame or radius:
    the picture should read as part of the page. */
 .photo {
   position: relative;
   min-height: 26rem;
-}
-
-.photo img {
-  object-fit: scale-down;
-  object-position: center bottom;
 }
 
 /* Tablets and phones: the poster comes first and the button sits right under
@@ -36,8 +27,8 @@
     height: min(28.5rem, 56svh);
   }
 
-  .photo img {
-    /* Poster's left edge lines up with the text below. */
+  /* Poster's left edge lines up with the text below. */
+  .photo .image {
     object-position: left bottom;
   }
 

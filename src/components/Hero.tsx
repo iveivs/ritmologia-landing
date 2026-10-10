@@ -1,5 +1,5 @@
-import Image from "next/image";
 import { Button } from "./ui/Button";
+import { Photo } from "./ui/Photo";
 import {
   Accent,
   DisplayHeading,
@@ -8,7 +8,6 @@ import {
   SectionLabel,
 } from "./ui/Typography";
 import { heroCopy } from "@/lib/content";
-import { withBasePath } from "@/lib/basePath";
 import styles from "./Hero.module.css";
 
 export function Hero() {
@@ -33,18 +32,20 @@ export function Hero() {
             барабанами. <br />
             Первый урок — бесплатно.
           </Lead>
-          <Button variant="primary" size="lg" href="#booking" className={styles.cta}>
+          <Button variant="primary" size="lg" href="#booking" className="self-start">
             Записаться на бесплатный урок
           </Button>
           <Meta>Сыграй свой первый бит</Meta>
         </div>
         <div className={styles.photo}>
-          <Image
-            src={withBasePath("/images/hero.webp")}
+          <Photo
+            src="/images/hero.webp"
             alt=""
-            fill
             sizes="(max-width: 900px) 100vw, 60vw"
+            fit="scaleDown"
+            focus="bottom"
             priority
+            className={styles.image}
           />
         </div>
       </div>

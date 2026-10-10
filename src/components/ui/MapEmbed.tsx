@@ -1,9 +1,9 @@
 "use client";
 
-import Image from "next/image";
 import { useState } from "react";
-import { withBasePath } from "@/lib/basePath";
 import { Button } from "./Button";
+import { Frame } from "./Frame";
+import { Photo } from "./Photo";
 import { Meta } from "./Typography";
 import styles from "./MapEmbed.module.css";
 
@@ -20,29 +20,29 @@ export function MapEmbed({ src, alt }: MapEmbedProps) {
 
   return (
     <div>
-      <div className={styles.map}>
+      <Frame ratio="5/4" bordered>
         {live ? (
           <iframe
+            className={styles.iframe}
             src={src}
             title="Карта: студия на Васильевском острове"
             allowFullScreen
           />
         ) : (
           <>
-            <Image
-              src={withBasePath("/images/map-address.webp")}
+            <Photo
+              src="/images/map-address.webp"
               alt={alt}
-              fill
               sizes="(max-width: 900px) 100vw, 55vw"
             />
             <div className={styles.overlay}>
-              <Button variant="ink" onClick={() => setLive(true)}>
+              <Button variant="dark" onClick={() => setLive(true)}>
                 Показать карту
               </Button>
             </div>
           </>
         )}
-      </div>
+      </Frame>
       {live ? null : (
         <div className={styles.note}>
           <Meta>Карта загрузится с сервиса Яндекса</Meta>

@@ -1,7 +1,7 @@
 import type { ReactNode } from "react";
 import styles from "./Typography.module.css";
 
-type Tone = "default" | "onInk";
+type Tone = "default" | "inverse";
 
 const cx = (...names: (string | false | undefined)[]) =>
   names.filter(Boolean).join(" ");
@@ -20,7 +20,7 @@ export function SectionHeading({
   tone?: Tone;
 }) {
   return (
-    <h2 className={cx(styles.heading, tone === "onInk" && styles.headingOnInk)}>
+    <h2 className={cx(styles.heading, tone === "inverse" && styles.headingInverse)}>
       {children}
     </h2>
   );
@@ -40,7 +40,7 @@ export function SectionLabel({
   tone?: Tone;
 }) {
   return (
-    <span className={cx(styles.label, tone === "onInk" && styles.labelOnInk)}>
+    <span className={cx(styles.label, tone === "inverse" && styles.labelInverse)}>
       {children}
     </span>
   );
@@ -54,7 +54,7 @@ export function Lead({
   tone?: Tone;
 }) {
   return (
-    <p className={cx(styles.lead, tone === "onInk" && styles.leadOnInk)}>
+    <p className={cx(styles.lead, tone === "inverse" && styles.leadInverse)}>
       {children}
     </p>
   );
@@ -81,7 +81,7 @@ export function Meta({
     <div
       className={cx(
         styles.meta,
-        tone === "onInk" && styles.metaOnInk,
+        tone === "inverse" && styles.metaInverse,
         ruled && styles.metaRuled,
         inline && styles.metaInline,
       )}

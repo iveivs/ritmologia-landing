@@ -1,45 +1,13 @@
-.cta {
-  align-self: flex-start;
-}
-
 .media {
   position: relative;
   padding: 0 0 var(--space-5) var(--space-4);
 }
 
-.photo {
-  position: relative;
-  overflow: hidden;
-  border-radius: var(--radius-2);
-  aspect-ratio: 3 / 2;
-}
-
-.photo img {
-  object-fit: contain;
-}
-
-/* Phone mockup, bottom-left corner. Cut-out effect: border = page color. */
+/* Phone mockup pinned to the bottom-left corner of the photo. */
 .phone {
   position: absolute;
   left: 0;
   bottom: 0;
   width: 27%;
   min-width: 7rem;
-  overflow: hidden;
-  border: var(--device-border) solid var(--surface-page);
-  border-radius: var(--device-radius);
-  box-shadow: var(--shadow-2);
-}
-
-.phoneScreen {
-  position: relative;
-  aspect-ratio: 9 / 16;
-  background: var(--ink-900);
-  border-radius: calc(var(--device-radius) - var(--device-border));
-  overflow: hidden;
-}
-
-.phoneScreen img {
-  object-fit: cover;
-  object-position: center 18%;
 }

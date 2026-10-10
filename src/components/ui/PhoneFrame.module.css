@@ -1,0 +1,27 @@
+/* Phone mockup. The parent decides size and position. */
+.phone {
+  overflow: hidden;
+  background: var(--surface-inverse);
+  border: var(--device-border) solid var(--phone-border);
+  border-radius: var(--device-radius);
+  box-shadow: var(--shadow-raised);
+}
+
+/* border blends into the page: the phone looks cut out of the photo */
+.cutout {
+  --phone-border: var(--surface-page);
+}
+.dark {
+  --phone-border: var(--surface-inverse);
+}
+
+.screen {
+  overflow: hidden;
+  background: var(--surface-inverse);
+  border-radius: calc(var(--device-radius) - var(--device-border));
+}
+
+.screen img {
+  width: 100%;
+  height: auto;
+}

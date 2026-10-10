@@ -1,16 +1,4 @@
-.map {
-  position: relative;
-  overflow: hidden;
-  border: var(--border-hairline) solid var(--line-hairline);
-  border-radius: var(--radius-2);
-  aspect-ratio: 5 / 4;
-}
-
-.map img {
-  object-fit: cover;
-}
-
-.map iframe {
+.iframe {
   position: absolute;
   inset: 0;
   width: 100%;

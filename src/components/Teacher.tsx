@@ -1,6 +1,6 @@
-import Image from "next/image";
 import { teacherFacts } from "@/lib/content";
-import { withBasePath } from "@/lib/basePath";
+import { Frame } from "./ui/Frame";
+import { Photo } from "./ui/Photo";
 import {
   Accent,
   Body,
@@ -49,31 +49,29 @@ export function Teacher() {
           </div>
         </div>
         <div className={styles.collage}>
-          <div className={`${styles.photo} ${styles.photoMain}`}>
-            <Image
-              src={withBasePath("/images/teacher-studio.webp")}
+          <Frame ratio="4/5">
+            <Photo
+              src="/images/teacher-studio.webp"
               alt="Светослав Богданов за установкой в студии"
-              fill
               sizes="(max-width: 900px) 100vw, 40vw"
+              focus="upper"
             />
-          </div>
+          </Frame>
           <div className={styles.subGrid}>
-            <div className={`${styles.photo} ${styles.photoSub}`}>
-              <Image
-                src={withBasePath("/images/teacher-lesson.webp")}
+            <Frame ratio="4/3">
+              <Photo
+                src="/images/teacher-lesson.webp"
                 alt="Занятие с учеником"
-                fill
                 sizes="(max-width: 900px) 50vw, 20vw"
               />
-            </div>
-            <div className={`${styles.photo} ${styles.photoSub}`}>
-              <Image
-                src={withBasePath("/images/teacher-concert.webp")}
+            </Frame>
+            <Frame ratio="4/3">
+              <Photo
+                src="/images/teacher-concert.webp"
                 alt="Концерт с группой"
-                fill
                 sizes="(max-width: 900px) 50vw, 20vw"
               />
-            </div>
+            </Frame>
           </div>
         </div>
       </div>

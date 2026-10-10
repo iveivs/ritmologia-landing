@@ -1,0 +1,30 @@
+/* A cropped box with a fixed aspect ratio: photos, map, phone screens. */
+.frame {
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--radius-2);
+}
+
+.square {
+  border-radius: 0;
+}
+
+.bordered {
+  border: var(--border-hairline) solid var(--line-hairline);
+}
+
+.r4x3 {
+  aspect-ratio: 4 / 3;
+}
+.r4x5 {
+  aspect-ratio: 4 / 5;
+}
+.r3x2 {
+  aspect-ratio: 3 / 2;
+}
+.r5x4 {
+  aspect-ratio: 5 / 4;
+}
+.r9x16 {
+  aspect-ratio: 9 / 16;
+}

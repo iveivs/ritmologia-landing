@@ -10,27 +10,6 @@
   gap: var(--space-4);
 }
 
-.photo {
-  position: relative;
-  overflow: hidden;
-  border-radius: var(--radius-2);
-}
-
-.photo img {
-  object-fit: cover;
-}
-
-.photoMain {
-  aspect-ratio: 4 / 5;
-}
-.photoMain img {
-  object-position: center 30%;
-}
-
-.photoSub {
-  aspect-ratio: 4 / 3;
-}
-
 .facts {
   margin-top: var(--space-2);
 }

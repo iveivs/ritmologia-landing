@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint && node scripts/check-design-tokens.mjs",
+    "check:tokens": "node scripts/check-design-tokens.mjs"
   },
   "dependencies": {
     "next": "16.3.5",

@@ -5,16 +5,16 @@ import styles from "./Logo.module.css";
 type LogoProps = {
   /** Show the round "Р" mark next to the wordmark. */
   mark?: boolean;
-  /** "cream" is for dark backgrounds. */
-  tone?: "ink" | "cream";
+  /** "inverse" is for dark backgrounds. */
+  tone?: "default" | "inverse";
   /** On phones, pin the mark and the wordmark to opposite edges. */
   spread?: boolean;
 };
 
-export function Logo({ mark = false, tone = "ink", spread = false }: LogoProps) {
+export function Logo({ mark = false, tone = "default", spread = false }: LogoProps) {
   const classes = [
     styles.logo,
-    tone === "cream" ? styles.cream : "",
+    tone === "inverse" ? styles.inverse : "",
     spread ? styles.spread : "",
   ]
     .filter(Boolean)

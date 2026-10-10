@@ -1,21 +1,22 @@
 import { Button } from "./ui/Button";
+import { Card } from "./ui/Card";
 import { Lead, Meta, SectionHeading, SectionLabel } from "./ui/Typography";
 import { contactLinks } from "@/lib/content";
 import styles from "./Booking.module.css";
 
 export function Booking() {
   return (
-    <section id="booking" className="section section--ink">
+    <section id="booking" className="section section--inverse">
       <div className="container split split--6-6">
         <div className="stack">
-          <SectionLabel tone="onInk">Запись</SectionLabel>
-          <SectionHeading tone="onInk">Бесплатный первый урок</SectionHeading>
-          <Lead tone="onInk">
+          <SectionLabel tone="inverse">Запись</SectionLabel>
+          <SectionHeading tone="inverse">Бесплатный первый урок</SectionHeading>
+          <Lead tone="inverse">
             Познакомимся, определим цель и сыграем первый ритм за установкой.
             Продолжительность — 30 минут.
           </Lead>
           <div className={styles.contacts}>
-            <Meta tone="onInk" inline>
+            <Meta tone="inverse" inline>
               <a href={contactLinks.phoneHref}>{contactLinks.phoneLabel}</a>
               <a
                 href={contactLinks.telegramHref}
@@ -27,9 +28,9 @@ export function Booking() {
             </Meta>
           </div>
         </div>
-        <div className={styles.card}>
+        <Card tone="inverseOutline" padding="xl" gap="sm">
           <Button
-            variant="onInk"
+            variant="inverse"
             size="lg"
             full
             href={contactLinks.telegramHref}
@@ -39,7 +40,7 @@ export function Booking() {
             Написать в Telegram
           </Button>
           <Button
-            variant="outlineOnInk"
+            variant="inverseOutline"
             size="lg"
             full
             href={contactLinks.vkHref}
@@ -49,14 +50,14 @@ export function Booking() {
             Написать во ВКонтакте
           </Button>
           <Button
-            variant="outlineOnInk"
+            variant="inverseOutline"
             size="lg"
             full
             href={contactLinks.phoneHref}
           >
             Позвонить
           </Button>
-        </div>
+        </Card>
       </div>
     </section>
   );

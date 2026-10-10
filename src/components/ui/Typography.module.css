@@ -19,12 +19,12 @@
   color: var(--text-strong);
   text-wrap: balance;
 }
-.headingOnInk {
-  color: var(--text-on-ink);
+.headingInverse {
+  color: var(--text-inverse);
 }
 
 .accent {
-  color: var(--red-500);
+  color: var(--color-accent);
 }
 
 .label {
@@ -35,8 +35,8 @@
   text-transform: uppercase;
   color: var(--text-muted);
 }
-.labelOnInk {
-  color: var(--text-on-ink-muted);
+.labelInverse {
+  color: var(--text-inverse-muted);
 }
 
 .lead {
@@ -45,8 +45,8 @@
   max-width: var(--measure-lead);
   color: var(--text-body);
 }
-.leadOnInk {
-  color: var(--text-on-ink-muted);
+.leadInverse {
+  color: var(--text-inverse-muted);
 }
 
 .body {
@@ -63,8 +63,8 @@
   letter-spacing: var(--ls-mono);
   color: var(--text-muted);
 }
-.metaOnInk {
-  color: var(--text-on-ink-muted);
+.metaInverse {
+  color: var(--text-inverse-muted);
 }
 .metaRuled {
   border-top: var(--border-hairline) solid var(--line-hairline);
@@ -81,5 +81,5 @@
   font-size: var(--fs-sm);
   line-height: var(--lh-snug);
   letter-spacing: var(--ls-mono);
-  color: var(--red-500);
+  color: var(--color-accent);
 }

@@ -1,13 +1,15 @@
 import type { AnchorHTMLAttributes, ButtonHTMLAttributes } from "react";
 import styles from "./Button.module.css";
 
-type Variant = "primary" | "ink" | "outline" | "onInk" | "outlineOnInk";
+type Variant = "primary" | "outline" | "dark" | "inverse" | "inverseOutline";
 type Size = "sm" | "md" | "lg";
 
 type CommonProps = {
   variant?: Variant;
   size?: Size;
   full?: boolean;
+  /** Icon-only button: a square of the size's height. */
+  square?: boolean;
   className?: string;
 };
 
@@ -23,6 +25,7 @@ export function Button({
   variant = "primary",
   size = "md",
   full = false,
+  square = false,
   className,
   children,
   ...rest
@@ -32,6 +35,7 @@ export function Button({
     styles[variant],
     styles[size],
     full ? styles.full : "",
+    square ? styles.square : "",
     className ?? "",
   ]
     .filter(Boolean)
