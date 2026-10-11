@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useRef } from "react";
 import { reviews } from "@/lib/content";
 import { Button } from "./ui/Button";
 import { Card } from "./ui/Card";
@@ -13,32 +13,52 @@ import {
 } from "./ui/Typography";
 import styles from "./Reviews.module.css";
 
-// How many reviews are visible before "show all": the first row on phones, two
-// rows on tablets and desktop (tiers 0 and 1 respectively, see the CSS).
-const PREVIEW_PHONE = 3;
-const PREVIEW_WIDE = 6;
-
 export function Reviews() {
-  const [expanded, setExpanded] = useState(false);
+  const railRef = useRef<HTMLUListElement>(null);
+
+  const scroll = (direction: 1 | -1) => {
+    const el = railRef.current;
+    if (!el) return;
+    el.scrollBy({
+      left: direction * Math.max(280, el.clientWidth * 0.8),
+      behavior: "smooth",
+    });
+  };
 
   return (
     <section className="section section--sunken">
       <div className="container stack stack--xl">
-        <div className="stack">
-          <SectionLabel>07 / Отзывы</SectionLabel>
-          <SectionHeading>
-            ЧТО ГОВОРЯТ
-            <br />
-            <Accent>УЧЕНИКИ</Accent>
-          </SectionHeading>
-        </div>
-        <ul className={styles.grid} data-expanded={expanded}>
-          {reviews.map((review, i) => (
-            <li
-              key={`${review.name}-${review.meta}`}
-              className={styles.item}
-              data-tier={i < PREVIEW_PHONE ? 0 : i < PREVIEW_WIDE ? 1 : 2}
+        <div className={styles.headRow}>
+          <div className="stack">
+            <SectionLabel>07 / Отзывы</SectionLabel>
+            <SectionHeading>
+              ЧТО ГОВОРЯТ
+              <br />
+              <Accent>УЧЕНИКИ</Accent>
+            </SectionHeading>
+          </div>
+          <div className={styles.arrows}>
+            <Button
+              variant="outline"
+              square
+              aria-label="Предыдущий отзыв"
+              onClick={() => scroll(-1)}
             >
+              ‹
+            </Button>
+            <Button
+              variant="outline"
+              square
+              aria-label="Следующий отзыв"
+              onClick={() => scroll(1)}
+            >
+              ›
+            </Button>
+          </div>
+        </div>
+        <ul ref={railRef} className={styles.rail}>
+          {reviews.map((review) => (
+            <li key={`${review.name}-${review.meta}`} className={styles.slide}>
               <Card tone="plain">
                 <div className={styles.stars} aria-label="Оценка 5 из 5">
                   <span>★</span>
@@ -56,18 +76,7 @@ export function Reviews() {
             </li>
           ))}
         </ul>
-        <div className={styles.more}>
-          <Button
-            variant="outline"
-            aria-expanded={expanded}
-            onClick={() => setExpanded((value) => !value)}
-          >
-            {expanded
-              ? "Свернуть отзывы"
-              : `Показать все отзывы (${reviews.length})`}
-          </Button>
-          <Meta>Отзывы с сайтов репетиторов</Meta>
-        </div>
+        <Meta>Отзывы с сайтов репетиторов</Meta>
       </div>
     </section>
   );
