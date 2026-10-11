@@ -20,7 +20,7 @@ export function Faq() {
     <section id="faq" className="section section--flush-top">
       <div className="container split split--5-7 split--start">
         <div className="stack">
-          <SectionLabel>07 / Вопросы</SectionLabel>
+          <SectionLabel>08 / Вопросы</SectionLabel>
           <SectionHeading>
             ЧАСТЫЕ
             <br />

@@ -20,11 +20,11 @@ export function Reviews() {
   };
 
   return (
-    <section className="section section--sunken">
+    <section className="section section--sunken section--flush-top">
       <div className="container stack stack--xl">
         <div className={styles.headRow}>
           <div className="stack">
-            <SectionLabel>06 / Отзывы</SectionLabel>
+            <SectionLabel>07 / Отзывы</SectionLabel>
             <SectionHeading>
               ЧТО ГОВОРЯТ
               <br />

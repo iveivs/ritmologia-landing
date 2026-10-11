@@ -127,13 +127,23 @@ export const singleFeatures = [
   "Индивидуальная программа",
   "Разбор интересующей темы",
   "Домашние задания — по желанию",
+  "Доступ к дневнику Beat by Bit",
+  "Личный кабинет «Тьюттори»",
 ];
 
 export const monthFeatures = [
   "Четыре индивидуальных занятия",
   "Последовательная программа",
   "Регулярность, которая даёт результат",
+  "Доступ к дневнику Beat by Bit",
+  "Личный кабинет «Тьюттори»",
 ];
+
+// Student cabinet «Тьюттори» (own platform of the owner).
+export const platformLink = {
+  href: "https://tyuttori.ru",
+  label: "tyuttori.ru",
+};
 
 // FAQ. Every answer was chosen by the owner (see the Q&A session of 2026-10-10).
 export const faqItems = [

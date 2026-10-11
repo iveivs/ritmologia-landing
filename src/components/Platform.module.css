@@ -1,0 +1,59 @@
+.eyebrow {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--space-4);
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.logo {
+  width: var(--control-h-lg);
+  height: var(--control-h-lg);
+  border-radius: var(--radius-2);
+}
+
+/* Three phones in a row; the middle one sits lower for rhythm. */
+.phones {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--space-4);
+  align-items: start;
+}
+
+.item {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.item:nth-child(2) {
+  margin-top: var(--space-7);
+}
+
+.item img {
+  display: block;
+}
+
+/* Phones: a swipeable rail, the next phone peeks in. */
+@media (max-width: 640px) {
+  .phones {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    padding-bottom: var(--space-2);
+  }
+
+  .item {
+    flex: 0 0 62%;
+    scroll-snap-align: start;
+  }
+
+  .item:nth-child(2) {
+    margin-top: 0;
+  }
+}
