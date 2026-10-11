@@ -80,24 +80,21 @@ export function Platform() {
             Открыть «Тьюттори»
           </Button>
         </div>
-        <div className="stack">
-          <ul className={styles.phones}>
-            {screens.map((screen) => (
-              <li key={screen.src} className={styles.item}>
-                <PhoneFrame tone="dark">
-                  <Image
-                    src={withBasePath(screen.src)}
-                    alt={screen.alt}
-                    width={640}
-                    height={1112}
-                  />
-                </PhoneFrame>
-                <Meta>{screen.caption}</Meta>
-              </li>
-            ))}
-          </ul>
-          <Meta>Демо-данные: ученики вымышлены</Meta>
-        </div>
+        <ul className={styles.phones}>
+          {screens.map((screen) => (
+            <li key={screen.src} className={styles.item}>
+              <PhoneFrame tone="dark">
+                <Image
+                  src={withBasePath(screen.src)}
+                  alt={screen.alt}
+                  width={640}
+                  height={1112}
+                />
+              </PhoneFrame>
+              <Meta>{screen.caption}</Meta>
+            </li>
+          ))}
+        </ul>
       </div>
     </section>
   );
