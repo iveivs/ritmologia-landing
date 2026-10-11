@@ -38,6 +38,7 @@
 .featured,
 .inverseOutline {
   --color-accent-text: var(--color-accent-on-inverse);
+  --color-accent-text-small: var(--color-accent-on-inverse);
 }
 
 /* padding and gap variants */
