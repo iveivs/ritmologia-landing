@@ -56,8 +56,9 @@ This block is written and re-added by `next dev` — verify at `node_modules/nex
 
 > Остальные базовые документы: [`docs/ENGINEERING.md`](docs/ENGINEERING.md)
 > (архитектура и правила кода), [`CONTRIBUTING.md`](CONTRIBUTING.md) (ветки,
-> коммиты, Pull Request, релизы), [`CHANGELOG.md`](CHANGELOG.md). Прямых
-> пушей в `main` нет: работа идёт в ветке через Pull Request.
+> коммиты, Pull Request, релизы), [`CHANGELOG.md`](CHANGELOG.md). Работаем в одиночку: мелкие правки идут
+> прямо в `main` (деплой только после зелёных проверок), ветка и Pull Request —
+> для рискованных изменений.
 
 > **Главный документ — [`docs/DESIGN-STANDARD.md`](docs/DESIGN-STANDARD.md)**:
 > единый стандарт (цвет, шрифты, отступы, компоненты, ритм секций,
