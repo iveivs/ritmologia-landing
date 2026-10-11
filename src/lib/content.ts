@@ -202,11 +202,24 @@ export const studioMap = {
   embedSrc: `https://yandex.ru/map-widget/v1/?ll=${studioLon}%2C${studioLat}&z=17&pt=${studioLon},${studioLat},pm2rdm`,
 };
 
+// Opening the chat with the first message already typed removes the
+// "blank screen" hesitation. Each entry point sends a message that fits it.
+const telegramChat = (text?: string) =>
+  text
+    ? `https://t.me/iveivs?text=${encodeURIComponent(text)}`
+    : "https://t.me/iveivs";
+
+export const telegramLinks = {
+  plain: telegramChat(),
+  trial: telegramChat("Здравствуйте! Хочу записаться на бесплатный пробный урок."),
+  question: telegramChat("Здравствуйте! Хочу узнать про занятия."),
+};
+
 export const contactLinks = {
   phoneLabel: "8 (931) 00-77-390",
   phoneHref: "tel:+79310077390",
   telegramLabel: "@iveivs",
-  telegramHref: "https://t.me/iveivs",
+  telegramHref: telegramLinks.plain,
   vkHref: "https://vk.com/motions",
 };
 

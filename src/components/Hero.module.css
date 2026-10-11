@@ -23,8 +23,8 @@
     min-height: 0;
     /* Tall enough to read the poster, short enough that the button stays
        on the first screen. */
-    height: min(28.5rem, 56vh);
-    height: min(28.5rem, 56svh);
+    height: min(28.5rem, calc(56vh - 2.75rem));
+    height: min(28.5rem, calc(56svh - 2.75rem));
   }
 
   /* Poster's left edge lines up with the text below. */

@@ -1,7 +1,7 @@
 import { Button } from "./ui/Button";
 import { FaqItem } from "./ui/FaqItem";
 import { Accent, Body, SectionHeading, SectionLabel } from "./ui/Typography";
-import { contactLinks, faqItems } from "@/lib/content";
+import { faqItems, telegramLinks } from "@/lib/content";
 
 // schema.org FAQPage, built from the same data as the visible list.
 const faqJsonLd = JSON.stringify({
@@ -29,7 +29,7 @@ export function Faq() {
           <Body>Не нашли ответ? Напишите, отвечу в мессенджере.</Body>
           <Button
             variant="outline"
-            href={contactLinks.telegramHref}
+            href={telegramLinks.question}
             target="_blank"
             rel="noopener noreferrer"
             className="self-start"

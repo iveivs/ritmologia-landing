@@ -3,6 +3,31 @@
   background: var(--surface-page);
 }
 
+/* Contacts always in view: tap-to-call and a ready Telegram message. */
+.topbar {
+  border-bottom: var(--border-hairline) solid var(--line-hairline);
+}
+
+.topbarInner {
+  display: flex;
+  justify-content: flex-end;
+  gap: var(--space-6);
+  padding-block: var(--space-2);
+}
+
+.topbarLink {
+  font-family: var(--font-mono);
+  font-size: var(--fs-sm);
+  line-height: var(--lh-snug);
+  letter-spacing: var(--ls-mono);
+  color: var(--text-muted);
+  transition: var(--transition-ui);
+}
+
+.topbarLink:hover {
+  color: var(--text-strong);
+}
+
 .inner {
   display: flex;
   align-items: center;
@@ -64,6 +89,13 @@
 
 /* Phones: lockup on the first row, the links spread evenly on the second. */
 @media (max-width: 640px) {
+  /* Bigger tap targets, phone on the left, Telegram on the right. */
+  .topbarInner {
+    justify-content: space-between;
+    gap: var(--space-4);
+    padding-block: var(--space-3);
+  }
+
   .inner {
     flex-direction: column;
     align-items: stretch;

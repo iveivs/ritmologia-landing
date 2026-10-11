@@ -1,7 +1,7 @@
 import { Button } from "./ui/Button";
 import { Card } from "./ui/Card";
 import { Lead, Meta, SectionHeading, SectionLabel } from "./ui/Typography";
-import { contactLinks } from "@/lib/content";
+import { contactLinks, telegramLinks } from "@/lib/content";
 import styles from "./Booking.module.css";
 
 export function Booking() {
@@ -33,7 +33,7 @@ export function Booking() {
             variant="inverse"
             size="lg"
             full
-            href={contactLinks.telegramHref}
+            href={telegramLinks.trial}
             target="_blank"
             rel="noopener noreferrer"
           >

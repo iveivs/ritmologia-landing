@@ -1,11 +1,26 @@
 import { Button } from "./ui/Button";
 import { Logo } from "./ui/Logo";
-import { navLinks } from "@/lib/content";
+import { contactLinks, navLinks, telegramLinks } from "@/lib/content";
 import styles from "./Header.module.css";
 
 export function Header() {
   return (
     <header className={styles.header}>
+      <div className={styles.topbar}>
+        <div className={`container ${styles.topbarInner}`}>
+          <a href={contactLinks.phoneHref} className={styles.topbarLink}>
+            {contactLinks.phoneLabel}
+          </a>
+          <a
+            href={telegramLinks.question}
+            target="_blank"
+            rel="noopener noreferrer"
+            className={styles.topbarLink}
+          >
+            Telegram {contactLinks.telegramLabel}
+          </a>
+        </div>
+      </div>
       <div className={`container ${styles.inner}`}>
         <a href="#" className={styles.brand}>
           <Logo mark spread />
