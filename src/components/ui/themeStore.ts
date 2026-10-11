@@ -59,8 +59,29 @@ export function applyThemeMode(mode: ThemeMode) {
   window.dispatchEvent(new Event(CHANGE_EVENT));
 }
 
-const cycle: ThemeMode[] = ["auto", "light", "dark"];
+function subscribeEffective(onChange: () => void) {
+  const query = window.matchMedia("(prefers-color-scheme: dark)");
+  const stop = subscribe(onChange);
+  query.addEventListener("change", onChange);
+  return () => {
+    stop();
+    query.removeEventListener("change", onChange);
+  };
+}
 
-export function nextThemeMode(mode: ThemeMode): ThemeMode {
-  return cycle[(cycle.indexOf(mode) + 1) % cycle.length];
+function readEffective(): "light" | "dark" {
+  const mode = readMode();
+  if (mode !== "auto") return mode;
+  return window.matchMedia("(prefers-color-scheme: dark)").matches
+    ? "dark"
+    : "light";
+}
+
+/** The theme the page is showing right now ("auto" resolved to the system's). */
+export function useEffectiveTheme(): "light" | "dark" {
+  return useSyncExternalStore(
+    subscribeEffective,
+    readEffective,
+    () => "light" as const,
+  );
 }
