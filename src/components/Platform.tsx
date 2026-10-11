@@ -2,6 +2,7 @@ import Image from "next/image";
 import { withBasePath } from "@/lib/basePath";
 import { platformLink } from "@/lib/content";
 import { Button } from "./ui/Button";
+import { Card } from "./ui/Card";
 import { PhoneFrame } from "./ui/PhoneFrame";
 import { Eyebrow } from "./ui/Eyebrow";
 import { Accent, Body, Lead, Meta, SectionHeading } from "./ui/Typography";
@@ -64,27 +65,29 @@ export function Platform() {
             href={platformLink.href}
             target="_blank"
             rel="noopener noreferrer"
-            variant="outline"
+            size="lg"
             className="self-start"
           >
             Открыть «Тьюттори»
           </Button>
         </div>
-        <ul className={styles.phones}>
-          {screens.map((screen) => (
-            <li key={screen.src} className={styles.item}>
-              <PhoneFrame tone="dark">
-                <Image
-                  src={withBasePath(screen.src)}
-                  alt={screen.alt}
-                  width={640}
-                  height={1112}
-                />
-              </PhoneFrame>
-              <Meta>{screen.caption}</Meta>
-            </li>
-          ))}
-        </ul>
+        <Card tone="sunken" className={styles.stage}>
+          <ul className={styles.phones}>
+            {screens.map((screen) => (
+              <li key={screen.src} className={styles.item}>
+                <PhoneFrame tone="dark">
+                  <Image
+                    src={withBasePath(screen.src)}
+                    alt={screen.alt}
+                    width={640}
+                    height={1112}
+                  />
+                </PhoneFrame>
+                <Meta>{screen.caption}</Meta>
+              </li>
+            ))}
+          </ul>
+        </Card>
       </div>
     </section>
   );

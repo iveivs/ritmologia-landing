@@ -206,7 +206,7 @@
 
 `Button` (варианты `primary | outline | dark | inverse | inverseOutline`;
 размеры `sm | md | lg` = 40 / 48 / 56 px; `square`), `Card` (тона
-`paper | plain | featured | inverseOutline`), `Frame` + `Photo`, `PhoneFrame`
+`paper | plain | sunken | featured | inverseOutline`), `Frame` + `Photo`, `PhoneFrame`
 (`cutout | dark`), `Tag`, `Logo`, `StripeRule`, `PriceCard`, `FaqItem`,
 `MapEmbed` (встраивание только по клику), `ThemeToggle`, `ThemeIconButton`,
 `Typography`.

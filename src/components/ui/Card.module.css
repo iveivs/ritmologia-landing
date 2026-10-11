@@ -22,6 +22,12 @@
   --card-fg: var(--text-body);
   --card-line: var(--line-hairline);
 }
+/* a stage for media: the band colour, one step off the page */
+.sunken {
+  --card-bg: var(--surface-sunken);
+  --card-fg: var(--text-body);
+  --card-line: var(--line-hairline);
+}
 .featured {
   --card-bg: var(--surface-featured);
   --card-fg: var(--text-inverse);

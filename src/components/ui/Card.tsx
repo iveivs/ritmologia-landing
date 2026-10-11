@@ -2,7 +2,7 @@ import type { ReactNode } from "react";
 import styles from "./Card.module.css";
 
 type CardProps = {
-  tone?: "paper" | "plain" | "featured" | "inverseOutline";
+  tone?: "paper" | "plain" | "sunken" | "featured" | "inverseOutline";
   padding?: "lg" | "xl";
   gap?: "md" | "sm";
   className?: string;

@@ -50,3 +50,10 @@
     margin-top: 0;
   }
 }
+
+/* The stage around the phones. */
+@media (max-width: 640px) {
+  .stage {
+    padding: var(--space-4);
+  }
+}
