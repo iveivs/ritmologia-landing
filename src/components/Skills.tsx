@@ -4,7 +4,7 @@ import styles from "./Skills.module.css";
 
 export function Skills() {
   return (
-    <section className="section section--sunken">
+    <section id="programs" className="section section--sunken">
       <div className="container split split--5-7 split--start">
         <div className="stack">
           <SectionLabel>01 / Чему учим</SectionLabel>

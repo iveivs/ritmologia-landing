@@ -13,7 +13,7 @@ import styles from "./Teacher.module.css";
 
 export function Teacher() {
   return (
-    <section className="section section--sunken">
+    <section id="teacher" className="section section--sunken">
       <div className="container split split--7-5 split--start">
         <div className="stack">
           <SectionLabel>03 / Преподаватель</SectionLabel>

@@ -1,12 +1,17 @@
 "use client";
 
-import { applyThemeMode, useEffectiveTheme } from "./themeStore";
+import {
+  applyThemeMode,
+  useEffectiveTheme,
+  useThemeColorSync,
+} from "./themeStore";
 import styles from "./ThemeIconButton.module.css";
 
 /** A small sun/moon button: it shows the theme you will switch TO and sets
  *  that theme explicitly. Going back to "Auto" is done in the footer group.
  *  The caller positions it; the look lives here. */
 export function ThemeIconButton({ className }: { className?: string }) {
+  useThemeColorSync();
   const theme = useEffectiveTheme();
   const target = theme === "dark" ? "light" : "dark";
   const label = target === "dark" ? "Включить тёмную тему" : "Включить светлую тему";

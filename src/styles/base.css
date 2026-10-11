@@ -46,6 +46,12 @@ a {
   text-decoration: none;
 }
 
+a,
+button,
+summary {
+  touch-action: manipulation; /* no 300ms tap delay, no double-tap zoom */
+}
+
 ul,
 ol {
   list-style: none;
@@ -70,4 +76,24 @@ button {
 :focus-visible {
   outline: var(--focus-width) solid var(--focus-ring);
   outline-offset: var(--focus-offset);
+}
+
+/* "Skip to content": hidden until a keyboard user tabs to it. */
+.skip-link {
+  position: absolute;
+  top: var(--space-2);
+  left: var(--space-2);
+  z-index: 10;
+  padding: var(--space-3) var(--space-4);
+  font-size: var(--fs-sm);
+  font-weight: var(--fw-semibold);
+  line-height: var(--lh-snug);
+  color: var(--text-on-action);
+  background: var(--surface-inverse-action);
+  border-radius: var(--radius-2);
+  transform: translateY(calc(-100% - var(--space-4)));
+}
+
+.skip-link:focus-visible {
+  transform: none;
 }

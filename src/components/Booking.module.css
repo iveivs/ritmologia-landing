@@ -1,7 +1,16 @@
 .contacts a {
+  display: inline-flex;
+  align-items: center;
+  min-height: var(--space-5);
   transition: var(--transition-ui);
 }
 
 .contacts a:hover {
   color: var(--text-inverse);
+}
+
+@media (max-width: 640px) {
+  .contacts a {
+    min-height: var(--hit-min);
+  }
 }

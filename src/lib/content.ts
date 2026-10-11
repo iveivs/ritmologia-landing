@@ -244,16 +244,20 @@ export const footerColumns: {
 }[] = [
   {
     title: "Школа",
-    links: [{ label: "Программы" }, { label: "Педагоги" }, { label: "Студия" }],
+    links: [
+      { label: "Программы", href: "#programs" },
+      { label: "Педагоги", href: "#teacher" },
+      { label: "Студия", href: "#studio" },
+    ],
   },
   {
     title: "Ученикам",
     links: [
-      { label: "Расписание" },
-      { label: "Оплата" },
+      { label: "Оплата", href: "#prices" },
+      { label: "Личный кабинет", href: "#cabinet" },
       { label: "Вопросы", href: "#faq" },
     ],
   },
 ];
 
-export const contacts = ["8 (931) 00-77-390", "@iveivs", "Санкт-Петербург"];
+export const city = "Санкт-Петербург";

@@ -27,7 +27,7 @@
 .name {
   font-size: var(--fs-lg);
   font-weight: var(--fw-bold);
-  line-height: 1;
+  line-height: var(--lh-none);
   letter-spacing: var(--ls-brand);
   text-transform: uppercase;
   color: var(--text-strong);
@@ -36,7 +36,7 @@
 .tagline {
   font-size: var(--fs-xs);
   font-weight: var(--fw-semibold);
-  line-height: 1;
+  line-height: var(--lh-none);
   letter-spacing: var(--ls-caps);
   text-transform: uppercase;
   color: var(--text-muted);

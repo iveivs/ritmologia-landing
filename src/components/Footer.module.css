@@ -30,6 +30,9 @@
 }
 
 .link {
+  display: flex;
+  align-items: center;
+  min-height: var(--space-5);
   font-size: var(--fs-md);
   line-height: var(--lh-snug);
   color: var(--text-inverse);
@@ -40,7 +43,14 @@ a.link:hover {
   color: var(--text-inverse-muted);
 }
 
+a.contact:hover {
+  color: var(--text-inverse-muted);
+}
+
 .contact {
+  display: flex;
+  align-items: center;
+  min-height: var(--space-5);
   font-family: var(--font-mono);
   font-size: var(--fs-sm);
   line-height: var(--lh-snug);
@@ -74,5 +84,23 @@ a.link:hover {
   .brand,
   .contacts {
     grid-column: 1 / -1;
+  }
+}
+
+/* Phones: every footer link is a comfortable touch target. */
+@media (max-width: 640px) {
+  .column {
+    gap: 0;
+  }
+
+  .columnTitle {
+    padding-bottom: var(--space-2);
+  }
+
+  a.link,
+  a.contact {
+    display: flex;
+    align-items: center;
+    min-height: var(--hit-min);
   }
 }

@@ -11,7 +11,7 @@ import {
 
 export function Studio() {
   return (
-    <section className="section">
+    <section id="studio" className="section">
       <div className="container split split--5-7 split--reverse">
         <div className="stack">
           <SectionLabel>02 / Студия</SectionLabel>

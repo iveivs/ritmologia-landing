@@ -2,7 +2,12 @@ import { StripeRule } from "./ui/StripeRule";
 import { Logo } from "./ui/Logo";
 import { Meta } from "./ui/Typography";
 import { ThemeToggle } from "./ui/ThemeToggle";
-import { footerColumns, contacts, sellerInfo } from "@/lib/content";
+import {
+  city,
+  contactLinks,
+  footerColumns,
+  sellerInfo,
+} from "@/lib/content";
 import styles from "./Footer.module.css";
 
 export function Footer() {
@@ -33,11 +38,18 @@ export function Footer() {
             ))}
             <div className={`${styles.column} ${styles.contacts}`}>
               <span className={styles.columnTitle}>Контакты</span>
-              {contacts.map((contact) => (
-                <span key={contact} className={styles.contact}>
-                  {contact}
-                </span>
-              ))}
+              <a href={contactLinks.phoneHref} className={styles.contact}>
+                {contactLinks.phoneLabel}
+              </a>
+              <a
+                href={contactLinks.telegramHref}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={styles.contact}
+              >
+                {contactLinks.telegramLabel}
+              </a>
+              <span className={styles.contact}>{city}</span>
             </div>
           </div>
           <div className={styles.note}>

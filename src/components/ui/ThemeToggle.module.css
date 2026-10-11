@@ -12,7 +12,7 @@
 }
 
 .option {
-  min-height: var(--control-h-sm);
+  min-height: var(--hit-min);
   padding: 0 var(--space-2);
   font: inherit;
   letter-spacing: inherit;

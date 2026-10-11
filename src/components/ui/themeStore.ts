@@ -1,6 +1,6 @@
 "use client";
 
-import { useSyncExternalStore } from "react";
+import { useEffect, useSyncExternalStore } from "react";
 
 export type ThemeMode = "auto" | "light" | "dark";
 
@@ -37,6 +37,34 @@ export function useThemeMode(): ThemeMode {
   return useSyncExternalStore(subscribe, readMode, () => "auto" as ThemeMode);
 }
 
+/** Keeps the browser chrome (address bar) in the page's colour. The layout
+ *  declares one <meta theme-color> per system theme; when the visitor forces a
+ *  theme that differs from the system's, both are set to the page background
+ *  actually shown. "Auto" restores the declared values. */
+function syncThemeColor(mode: ThemeMode) {
+  const metas = document.querySelectorAll<HTMLMetaElement>(
+    'meta[name="theme-color"]',
+  );
+  const shown = getComputedStyle(document.documentElement).backgroundColor;
+  metas.forEach((meta) => {
+    meta.dataset.declaredContent ??= meta.content;
+    meta.dataset.declaredMedia ??= meta.media;
+    if (mode === "auto") {
+      meta.content = meta.dataset.declaredContent;
+      meta.media = meta.dataset.declaredMedia;
+    } else {
+      meta.content = shown;
+      meta.media = "all";
+    }
+  });
+}
+
+/** Run once on mount so a saved choice also colours the address bar. */
+export function useThemeColorSync() {
+  const mode = useThemeMode();
+  useEffect(() => syncThemeColor(mode), [mode]);
+}
+
 export function applyThemeMode(mode: ThemeMode) {
   const root = document.documentElement;
   // Colours must change together, not fade one by one: turn transitions off,
@@ -55,6 +83,7 @@ export function applyThemeMode(mode: ThemeMode) {
     // Storage can be blocked (private mode): the choice then lasts until reload.
   }
   void root.offsetWidth;
+  syncThemeColor(mode);
   window.setTimeout(() => root.classList.remove("theme-switching"), 50);
   window.dispatchEvent(new Event(CHANGE_EVENT));
 }

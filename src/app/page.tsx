@@ -16,8 +16,12 @@ import { Footer } from "@/components/Footer";
 export default function Home() {
   return (
     <>
+      <a href="#main" className="skip-link">
+        Перейти к содержимому
+      </a>
       <Header />
-      <Hero />
+      <main id="main">
+        <Hero />
       <Skills />
       <Studio />
       <Teacher />
@@ -29,6 +33,7 @@ export default function Home() {
       <Faq />
       <Address />
       <Booking />
+      </main>
       <Footer />
     </>
   );
