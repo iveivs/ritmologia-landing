@@ -10,7 +10,11 @@ type LogoProps = {
   spread?: boolean;
 };
 
-export function Logo({ mark = false, tone = "default", spread = false }: LogoProps) {
+export function Logo({
+  mark = false,
+  tone = "default",
+  spread = false,
+}: LogoProps) {
   const classes = [
     styles.logo,
     tone === "inverse" ? styles.inverse : "",
@@ -28,8 +32,16 @@ export function Logo({ mark = false, tone = "default", spread = false }: LogoPro
           aria-hidden="true"
           focusable="false"
         >
-          <path className={styles.markRed} fillRule="evenodd" d={logoMarkRedPath} />
-          <path className={styles.markInk} fillRule="evenodd" d={logoMarkInkPath} />
+          <path
+            className={styles.markRed}
+            fillRule="evenodd"
+            d={logoMarkRedPath}
+          />
+          <path
+            className={styles.markInk}
+            fillRule="evenodd"
+            d={logoMarkInkPath}
+          />
         </svg>
       ) : null}
       <span className={styles.words}>

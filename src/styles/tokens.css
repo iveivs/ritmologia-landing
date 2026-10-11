@@ -93,8 +93,14 @@
 :root {
   /* surfaces */
   --surface-page: light-dark(var(--cream-100), var(--ink-900));
-  --surface-sunken: light-dark(var(--cream-200), var(--ink-750)); /* alternating bands */
-  --surface-raised: light-dark(var(--cream-50), var(--ink-725)); /* cards on the page */
+  --surface-sunken: light-dark(
+    var(--cream-200),
+    var(--ink-750)
+  ); /* alternating bands */
+  --surface-raised: light-dark(
+    var(--cream-50),
+    var(--ink-725)
+  ); /* cards on the page */
   --surface-inverse: light-dark(var(--ink-900), var(--ink-950));
   --surface-inverse-raised: light-dark(var(--ink-800), var(--ink-750));
   /* the highlighted price card: dark on a light page; on a dark page it is
@@ -232,7 +238,8 @@
   --ease-out: cubic-bezier(0.2, 0.7, 0.2, 1);
   --dur-1: 120ms;
   --dur-2: 200ms;
-  --transition-ui: color var(--dur-1) var(--ease-out),
+  --transition-ui:
+    color var(--dur-1) var(--ease-out),
     background-color var(--dur-1) var(--ease-out),
     border-color var(--dur-1) var(--ease-out),
     opacity var(--dur-1) var(--ease-out);

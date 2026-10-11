@@ -42,7 +42,9 @@ const chrome = spawn(
 async function connect() {
   for (let i = 0; i < 40; i++) {
     try {
-      const targets = await (await fetch(`http://127.0.0.1:${PORT}/json`)).json();
+      const targets = await (
+        await fetch(`http://127.0.0.1:${PORT}/json`)
+      ).json();
       const page = targets.find((t) => t.type === "page");
       if (page) return page.webSocketDebuggerUrl;
     } catch {}
@@ -74,17 +76,26 @@ const inPage = () => {
     ),
   );
   const weights = new Set(
-    ["regular", "semibold", "bold"].map((k) => probe(`font-weight:var(--fw-${k})`).weight),
+    ["regular", "semibold", "bold"].map(
+      (k) => probe(`font-weight:var(--fw-${k})`).weight,
+    ),
   );
 
   // --- colour contrast (WCAG AA) ---------------------------------------------
   const parse = (c) => {
-    const m = c.match(/rgba?\(([\d.]+),\s*([\d.]+),\s*([\d.]+)(?:,\s*([\d.]+))?/);
+    const m = c.match(
+      /rgba?\(([\d.]+),\s*([\d.]+),\s*([\d.]+)(?:,\s*([\d.]+))?/,
+    );
     if (m) return [+m[1], +m[2], +m[3], m[4] === undefined ? 1 : +m[4]];
-    const s = c.match(/color\(srgb ([\d.]+) ([\d.]+) ([\d.]+)(?: \/ ([\d.]+))?\)/);
-    return s ? [s[1] * 255, s[2] * 255, s[3] * 255, s[4] === undefined ? 1 : +s[4]] : null;
+    const s = c.match(
+      /color\(srgb ([\d.]+) ([\d.]+) ([\d.]+)(?: \/ ([\d.]+))?\)/,
+    );
+    return s
+      ? [s[1] * 255, s[2] * 255, s[3] * 255, s[4] === undefined ? 1 : +s[4]]
+      : null;
   };
-  const over = (t, b) => [0, 1, 2].map((i) => t[i] * t[3] + b[i] * (1 - t[3])).concat(1);
+  const over = (t, b) =>
+    [0, 1, 2].map((i) => t[i] * t[3] + b[i] * (1 - t[3])).concat(1);
   const bgOf = (e) => {
     const layers = [];
     for (let n = e; n; n = n.parentElement) {
@@ -94,44 +105,65 @@ const inPage = () => {
         if (b[3] === 1) break;
       }
     }
-    return layers.reverse().reduce((base, l) => over(l, base), [255, 255, 255, 1]);
+    return layers
+      .reverse()
+      .reduce((base, l) => over(l, base), [255, 255, 255, 1]);
   };
   const lum = (c) => {
-    const f = (v) => ((v /= 255) <= 0.03928 ? v / 12.92 : ((v + 0.055) / 1.055) ** 2.4);
+    const f = (v) =>
+      (v /= 255) <= 0.03928 ? v / 12.92 : ((v + 0.055) / 1.055) ** 2.4;
     return 0.2126 * f(c[0]) + 0.7152 * f(c[1]) + 0.0722 * f(c[2]);
   };
-  const ratio = (a, b) => (Math.max(lum(a), lum(b)) + 0.05) / (Math.min(lum(a), lum(b)) + 0.05);
+  const ratio = (a, b) =>
+    (Math.max(lum(a), lum(b)) + 0.05) / (Math.min(lum(a), lum(b)) + 0.05);
 
   const seenFont = new Set();
   for (const e of document.querySelectorAll("body *")) {
     if (e.closest("svg,script,style,iframe,[aria-hidden='true']")) continue;
-    const hasText = [...e.childNodes].some((n) => n.nodeType === 3 && n.textContent.trim());
+    const hasText = [...e.childNodes].some(
+      (n) => n.nodeType === 3 && n.textContent.trim(),
+    );
     const cs = getComputedStyle(e);
     if (cs.display === "none" || cs.visibility === "hidden") continue;
-    const label = (e.textContent || "").trim().replace(/\s+/g, " ").slice(0, 28);
+    const label = (e.textContent || "")
+      .trim()
+      .replace(/\s+/g, " ")
+      .slice(0, 28);
     if (hasText) {
       const size = parseFloat(cs.fontSize);
-      const large = size >= 24 || (size >= 18.66 && parseInt(cs.fontWeight) >= 700);
+      const large =
+        size >= 24 || (size >= 18.66 && parseInt(cs.fontWeight) >= 700);
       const fg0 = parse(cs.color);
       if (fg0) {
         const bg = bgOf(e);
         const r = ratio(over(fg0, bg), bg);
-        if (r < (large ? 3 : 4.5)) fail("contrast", `${r.toFixed(2)}:1 «${label}»`);
+        if (r < (large ? 3 : 4.5))
+          fail("contrast", `${r.toFixed(2)}:1 «${label}»`);
       }
       const key = `${cs.fontSize}|${cs.fontWeight}|${cs.fontFamily.split(",")[0]}`;
       if (!seenFont.has(key)) {
         seenFont.add(key);
-        if (!sizes.has(cs.fontSize)) fail("type-size", `${cs.fontSize} is not on the scale («${label}»)`);
-        if (!weights.has(cs.fontWeight)) fail("type-weight", `${cs.fontWeight} («${label}»)`);
+        if (!sizes.has(cs.fontSize))
+          fail("type-size", `${cs.fontSize} is not on the scale («${label}»)`);
+        if (!weights.has(cs.fontWeight))
+          fail("type-weight", `${cs.fontWeight} («${label}»)`);
       }
     }
   }
   const families = new Set(
     [...document.querySelectorAll("body *")]
-      .filter((e) => [...e.childNodes].some((n) => n.nodeType === 3 && n.textContent.trim()))
-      .map((e) => getComputedStyle(e).fontFamily.split(",")[0].replace(/"/g, "")),
+      .filter((e) =>
+        [...e.childNodes].some((n) => n.nodeType === 3 && n.textContent.trim()),
+      )
+      .map((e) =>
+        getComputedStyle(e).fontFamily.split(",")[0].replace(/"/g, ""),
+      ),
   );
-  if (families.size > 2) fail("type-family", `${families.size} families: ${[...families].join(", ")}`);
+  if (families.size > 2)
+    fail(
+      "type-family",
+      `${families.size} families: ${[...families].join(", ")}`,
+    );
 
   // --- touch targets: 24px on desktop, 44px on phones ------------------------
   const minHit = mobile ? 44 : 24;
@@ -139,26 +171,45 @@ const inPage = () => {
     if (e.classList.contains("skip-link")) continue;
     const r = e.getBoundingClientRect();
     if (!r.width || !r.height) continue;
-    if (r.height < minHit - 0.5) fail("hit-target", `${Math.round(r.height)}px < ${minHit}px «${(e.textContent || e.getAttribute("aria-label") || "").trim().slice(0, 28)}»`);
+    if (r.height < minHit - 0.5)
+      fail(
+        "hit-target",
+        `${Math.round(r.height)}px < ${minHit}px «${(e.textContent || e.getAttribute("aria-label") || "").trim().slice(0, 28)}»`,
+      );
   }
 
   // --- structure ---------------------------------------------------------------
-  if (root.scrollWidth > root.clientWidth) fail("overflow", `horizontal scroll (${root.scrollWidth} > ${root.clientWidth})`);
-  const heads = [...document.querySelectorAll("h1,h2,h3,h4")].map((h) => +h.tagName[1]);
-  if (heads.filter((h) => h === 1).length !== 1) fail("headings", "exactly one h1 is required");
+  if (root.scrollWidth > root.clientWidth)
+    fail(
+      "overflow",
+      `horizontal scroll (${root.scrollWidth} > ${root.clientWidth})`,
+    );
+  const heads = [...document.querySelectorAll("h1,h2,h3,h4")].map(
+    (h) => +h.tagName[1],
+  );
+  if (heads.filter((h) => h === 1).length !== 1)
+    fail("headings", "exactly one h1 is required");
   heads.forEach((h, i) => {
-    if (i && h - heads[i - 1] > 1) fail("headings", `level jumps from h${heads[i - 1]} to h${h}`);
+    if (i && h - heads[i - 1] > 1)
+      fail("headings", `level jumps from h${heads[i - 1]} to h${h}`);
   });
-  for (const img of document.querySelectorAll("img")) if (!img.hasAttribute("alt")) fail("alt", img.getAttribute("src"));
+  for (const img of document.querySelectorAll("img"))
+    if (!img.hasAttribute("alt")) fail("alt", img.getAttribute("src"));
   if (!document.querySelector("main")) fail("landmarks", "no <main>");
   if (!document.querySelector("a.skip-link")) fail("landmarks", "no skip link");
   for (const a of document.querySelectorAll('a[href^="#"]')) {
     const id = a.getAttribute("href").slice(1);
-    if (id && !document.getElementById(id)) fail("anchors", `#${id} does not exist`);
+    if (id && !document.getElementById(id))
+      fail("anchors", `#${id} does not exist`);
   }
-  for (const a of document.querySelectorAll("a:not([href])")) fail("anchors", `link without href «${a.textContent.trim().slice(0, 28)}»`);
+  for (const a of document.querySelectorAll("a:not([href])"))
+    fail("anchors", `link without href «${a.textContent.trim().slice(0, 28)}»`);
   for (const a of document.querySelectorAll('a[target="_blank"]')) {
-    if (!/noopener/.test(a.rel)) fail("links", `target=_blank without rel=noopener «${a.textContent.trim().slice(0, 28)}»`);
+    if (!/noopener/.test(a.rel))
+      fail(
+        "links",
+        `target=_blank without rel=noopener «${a.textContent.trim().slice(0, 28)}»`,
+      );
   }
 
   // --- section rhythm: backgrounds strictly alternate -----------------------------
@@ -167,9 +218,21 @@ const inPage = () => {
     return c === "rgba(0, 0, 0, 0)" ? "page" : c;
   });
   const page = getComputedStyle(document.body).backgroundColor;
-  const names = bands.map((b, i) => (b === "page" ? "page" : b === page ? "page" : i === bands.length - 1 ? "inverse" : "sunken"));
+  const names = bands.map((b, i) =>
+    b === "page"
+      ? "page"
+      : b === page
+        ? "page"
+        : i === bands.length - 1
+          ? "inverse"
+          : "sunken",
+  );
   for (let i = 1; i < names.length; i++) {
-    if (names[i] === names[i - 1]) fail("rhythm", `sections ${i} and ${i + 1} share a background (${names[i]})`);
+    if (names[i] === names[i - 1])
+      fail(
+        "rhythm",
+        `sections ${i} and ${i + 1} share a background (${names[i]})`,
+      );
   }
   return fails;
 };
@@ -189,7 +252,9 @@ ws.addEventListener("message", (m) => {
 const send = (method, params = {}) =>
   new Promise((res, rej) => {
     const i = ++id;
-    pending.set(i, (d) => (d.error ? rej(new Error(`${method}: ${d.error.message}`)) : res(d.result)));
+    pending.set(i, (d) =>
+      d.error ? rej(new Error(`${method}: ${d.error.message}`)) : res(d.result),
+    );
     ws.send(JSON.stringify({ id: i, method, params }));
   });
 
@@ -203,8 +268,15 @@ try {
     ["phone 390 light", 390, true, "light"],
     ["phone 390 dark", 390, true, "dark"],
   ]) {
-    await send("Emulation.setDeviceMetricsOverride", { width, height: 900, deviceScaleFactor: 1, mobile });
-    await send("Emulation.setEmulatedMedia", { features: [{ name: "prefers-color-scheme", value: scheme }] });
+    await send("Emulation.setDeviceMetricsOverride", {
+      width,
+      height: 900,
+      deviceScaleFactor: 1,
+      mobile,
+    });
+    await send("Emulation.setEmulatedMedia", {
+      features: [{ name: "prefers-color-scheme", value: scheme }],
+    });
     await send("Page.navigate", { url: URL_ });
     await sleep(2500);
     if (process.env.SELFTEST) {
@@ -213,8 +285,12 @@ try {
         expression: `document.querySelector("main").insertAdjacentHTML("afterbegin", '<a href="#nope" style="font-size:13px;color:#bbb;background:#ddd">x</a>')`,
       });
     }
-    const r = await send("Runtime.evaluate", { expression: `(${inPage})()`, returnByValue: true });
-    if (r.exceptionDetails) throw new Error(JSON.stringify(r.exceptionDetails).slice(0, 300));
+    const r = await send("Runtime.evaluate", {
+      expression: `(${inPage})()`,
+      returnByValue: true,
+    });
+    if (r.exceptionDetails)
+      throw new Error(JSON.stringify(r.exceptionDetails).slice(0, 300));
     const fails = r.result.value;
     failed += fails.length;
     console.log(`${fails.length ? "FAIL" : "ok  "}  ${label}`);
