@@ -1,14 +1,5 @@
-.headRow {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: flex-end;
-  justify-content: space-between;
-  gap: var(--space-5);
-}
-
-.arrows {
-  display: flex;
-  gap: var(--space-3);
+.carousel {
+  position: relative;
 }
 
 .rail {
@@ -17,7 +8,92 @@
   overflow-x: auto;
   padding-bottom: var(--space-2);
   scroll-snap-type: x mandatory;
-  scrollbar-width: thin;
+  scrollbar-width: none; /* the counter and the bar below show the position */
+}
+
+.rail::-webkit-scrollbar {
+  display: none;
+}
+
+/* Arrows: bare chevrons on the rail's edges, vertically centred, 44px touch
+   target, no frame and no fill. */
+.arrow {
+  position: absolute;
+  top: 50%;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--hit-min);
+  height: var(--hit-min);
+  padding: 0;
+  color: var(--text-strong);
+  background: none;
+  border: 0;
+  cursor: pointer;
+  transform: translateY(-50%);
+  transition: var(--transition-ui);
+}
+
+.arrow:hover {
+  color: var(--color-accent-text);
+}
+
+.arrow:disabled {
+  opacity: 0.25;
+  cursor: default;
+  pointer-events: none;
+}
+
+.chevron {
+  width: var(--space-6);
+  height: var(--space-6);
+  stroke-width: var(--border-heavy);
+}
+
+.prev {
+  left: calc(var(--space-3) * -1);
+}
+
+.prev .chevron {
+  transform: scaleX(-1);
+}
+
+.next {
+  right: calc(var(--space-3) * -1);
+}
+
+/* Position: "1–3 из 15" and a thin bar whose thumb shows the window. */
+.progress {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.track {
+  --first: 0;
+  --total: 1;
+  --visible: 1;
+
+  position: relative;
+  height: var(--border-strong);
+  background: var(--line-hairline);
+}
+
+.thumb {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: calc(var(--first, 0) / var(--total, 1) * 100%);
+  width: calc(var(--visible, 1) / var(--total, 1) * 100%);
+  background: var(--color-accent);
+  transition: left var(--dur-2) var(--ease-out);
+}
+
+@media (max-width: 640px) {
+  .arrow {
+    display: none; /* swipe on phones */
+  }
 }
 
 .slide {
