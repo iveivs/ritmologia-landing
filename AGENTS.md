@@ -54,6 +54,11 @@ This block is written and re-added by `next dev` — verify at `node_modules/nex
 
 ## Правила вёрстки (единая система — соблюдать всегда)
 
+> Остальные базовые документы: [`docs/ENGINEERING.md`](docs/ENGINEERING.md)
+> (архитектура и правила кода), [`CONTRIBUTING.md`](CONTRIBUTING.md) (ветки,
+> коммиты, Pull Request, релизы), [`CHANGELOG.md`](CHANGELOG.md). Прямых
+> пушей в `main` нет: работа идёт в ветке через Pull Request.
+
 > **Главный документ — [`docs/DESIGN-STANDARD.md`](docs/DESIGN-STANDARD.md)**:
 > единый стандарт (цвет, шрифты, отступы, компоненты, ритм секций,
 > доступность, темы) и таблица «что чем проверяется». Правила ниже его
@@ -67,12 +72,13 @@ This block is written and re-added by `next dev` — verify at `node_modules/nex
 сборкой в CI. Если сторож ругается — исправляй код, а не отключай проверку.
 
 **Токены — три слоя, ссылаться можно только вниз по списку:**
-1. *Палитра* (`--red-500`, `--ink-900`, `--cream-100` …) — **только** внутри
+
+1. _Палитра_ (`--red-500`, `--ink-900`, `--cream-100` …) — **только** внутри
    `tokens.css`. В компонентах палитру использовать запрещено.
-2. *Роли* (`--color-accent`, `--text-strong`, `--text-inverse`,
+2. _Роли_ (`--color-accent`, `--text-strong`, `--text-inverse`,
    `--surface-page`, `--surface-inverse`, `--line-hairline` …) — то, чем
    пользуются компоненты. Нужен новый смысл цвета — добавь роль в слой 2.
-3. *Шкалы* (`--fs-*`, `--fw-*`, `--space-*`, `--control-h-*`, `--radius-*` …).
+3. _Шкалы_ (`--fs-*`, `--fw-*`, `--space-*`, `--control-h-*`, `--radius-*` …).
 
 Компонент может объявлять **локальные токены** из слоёв 2–3 (как `--btn-bg`
 в кнопке или `--card-bg` в карточке) и описывать варианты данными, а не
@@ -100,7 +106,7 @@ This block is written and re-added by `next dev` — verify at `node_modules/nex
   `DisplayHeading`). Не стилизуй заголовки/подписи/абзацы в CSS секции.
 - **Повторяющиеся блоки — только готовыми компонентами**, не копией стилей:
   кнопка — `Button` (варианты `primary | outline | dark | inverse |
-  inverseOutline`, размеры `sm | md | lg` = 40/48/56 px, `square` для
+inverseOutline`, размеры `sm | md | lg` = 40/48/56 px, `square` для
   иконок), карточка — `Card`, кадр с фиксированной пропорцией — `Frame`, а
   картинка внутри — `Photo` (сам добавляет basePath), рамка телефона —
   `PhoneFrame`. Новый вариант кнопки или карточки — это несколько
