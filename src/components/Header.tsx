@@ -1,5 +1,6 @@
 import { Button } from "./ui/Button";
 import { Logo } from "./ui/Logo";
+import { ThemeCycle } from "./ui/ThemeCycle";
 import { contactLinks, navLinks, telegramLinks } from "@/lib/content";
 import styles from "./Header.module.css";
 
@@ -17,8 +18,10 @@ export function Header() {
             rel="noopener noreferrer"
             className={styles.topbarLink}
           >
-            Telegram {contactLinks.telegramLabel}
+            <span className={styles.telegramWord}>Telegram </span>
+            {contactLinks.telegramLabel}
           </a>
+          <ThemeCycle className={`${styles.topbarLink} ${styles.themeButton}`} />
         </div>
       </div>
       <div className={`container ${styles.inner}`}>

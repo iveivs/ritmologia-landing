@@ -10,8 +10,9 @@
 
 .topbarInner {
   display: flex;
+  flex-wrap: wrap; /* on the narrowest phones the theme button drops to a second row */
   justify-content: flex-end;
-  gap: var(--space-6);
+  gap: 0 var(--space-6);
   padding-block: var(--space-2);
 }
 
@@ -26,6 +27,14 @@
 
 .topbarLink:hover {
   color: var(--text-strong);
+}
+
+/* the theme switch is a <button> styled like the links next to it */
+.themeButton {
+  padding: 0;
+  background: none;
+  border: 0;
+  cursor: pointer;
 }
 
 .inner {
@@ -91,9 +100,20 @@
 @media (max-width: 640px) {
   /* Bigger tap targets, phone on the left, Telegram on the right. */
   .topbarInner {
+    align-items: center;
     justify-content: space-between;
-    gap: var(--space-4);
+    gap: var(--space-1) var(--space-2);
     padding-block: var(--space-3);
+  }
+
+  /* secondary control: smaller, so the three items share one row at 360–390px */
+  .themeButton {
+    font-size: var(--fs-xs);
+  }
+
+  /* "@iveivs" alone is enough on phones: it frees room for the theme switch */
+  .telegramWord {
+    display: none;
   }
 
   .inner {
