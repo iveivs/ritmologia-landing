@@ -15,7 +15,12 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
+  # Same checks as for pull requests; the site is published only if they pass.
+  checks:
+    uses: ./.github/workflows/ci.yml
+
   build:
+    needs: checks
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -24,14 +29,11 @@ jobs:
       - name: Set up Node
         uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: 22
           cache: npm
 
       - name: Install dependencies
         run: npm ci
-
-      - name: Lint (ESLint + design-token guard)
-        run: npm run lint
 
       - name: Build static export
         run: npm run build

@@ -8,7 +8,9 @@
   width: var(--hit-min);
   height: var(--hit-min);
   margin-block: calc((var(--hit-min) - var(--space-5)) / -2);
-  margin-inline-end: calc((var(--hit-min) - 1.25rem) / -2); /* icon edge meets the gutter */
+  margin-inline-end: calc(
+    (var(--hit-min) - 1.25rem) / -2
+  ); /* icon edge meets the gutter */
   padding: 0;
   color: var(--text-muted);
   background: none;

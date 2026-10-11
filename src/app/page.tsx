@@ -22,17 +22,17 @@ export default function Home() {
       <Header />
       <main id="main">
         <Hero />
-      <Skills />
-      <Studio />
-      <Teacher />
-      <Online />
-      <Diary />
-      <Platform />
-      <Reviews />
-      <Prices />
-      <Faq />
-      <Address />
-      <Booking />
+        <Skills />
+        <Studio />
+        <Teacher />
+        <Online />
+        <Diary />
+        <Platform />
+        <Reviews />
+        <Prices />
+        <Faq />
+        <Address />
+        <Booking />
       </main>
       <Footer />
     </>

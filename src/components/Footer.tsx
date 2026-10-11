@@ -2,12 +2,7 @@ import { StripeRule } from "./ui/StripeRule";
 import { Logo } from "./ui/Logo";
 import { Meta } from "./ui/Typography";
 import { ThemeToggle } from "./ui/ThemeToggle";
-import {
-  city,
-  contactLinks,
-  footerColumns,
-  sellerInfo,
-} from "@/lib/content";
+import { city, contactLinks, footerColumns, sellerInfo } from "@/lib/content";
 import styles from "./Footer.module.css";
 
 export function Footer() {

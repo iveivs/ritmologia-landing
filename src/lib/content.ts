@@ -221,7 +221,9 @@ const telegramChat = (text?: string) =>
 
 export const telegramLinks = {
   plain: telegramChat(),
-  trial: telegramChat("Здравствуйте! Хочу записаться на бесплатный пробный урок."),
+  trial: telegramChat(
+    "Здравствуйте! Хочу записаться на бесплатный пробный урок.",
+  ),
   question: telegramChat("Здравствуйте! Хочу узнать про занятия."),
 };
 

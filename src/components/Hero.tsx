@@ -32,7 +32,12 @@ export function Hero() {
             барабанами. <br />
             Первый урок — бесплатно.
           </Lead>
-          <Button variant="primary" size="lg" href="#booking" className="self-start">
+          <Button
+            variant="primary"
+            size="lg"
+            href="#booking"
+            className="self-start"
+          >
             Записаться на бесплатный урок
           </Button>
           <Meta>Сыграй свой первый бит</Meta>

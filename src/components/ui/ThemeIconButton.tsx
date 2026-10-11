@@ -14,7 +14,8 @@ export function ThemeIconButton({ className }: { className?: string }) {
   useThemeColorSync();
   const theme = useEffectiveTheme();
   const target = theme === "dark" ? "light" : "dark";
-  const label = target === "dark" ? "Включить тёмную тему" : "Включить светлую тему";
+  const label =
+    target === "dark" ? "Включить тёмную тему" : "Включить светлую тему";
 
   return (
     <button

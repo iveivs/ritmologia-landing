@@ -20,7 +20,12 @@ export function SectionHeading({
   tone?: Tone;
 }) {
   return (
-    <h2 className={cx(styles.heading, tone === "inverse" && styles.headingInverse)}>
+    <h2
+      className={cx(
+        styles.heading,
+        tone === "inverse" && styles.headingInverse,
+      )}
+    >
       {children}
     </h2>
   );
@@ -40,7 +45,9 @@ export function SectionLabel({
   tone?: Tone;
 }) {
   return (
-    <span className={cx(styles.label, tone === "inverse" && styles.labelInverse)}>
+    <span
+      className={cx(styles.label, tone === "inverse" && styles.labelInverse)}
+    >
       {children}
     </span>
   );

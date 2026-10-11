@@ -7,7 +7,5 @@ type TagProps = {
 };
 
 export function Tag({ tone = "neutral", children }: TagProps) {
-  return (
-    <span className={`${styles.tag} ${styles[tone]}`}>{children}</span>
-  );
+  return <span className={`${styles.tag} ${styles[tone]}`}>{children}</span>;
 }
