@@ -54,6 +54,7 @@
 
 .feature {
   display: flex;
+  align-items: baseline; /* the numeral shares the first line's baseline */
   gap: var(--space-3);
   font-size: var(--fs-md);
   line-height: var(--lh-body);

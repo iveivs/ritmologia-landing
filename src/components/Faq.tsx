@@ -37,11 +37,13 @@ export function Faq() {
             Написать в Telegram
           </Button>
         </div>
-        <div>
+        <ul>
           {faqItems.map((item) => (
-            <FaqItem key={item.q} question={item.q} answer={item.a} />
+            <li key={item.q}>
+              <FaqItem question={item.q} answer={item.a} />
+            </li>
           ))}
-        </div>
+        </ul>
       </div>
       <script
         type="application/ld+json"

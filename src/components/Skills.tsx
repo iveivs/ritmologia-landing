@@ -12,19 +12,18 @@ export function Skills() {
             НЕ ПРОСТО
             <br />
             ПОВТОРЯТЬ —
-            <br />
-            А ИГРАТЬ ОСОЗНАННО
+            <br />А ИГРАТЬ ОСОЗНАННО
           </SectionHeading>
         </div>
-        <div className={styles.grid}>
+        <ol className={styles.grid}>
           {skillsItems.map((item) => (
-            <div key={item.index} className={styles.item}>
+            <li key={item.index} className={styles.item}>
               <Index>{item.index}</Index>
               <h3 className={styles.itemTitle}>{item.title}</h3>
               <Body>{item.text}</Body>
-            </div>
+            </li>
           ))}
-        </div>
+        </ol>
       </div>
     </section>
   );

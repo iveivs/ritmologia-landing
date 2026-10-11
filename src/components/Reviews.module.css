@@ -21,8 +21,14 @@
 }
 
 .slide {
+  display: flex;
   flex: 0 0 min(100%, 22.5rem);
   scroll-snap-align: start;
+}
+
+/* the card fills the slide so every card in the rail has the same height */
+.slide > * {
+  flex: 1;
 }
 
 .stars {

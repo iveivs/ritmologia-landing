@@ -39,14 +39,14 @@ export function PriceCard({
         <span className={styles.price}>{price}</span>
         <span className={styles.unit}>{unit}</span>
       </div>
-      <ul className={styles.features}>
+      <ol className={styles.features}>
         {features.map((feature, i) => (
           <li key={feature} className={styles.feature}>
             <Index>{String(i + 1).padStart(2, "0")}</Index>
             <span>{feature}</span>
           </li>
         ))}
-      </ul>
+      </ol>
       <Button
         variant={featured ? "inverse" : "outline"}
         full
