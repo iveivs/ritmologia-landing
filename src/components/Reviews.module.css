@@ -2,6 +2,15 @@
   position: relative;
 }
 
+/* Wide screens: the cards leave a 44px lane on each side for the chevrons, so
+   the arrows never sit on a card. The counter lines up with the cards. */
+@media (min-width: 641px) {
+  .carousel,
+  .progress {
+    padding-inline: var(--hit-min);
+  }
+}
+
 .rail {
   display: flex;
   gap: var(--space-5);
@@ -15,7 +24,7 @@
   display: none;
 }
 
-/* Arrows: bare chevrons on the rail's edges, vertically centred, 44px touch
+/* Arrows: bare chevrons in the side lanes, vertically centred, 44px touch
    target, no frame and no fill. */
 .arrow {
   position: absolute;
@@ -52,7 +61,7 @@
 }
 
 .prev {
-  left: calc(var(--space-3) * -1);
+  left: 0;
 }
 
 .prev .chevron {
@@ -60,7 +69,7 @@
 }
 
 .next {
-  right: calc(var(--space-3) * -1);
+  right: 0;
 }
 
 /* Position: "1–3 из 15" and a thin bar whose thumb shows the window. */

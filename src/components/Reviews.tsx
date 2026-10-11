@@ -100,8 +100,8 @@ export function Reviews() {
         </div>
         <div className="stack">
           <div className={styles.carousel}>
-            {/* Bare chevrons on the rail's edges, no frame or fill; they sit over
-                the card padding, never over text. On phones the rail is swiped. */}
+            {/* Bare chevrons in the lanes beside the rail, no frame or fill, so
+                they never cover a card. On phones the rail is swiped. */}
             <button
               type="button"
               className={`${styles.arrow} ${styles.prev}`}
