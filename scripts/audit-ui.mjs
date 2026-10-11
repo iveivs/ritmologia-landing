@@ -249,7 +249,7 @@ const inPage = () => {
     }
   }
 
-  // --- accordion lists (FAQ): a heavy rule only on top, hairlines between rows -----------
+  // --- accordion lists (FAQ): hairline separators only (the zebra gives the rhythm) -----------
   // (card-like items, e.g. "what we teach", carry their own heavy rule: exempt)
   const topWidth = (li) =>
     Math.max(
@@ -268,11 +268,11 @@ const inPage = () => {
           r.top >= rects[i - 1].bottom - 1),
     );
     if (!stacked) continue;
-    const heavy = items.slice(1).filter((li) => topWidth(li) > 1.5).length;
+    const heavy = items.filter((li) => topWidth(li) > 1.5).length;
     if (heavy)
       fail(
         "list-rules",
-        `${heavy} rows in a stacked list have a heavy separator; only the first row may`,
+        `${heavy} accordion rows have a heavy separator; hairlines only`,
       );
   }
 

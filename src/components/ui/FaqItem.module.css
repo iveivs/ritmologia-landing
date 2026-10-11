@@ -3,15 +3,11 @@
   border-top: var(--border-hairline) solid var(--line-hairline);
 }
 
-/* Zebra: every other row sits on the page colour, so the eye follows one row
-   at a time along a long list. */
+/* Zebra: every other row is lifted onto the "raised" surface (lighter than the
+   band in both themes), so the eye follows one row at a time. Not the page
+   colour: that would merge with the neighbouring sections. */
 .row:nth-child(odd) {
-  background: var(--surface-page);
-}
-
-/* Same rule as the other lists on the page: a heavy ink line on top. */
-.row:first-child {
-  border-top: var(--border-heavy) solid var(--line-ink);
+  background: var(--surface-raised);
 }
 
 .row:last-child {
