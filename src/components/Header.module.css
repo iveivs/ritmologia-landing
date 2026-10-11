@@ -106,7 +106,7 @@
     padding-block: var(--space-3);
   }
 
-  /* secondary control: smaller, so the three items share one row at 360–390px */
+  /* secondary control: smaller, so the three items share one row */
   .themeButton {
     font-size: var(--fs-xs);
   }
@@ -140,6 +140,14 @@
   }
 
   .cta {
+    display: none;
+  }
+}
+
+/* Small phones (narrower than 390px) have no room for it: the theme choice
+   lives only in the footer there. The one deliberate extra breakpoint. */
+@media (max-width: 389px) {
+  .themeButton {
     display: none;
   }
 }

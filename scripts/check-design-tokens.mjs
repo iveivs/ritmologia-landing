@@ -54,7 +54,8 @@ for (const file of files) {
   const allowed = new Set(
     (text.match(/token-check:allow-file\s+([^\n(*]*)/)?.[1] ?? "").trim().split(/\s+/).filter(Boolean),
   );
-  const lines = text.split("\n");
+  // blank out /* block comments */ (also multi-line ones) but keep line numbers
+  const lines = text.replace(/\/\*[\s\S]*?\*\//g, (m) => m.replace(/[^\n]/g, " ")).split("\n");
 
   lines.forEach((raw, i) => {
     const n = i + 1;
