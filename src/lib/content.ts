@@ -240,20 +240,11 @@ export const sellerInfo =
 
 export const footerColumns: {
   title: string;
-  links: { label: string; href?: string }[];
+  links: { label: string; href: string }[];
 }[] = [
-  {
-    title: "Школа",
-    links: [
-      { label: "Программы", href: "#programs" },
-      { label: "Педагоги", href: "#teacher" },
-      { label: "Студия", href: "#studio" },
-    ],
-  },
   {
     title: "Ученикам",
     links: [
-      { label: "Оплата", href: "#prices" },
       { label: "Личный кабинет", href: "#cabinet" },
       { label: "Вопросы", href: "#faq" },
     ],
