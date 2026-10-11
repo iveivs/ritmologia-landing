@@ -1,34 +1,45 @@
-.headRow {
+/* A plain grid: everything is visible, nothing hides behind arrows. A first
+   batch is shown, "show all" reveals the rest (tiers are set in Reviews.tsx). */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--space-5);
+}
+
+.item {
+  display: flex;
+}
+
+/* the card fills its cell so every card in a row has the same height */
+.item > * {
+  flex: 1;
+}
+
+.grid[data-expanded="false"] .item[data-tier="2"] {
+  display: none;
+}
+
+.more {
   display: flex;
   flex-wrap: wrap;
-  align-items: flex-end;
-  justify-content: space-between;
-  gap: var(--space-5);
+  align-items: center;
+  gap: var(--space-4) var(--space-5);
 }
 
-.arrows {
-  display: flex;
-  gap: var(--space-3);
+@media (max-width: 900px) {
+  .grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
 }
 
-.rail {
-  display: flex;
-  gap: var(--space-5);
-  overflow-x: auto;
-  padding-bottom: var(--space-2);
-  scroll-snap-type: x mandatory;
-  scrollbar-width: thin;
-}
+@media (max-width: 640px) {
+  .grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
 
-.slide {
-  display: flex;
-  flex: 0 0 min(100%, 22.5rem);
-  scroll-snap-align: start;
-}
-
-/* the card fills the slide so every card in the rail has the same height */
-.slide > * {
-  flex: 1;
+  .grid[data-expanded="false"] .item[data-tier="1"] {
+    display: none;
+  }
 }
 
 .stars {
