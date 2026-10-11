@@ -36,7 +36,7 @@ const screens = [
 export function Platform() {
   return (
     <section id="cabinet" className="section">
-      <div className="container split split--5-7">
+      <div className="container split split--7-5 split--reverse">
         <div className="stack">
           <div className={styles.eyebrow}>
             <SectionLabel>06 / Личный кабинет</SectionLabel>

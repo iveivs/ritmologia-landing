@@ -234,6 +234,31 @@ const inPage = () => {
         `sections ${i} and ${i + 1} share a background (${names[i]})`,
       );
   }
+
+  // --- composition rhythm: text side alternates between neighbouring sections ----
+  // "text-left" = text first, media second; "media-left" = reversed. Full-width
+  // sections (reviews, prices) and the hero/booking ends break the chain.
+  const sections = [...document.querySelectorAll("main > section")].slice(
+    1,
+    -1,
+  );
+  const sides = sections.map((s) => {
+    const split = s.querySelector(":scope > .split");
+    if (!split) return null;
+    return split.classList.contains("split--reverse")
+      ? "media-left"
+      : "text-left";
+  });
+  sides.forEach((side, i) => {
+    if (side && side === sides[i - 1]) {
+      const label = (el) =>
+        (el.textContent || "").trim().replace(/\s+/g, " ").slice(0, 22);
+      fail(
+        "composition",
+        `«${label(sections[i - 1])}» and «${label(sections[i])}» are both ${side}`,
+      );
+    }
+  });
   return fails;
 };
 
