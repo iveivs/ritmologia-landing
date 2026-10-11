@@ -249,6 +249,33 @@ const inPage = () => {
     }
   }
 
+  // --- accordion lists (FAQ): a heavy rule only on top, hairlines between rows -----------
+  // (card-like items, e.g. "what we teach", carry their own heavy rule: exempt)
+  const topWidth = (li) =>
+    Math.max(
+      parseFloat(getComputedStyle(li).borderTopWidth),
+      parseFloat(getComputedStyle(li.firstElementChild ?? li).borderTopWidth),
+    );
+  for (const list of document.querySelectorAll("ul,ol")) {
+    const items = [...list.children].filter((r) => r.tagName === "LI");
+    if (items.length < 3 || !list.querySelector(":scope > li > details"))
+      continue;
+    const rects = items.map((r) => r.getBoundingClientRect());
+    const stacked = rects.every(
+      (r, i) =>
+        !i ||
+        (Math.abs(r.left - rects[0].left) < 2 &&
+          r.top >= rects[i - 1].bottom - 1),
+    );
+    if (!stacked) continue;
+    const heavy = items.slice(1).filter((li) => topWidth(li) > 1.5).length;
+    if (heavy)
+      fail(
+        "list-rules",
+        `${heavy} rows in a stacked list have a heavy separator; only the first row may`,
+      );
+  }
+
   // --- composition rhythm: text side alternates between neighbouring sections ----
   // "text-left" = text first, media second; "media-left" = reversed. Full-width
   // sections (reviews, prices) and the hero/booking ends break the chain.

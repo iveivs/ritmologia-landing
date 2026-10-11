@@ -28,7 +28,7 @@ export function Faq() {
           </SectionHeading>
           <Body>Не нашли ответ? Напишите, отвечу в мессенджере.</Body>
           <Button
-            variant="outline"
+            size="lg"
             href={telegramLinks.question}
             target="_blank"
             rel="noopener noreferrer"
@@ -39,9 +39,7 @@ export function Faq() {
         </div>
         <ul>
           {faqItems.map((item) => (
-            <li key={item.q}>
-              <FaqItem question={item.q} answer={item.a} />
-            </li>
+            <FaqItem key={item.q} question={item.q} answer={item.a} />
           ))}
         </ul>
       </div>

@@ -1,13 +1,13 @@
-.item {
+.row {
   border-top: var(--border-hairline) solid var(--line-hairline);
 }
 
 /* Same rule as the other lists on the page: a heavy ink line on top. */
-.item:first-child {
+.row:first-child {
   border-top: var(--border-heavy) solid var(--line-ink);
 }
 
-.item:last-child {
+.row:last-child {
   border-bottom: var(--border-hairline) solid var(--line-hairline);
 }
 

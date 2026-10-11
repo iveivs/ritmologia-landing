@@ -65,7 +65,7 @@ export function Platform() {
             href={platformLink.href}
             target="_blank"
             rel="noopener noreferrer"
-            size="lg"
+            variant="outline"
             className="self-start"
           >
             Открыть «Тьюттори»
