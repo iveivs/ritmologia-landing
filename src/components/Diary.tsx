@@ -1,15 +1,8 @@
 import Image from "next/image";
 import { withBasePath } from "@/lib/basePath";
 import { PhoneFrame } from "./ui/PhoneFrame";
-import { Tag } from "./ui/Tag";
-import {
-  Accent,
-  Body,
-  Lead,
-  Meta,
-  SectionHeading,
-  SectionLabel,
-} from "./ui/Typography";
+import { Eyebrow } from "./ui/Eyebrow";
+import { Accent, Body, Lead, Meta, SectionHeading } from "./ui/Typography";
 import styles from "./Diary.module.css";
 
 export function Diary() {
@@ -17,10 +10,7 @@ export function Diary() {
     <section className="section section--sunken">
       <div className="container split split--5-7">
         <div className="stack">
-          <div className={styles.eyebrow}>
-            <SectionLabel>05 / Дневник барабанщика</SectionLabel>
-            <Tag tone="accent">Только для учеников</Tag>
-          </div>
+          <Eyebrow label="05 / Дневник барабанщика" tag="Только для учеников" />
           <SectionHeading>
             ПРОГРЕСС,
             <br />

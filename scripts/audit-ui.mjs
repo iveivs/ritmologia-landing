@@ -235,6 +235,20 @@ const inPage = () => {
       );
   }
 
+  // --- one pattern, one look: a section label's tag is always under it -----------
+  for (const eyebrow of document.querySelectorAll('[class*="Eyebrow"]')) {
+    const [label, tag] = eyebrow.children;
+    if (
+      tag &&
+      tag.getBoundingClientRect().top < label.getBoundingClientRect().bottom - 1
+    ) {
+      fail(
+        "eyebrow",
+        `tag shares a line with the label «${label.textContent.trim().slice(0, 28)}»`,
+      );
+    }
+  }
+
   // --- composition rhythm: text side alternates between neighbouring sections ----
   // "text-left" = text first, media second; "media-left" = reversed. Full-width
   // sections (reviews, prices) and the hero/booking ends break the chain.

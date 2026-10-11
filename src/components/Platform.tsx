@@ -3,15 +3,8 @@ import { withBasePath } from "@/lib/basePath";
 import { platformLink } from "@/lib/content";
 import { Button } from "./ui/Button";
 import { PhoneFrame } from "./ui/PhoneFrame";
-import { Tag } from "./ui/Tag";
-import {
-  Accent,
-  Body,
-  Lead,
-  Meta,
-  SectionHeading,
-  SectionLabel,
-} from "./ui/Typography";
+import { Eyebrow } from "./ui/Eyebrow";
+import { Accent, Body, Lead, Meta, SectionHeading } from "./ui/Typography";
 import styles from "./Platform.module.css";
 
 // Screenshots show demo data with invented students.
@@ -38,10 +31,7 @@ export function Platform() {
     <section id="cabinet" className="section">
       <div className="container split split--7-5 split--reverse">
         <div className="stack">
-          <div className={styles.eyebrow}>
-            <SectionLabel>06 / Личный кабинет</SectionLabel>
-            <Tag tone="accent">Для учеников</Tag>
-          </div>
+          <Eyebrow label="06 / Личный кабинет" tag="Для учеников" />
           <div className={styles.brand}>
             <Image
               className={styles.logo}
