@@ -20,7 +20,7 @@ export function Reviews() {
   };
 
   return (
-    <section className="section section--sunken section--flush-top">
+    <section className="section section--sunken">
       <div className="container stack stack--xl">
         <div className={styles.headRow}>
           <div className="stack">

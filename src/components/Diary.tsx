@@ -14,8 +14,7 @@ import styles from "./Diary.module.css";
 
 export function Diary() {
   return (
-    // Same background as the "Online" section above: no top padding.
-    <section className="section section--flush-top">
+    <section className="section section--sunken">
       <div className="container split split--5-7">
         <div className="stack">
           <div className={styles.eyebrow}>

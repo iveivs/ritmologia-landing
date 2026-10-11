@@ -35,7 +35,7 @@ const screens = [
 
 export function Platform() {
   return (
-    <section className="section section--sunken">
+    <section className="section">
       <div className="container split split--5-7">
         <div className="stack">
           <div className={styles.eyebrow}>

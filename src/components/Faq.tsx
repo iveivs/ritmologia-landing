@@ -17,7 +17,7 @@ const faqJsonLd = JSON.stringify({
 export function Faq() {
   return (
     // Same background as the prices above: no top padding.
-    <section id="faq" className="section section--flush-top">
+    <section id="faq" className="section section--sunken">
       <div className="container split split--5-7 split--start">
         <div className="stack">
           <SectionLabel>08 / Вопросы</SectionLabel>
