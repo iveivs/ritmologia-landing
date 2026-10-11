@@ -11,6 +11,12 @@
 
    Components keep their own small, local tokens (e.g. --btn-bg in Button)
    built from layers 2–3, never from layer 1.
+
+   THEMES (light / dark). Every themed role is ONE line: light-dark(light, dark).
+   `color-scheme` picks the side: the system setting by default, or the visitor's
+   explicit choice via <html data-theme="light|dark"> (see ThemeToggle).
+   Adding a role that differs between themes = add its light-dark() line here AND
+   its light value to the @supports fallback (checked by the guard).
    `npm run lint` enforces this (scripts/check-design-tokens.mjs).
 
    Breakpoints (media queries cannot use variables, keep them literal):
@@ -30,9 +36,17 @@
   --ink-800: #241d18;
   --ink-700: #3c322b;
   --ink-500: #6b5c52;
+  --ink-300: #a99c91; /* muted text on dark */
+  --ink-750: #2a221c; /* raised surface on dark */
+  --ink-850: #211a16; /* sunken band on dark */
+  --ink-950: #0e0a08; /* deepest dark band */
+  --cream-400: #d6cbc0; /* body text on dark */
   --red-700: #8e1b12;
   --red-600: #a81f15;
   --red-500: #c62a1e;
+  --red-300: #e86a5a; /* accent used as text on dark (AA contrast) */
+  --red-logo: #dd2017;
+  --black: #000000;
   --olive-500: #5e6b4a;
   --amber-500: #b8801f;
 }
@@ -40,43 +54,106 @@
 /* --------------------------------------------------------------------------
    2. SEMANTIC (roles)
    -------------------------------------------------------------------------- */
+
+/* 2a. Same in both themes */
 :root {
-  /* brand accent: CTA, active nav, indexes, stars, markers, focus ring */
+  /* brand fills: CTA, tags, stripes */
   --color-accent: var(--red-500);
   --color-accent-hover: var(--red-600);
   --color-accent-press: var(--red-700);
   --color-on-accent: var(--cream-25);
 
-  /* surfaces */
-  --surface-page: var(--cream-100);
-  --surface-sunken: var(--cream-200); /* alternating bands */
-  --surface-raised: var(--cream-50); /* cards on the page */
-  --surface-inverse: var(--ink-900); /* dark band, dark controls */
-  --surface-inverse-raised: var(--ink-800); /* cards and bars on dark */
+  /* dark bands (booking, footer, featured card) are dark in BOTH themes */
   --surface-inverse-action: var(--cream-100); /* light button on a dark band */
   --surface-inverse-action-hover: var(--sand-300);
-
-  /* text */
-  --text-strong: var(--ink-900);
-  --text-body: var(--ink-700);
-  --text-muted: var(--ink-500);
+  --text-on-action: var(--ink-900); /* text on that light button */
   --text-inverse: var(--cream-100);
   --text-inverse-muted: var(--sand-300);
-
-  /* lines (derived from the palette, so they follow it) */
-  --line-hairline: color-mix(in srgb, var(--ink-900) 12%, transparent);
-  --line-strong: color-mix(in srgb, var(--ink-900) 28%, transparent);
-  --line-ink: var(--ink-900);
+  /* accent as text on a dark surface (e.g. the featured price card) */
+  --color-accent-on-inverse: var(--red-300);
   --line-inverse: color-mix(in srgb, var(--cream-100) 22%, transparent);
 
   /* feedback and decoration */
-  --focus-ring: var(--color-accent);
   --status-ok: var(--olive-500);
   --status-warn: var(--amber-500);
+}
 
-  /* elevation */
-  --shadow-raised: 0 12px 32px -18px
-    color-mix(in srgb, var(--ink-900) 28%, transparent);
+/* 2b. Themed roles: light-dark(<light>, <dark>) */
+:root {
+  color-scheme: light dark; /* follow the system by default */
+}
+:root[data-theme="light"] {
+  color-scheme: light;
+}
+:root[data-theme="dark"] {
+  color-scheme: dark;
+}
+
+:root {
+  /* surfaces */
+  --surface-page: light-dark(var(--cream-100), var(--ink-900));
+  --surface-sunken: light-dark(var(--cream-200), var(--ink-850)); /* alternating bands */
+  --surface-raised: light-dark(var(--cream-50), var(--ink-750)); /* cards on the page */
+  --surface-inverse: light-dark(var(--ink-900), var(--ink-950));
+  --surface-inverse-raised: light-dark(var(--ink-800), var(--ink-750));
+  /* the highlighted price card: dark on a light page; on a dark page it is
+     the deepest surface with an accent outline */
+  --surface-featured: light-dark(var(--ink-800), var(--ink-950));
+  --line-featured: light-dark(var(--line-inverse), var(--color-accent));
+  /* the hero poster is artwork drawn on cream: on a dark page it sits on its own cream panel */
+  --surface-poster: light-dark(transparent, var(--cream-100));
+
+  /* text */
+  --text-strong: light-dark(var(--ink-900), var(--cream-100));
+  --text-body: light-dark(var(--ink-700), var(--cream-400));
+  --text-muted: light-dark(var(--ink-500), var(--ink-300));
+  /* the accent colour AS TEXT / line: lighter on dark to keep AA contrast */
+  --color-accent-text: light-dark(var(--red-500), var(--red-300));
+
+  /* lines (derived from the palette, so they follow it) */
+  --line-hairline: light-dark(
+    color-mix(in srgb, var(--ink-900) 12%, transparent),
+    color-mix(in srgb, var(--cream-100) 14%, transparent)
+  );
+  --line-strong: light-dark(
+    color-mix(in srgb, var(--ink-900) 28%, transparent),
+    color-mix(in srgb, var(--cream-100) 30%, transparent)
+  );
+  --line-ink: var(--text-strong);
+
+  /* logo mark: two colours, drawn as inline SVG so both can follow the theme */
+  --logo-red: var(--red-logo);
+  --logo-ink: light-dark(var(--black), var(--cream-100));
+
+  --focus-ring: var(--color-accent-text);
+  --shadow-color: light-dark(
+    color-mix(in srgb, var(--ink-900) 28%, transparent),
+    color-mix(in srgb, var(--black) 60%, transparent)
+  );
+  --shadow-raised: 0 12px 32px -18px var(--shadow-color);
+}
+
+/* Browsers without light-dark() get the light theme. Keep in sync with 2b
+   (scripts/check-design-tokens.mjs verifies it). */
+@supports not (color: light-dark(#000, #fff)) {
+  :root {
+    --surface-page: var(--cream-100);
+    --surface-sunken: var(--cream-200);
+    --surface-raised: var(--cream-50);
+    --surface-inverse: var(--ink-900);
+    --surface-inverse-raised: var(--ink-800);
+    --surface-featured: var(--ink-800);
+    --line-featured: var(--line-inverse);
+    --surface-poster: transparent;
+    --text-strong: var(--ink-900);
+    --text-body: var(--ink-700);
+    --text-muted: var(--ink-500);
+    --color-accent-text: var(--red-500);
+    --line-hairline: color-mix(in srgb, var(--ink-900) 12%, transparent);
+    --line-strong: color-mix(in srgb, var(--ink-900) 28%, transparent);
+    --logo-ink: var(--black);
+    --shadow-color: color-mix(in srgb, var(--ink-900) 28%, transparent);
+  }
 }
 
 /* --------------------------------------------------------------------------

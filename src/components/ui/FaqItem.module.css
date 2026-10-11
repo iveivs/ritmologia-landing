@@ -31,7 +31,7 @@
 }
 
 .question:hover {
-  color: var(--color-accent-hover);
+  color: var(--color-accent-text);
 }
 
 /* "+" / "−" built from two bars: the vertical one disappears when open. */

@@ -7,9 +7,15 @@
 
 .mark {
   display: block;
+  width: var(--logo-mark);
   height: var(--logo-mark);
-  width: auto;
-  object-fit: contain;
+}
+
+.markRed {
+  fill: var(--logo-red);
+}
+.markInk {
+  fill: var(--logo-ink);
 }
 
 .words {

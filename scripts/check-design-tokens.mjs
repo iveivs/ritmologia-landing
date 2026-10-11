@@ -14,6 +14,8 @@
  *                 use --space-*, --border-*, --radius-* …
  *   inline-style  no style={{…}} in components.
  *   unknown-var   var(--x) must be defined (globally or as a local token).
+ *   theme-parity  every themed role in tokens.css (light-dark(...)) must also
+ *                 appear in the @supports fallback block for old browsers.
  *
  * Opt out per file, explicitly and visibly, with a comment such as:
  *   // token-check:allow-file inline-style px (reason)
@@ -89,6 +91,25 @@ for (const file of files) {
       add(file, n, "inline-style", "inline style: move it to a CSS module using tokens");
     }
   });
+}
+
+// ---- theme parity: light-dark() roles <-> @supports fallback ----
+{
+  const css = readFileSync(TOKENS, "utf8");
+  const marker = css.indexOf("@supports not (color: light-dark");
+  if (marker === -1) {
+    violations.push(`${relative(ROOT, TOKENS)}:1  [theme-parity]  missing the @supports fallback block`);
+  } else {
+    const fallbackEnd = css.indexOf("/* ----", marker);
+    const fallback = css.slice(marker, fallbackEnd === -1 ? undefined : fallbackEnd);
+    const themed = [...css.slice(0, marker).matchAll(/(--[\w-]+)\s*:\s*light-dark\(/g)].map((m) => m[1]);
+    const inFallback = new Set([...fallback.matchAll(/(--[\w-]+)\s*:/g)].map((m) => m[1]));
+    for (const name of themed) {
+      if (!inFallback.has(name)) {
+        violations.push(`${relative(ROOT, TOKENS)}:1  [theme-parity]  ${name} is themed but missing from the @supports fallback`);
+      }
+    }
+  }
 }
 
 if (violations.length) {

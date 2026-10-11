@@ -7,6 +7,9 @@
 .photo {
   position: relative;
   min-height: 26rem;
+  overflow: hidden;
+  background: var(--surface-poster);
+  border-radius: var(--radius-2);
 }
 
 /* Tablets and phones: the poster comes first and the button sits right under

@@ -1,6 +1,7 @@
 import { StripeRule } from "./ui/StripeRule";
 import { Logo } from "./ui/Logo";
 import { Meta } from "./ui/Typography";
+import { ThemeToggle } from "./ui/ThemeToggle";
 import { footerColumns, contacts, sellerInfo } from "@/lib/content";
 import styles from "./Footer.module.css";
 
@@ -40,10 +41,13 @@ export function Footer() {
             </div>
           </div>
           <div className={styles.note}>
-            <Meta tone="inverse">
-              Ритмология · школа барабанов · пробный урок бесплатно
-            </Meta>
-            <Meta tone="inverse">{sellerInfo}</Meta>
+            <div className={styles.noteText}>
+              <Meta tone="inverse">
+                Ритмология · школа барабанов · пробный урок бесплатно
+              </Meta>
+              <Meta tone="inverse">{sellerInfo}</Meta>
+            </div>
+            <ThemeToggle />
           </div>
         </div>
       </div>

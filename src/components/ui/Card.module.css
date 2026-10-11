@@ -22,16 +22,22 @@
   --card-fg: var(--text-body);
   --card-line: var(--line-hairline);
 }
-.inverse {
-  --card-bg: var(--surface-inverse-raised);
+.featured {
+  --card-bg: var(--surface-featured);
   --card-fg: var(--text-inverse);
-  --card-line: var(--line-inverse);
+  --card-line: var(--line-featured);
 }
 /* transparent outlined block on a dark band */
 .inverseOutline {
   --card-bg: transparent;
   --card-fg: var(--text-inverse);
   --card-line: var(--line-inverse);
+}
+
+/* dark cards: red numerals and marks use the lighter accent to stay readable */
+.featured,
+.inverseOutline {
+  --color-accent-text: var(--color-accent-on-inverse);
 }
 
 /* padding and gap variants */

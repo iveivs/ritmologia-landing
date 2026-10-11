@@ -60,6 +60,13 @@ button {
   font: inherit;
 }
 
+/* While the theme changes, colours must change together, not fade one by one. */
+:root.theme-switching *,
+:root.theme-switching *::before,
+:root.theme-switching *::after {
+  transition: none !important;
+}
+
 :focus-visible {
   outline: var(--focus-width) solid var(--focus-ring);
   outline-offset: var(--focus-offset);

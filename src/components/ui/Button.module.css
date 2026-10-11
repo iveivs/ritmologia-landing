@@ -99,9 +99,10 @@
 .outline {
   --btn-fg: var(--text-strong);
   --btn-border: var(--line-ink);
-  --btn-bg-hover: var(--surface-inverse);
-  --btn-fg-hover: var(--text-inverse);
-  --btn-border-hover: var(--surface-inverse);
+  /* hover fills with the text colour: ink on light, cream on dark */
+  --btn-bg-hover: var(--text-strong);
+  --btn-fg-hover: var(--surface-page);
+  --btn-border-hover: var(--text-strong);
 }
 
 .dark {
@@ -115,7 +116,7 @@
 /* ---- variants (on dark surfaces) ---- */
 .inverse {
   --btn-bg: var(--surface-inverse-action);
-  --btn-fg: var(--text-strong);
+  --btn-fg: var(--text-on-action);
   --btn-border: var(--surface-inverse-action);
   --btn-bg-hover: var(--surface-inverse-action-hover);
   --btn-border-hover: var(--surface-inverse-action-hover);
@@ -125,6 +126,6 @@
   --btn-fg: var(--text-inverse);
   --btn-border: var(--text-inverse);
   --btn-bg-hover: var(--surface-inverse-action);
-  --btn-fg-hover: var(--text-strong);
+  --btn-fg-hover: var(--text-on-action);
   --btn-border-hover: var(--surface-inverse-action);
 }

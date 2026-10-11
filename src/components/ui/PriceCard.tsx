@@ -28,7 +28,7 @@ export function PriceCard({
 
   return (
     <Card
-      tone={featured ? "inverse" : "paper"}
+      tone={featured ? "featured" : "paper"}
       className={featured ? styles.featured : undefined}
     >
       <div className={styles.head}>

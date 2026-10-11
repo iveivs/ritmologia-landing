@@ -1,5 +1,4 @@
-import Image from "next/image";
-import { withBasePath } from "@/lib/basePath";
+import { logoMarkInkPath, logoMarkRedPath } from "./logoMarkPaths";
 import styles from "./Logo.module.css";
 
 type LogoProps = {
@@ -23,13 +22,15 @@ export function Logo({ mark = false, tone = "default", spread = false }: LogoPro
   return (
     <span className={classes}>
       {mark ? (
-        <Image
-          src={withBasePath("/images/logo-mark.svg")}
-          alt=""
-          width={1024}
-          height={1024}
+        <svg
           className={styles.mark}
-        />
+          viewBox="0 0 1024 1024"
+          aria-hidden="true"
+          focusable="false"
+        >
+          <path className={styles.markRed} fillRule="evenodd" d={logoMarkRedPath} />
+          <path className={styles.markInk} fillRule="evenodd" d={logoMarkInkPath} />
+        </svg>
       ) : null}
       <span className={styles.words}>
         <span className={styles.name}>Ритмология</span>

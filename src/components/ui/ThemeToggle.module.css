@@ -1,0 +1,34 @@
+/* Lives in the (always dark) footer, so it uses the inverse roles. */
+.group {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-1) var(--space-3);
+  font-family: var(--font-mono);
+  font-size: var(--fs-sm);
+  line-height: var(--lh-snug);
+  letter-spacing: var(--ls-mono);
+  color: var(--text-inverse-muted);
+}
+
+.option {
+  min-height: var(--control-h-sm);
+  padding: 0 var(--space-2);
+  font: inherit;
+  letter-spacing: inherit;
+  color: inherit;
+  background: none;
+  border: 0;
+  border-bottom: var(--border-strong) solid transparent;
+  cursor: pointer;
+  transition: var(--transition-ui);
+}
+
+.option:hover {
+  color: var(--text-inverse);
+}
+
+.option[aria-pressed="true"] {
+  color: var(--text-inverse);
+  border-bottom-color: var(--color-accent);
+}

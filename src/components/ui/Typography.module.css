@@ -24,7 +24,7 @@
 }
 
 .accent {
-  color: var(--color-accent);
+  color: var(--color-accent-text);
 }
 
 .label {
@@ -81,5 +81,5 @@
   font-size: var(--fs-sm);
   line-height: var(--lh-snug);
   letter-spacing: var(--ls-mono);
-  color: var(--color-accent);
+  color: var(--color-accent-text);
 }
