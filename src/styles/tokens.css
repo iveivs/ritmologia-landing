@@ -245,6 +245,7 @@
   --ease-out: cubic-bezier(0.2, 0.7, 0.2, 1);
   --dur-1: 120ms;
   --dur-2: 200ms;
+  --dur-3: 600ms; /* scroll reveal */
   --transition-ui:
     color var(--dur-1) var(--ease-out),
     background-color var(--dur-1) var(--ease-out),
@@ -257,5 +258,6 @@
   :root {
     --dur-1: 0ms;
     --dur-2: 0ms;
+    --dur-3: 0ms;
   }
 }

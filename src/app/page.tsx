@@ -12,6 +12,7 @@ import { Faq } from "@/components/Faq";
 import { Address } from "@/components/Address";
 import { Booking } from "@/components/Booking";
 import { Footer } from "@/components/Footer";
+import { RevealOnScroll } from "@/components/ui/RevealOnScroll";
 
 export default function Home() {
   return (
@@ -19,6 +20,7 @@ export default function Home() {
       <a href="#main" className="skip-link">
         Перейти к содержимому
       </a>
+      <RevealOnScroll />
       <Header />
       <main id="main">
         <Hero />

@@ -78,32 +78,22 @@
   align-self: flex-start;
 }
 
-/* Gentle reveal on scroll: a block fades in and rises a little while it enters
-   the viewport. Driven by the scroll position (no JS, no timers), so it never
-   hides content: browsers without scroll-driven animations, and visitors who
-   ask for reduced motion, simply see the finished page. */
-@keyframes reveal {
-  from {
-    opacity: 0;
-    transform: translateY(var(--space-5));
-  }
-  to {
-    opacity: 1;
-    transform: none;
-  }
+/* Gentle reveal: a block fades in and rises a little, once, when it first
+   comes into view (RevealOnScroll adds .reveal-ready and then .reveal--in).
+   Without JS, without IntersectionObserver or with reduced motion the
+   ready-class is never set, so nothing is hidden. */
+.reveal {
+  transition:
+    opacity var(--dur-3) var(--ease-out),
+    transform var(--dur-3) var(--ease-out);
 }
 
-@supports (animation-timeline: view()) {
-  @media (prefers-reduced-motion: no-preference) {
-    .reveal {
-      animation: reveal var(--ease-out) both;
-      animation-timeline: view();
-      animation-range: entry 0% entry 35%;
-    }
+.reveal-ready .reveal:not(.reveal--in) {
+  opacity: 0;
+  transform: translateY(var(--space-5));
+}
 
-    /* the second block of a pair follows a beat later */
-    .reveal--late {
-      animation-range: entry 8% entry 45%;
-    }
-  }
+/* the second block of a pair follows a beat later */
+.reveal--late {
+  transition-delay: var(--dur-1);
 }
