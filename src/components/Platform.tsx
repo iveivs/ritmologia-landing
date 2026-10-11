@@ -12,17 +12,14 @@ import styles from "./Platform.module.css";
 const screens = [
   {
     src: "/images/tyuttori-home.webp",
-    caption: "Расписание",
     alt: "Тьюттори — ближайший урок и кнопки переноса и отмены",
   },
   {
     src: "/images/tyuttori-lesson.webp",
-    caption: "Материалы урока",
     alt: "Тьюттори — домашнее задание, заметка ученика и документы урока",
   },
   {
     src: "/images/tyuttori-balance.webp",
-    caption: "Баланс",
     alt: "Тьюттори — баланс оплаченных занятий и история",
   },
 ];
@@ -30,19 +27,9 @@ const screens = [
 export function Platform() {
   return (
     <section id="cabinet" className="section">
-      <div className="container split split--7-5 split--reverse">
+      <div className="container split split--7-5 split--reverse split--stretch">
         <div className="stack">
           <Eyebrow label="06 / Личный кабинет" tag="Для учеников" />
-          <div className={styles.brand}>
-            <Image
-              className={styles.logo}
-              src={withBasePath("/images/tyuttori-logo.webp")}
-              alt=""
-              width={192}
-              height={192}
-            />
-            <Meta>Тьюттори · {platformLink.label}</Meta>
-          </div>
           <SectionHeading>
             ВСЁ ПО УРОКАМ
             <br />
@@ -72,6 +59,16 @@ export function Platform() {
           </Button>
         </div>
         <Card tone="sunken" className={styles.stage}>
+          <div className={styles.brand}>
+            <Image
+              className={styles.logo}
+              src={withBasePath("/images/tyuttori-logo.webp")}
+              alt=""
+              width={192}
+              height={192}
+            />
+            <Meta>Тьюттори · {platformLink.label}</Meta>
+          </div>
           <ul className={styles.phones}>
             {screens.map((screen) => (
               <li key={screen.src} className={styles.item}>
@@ -83,7 +80,6 @@ export function Platform() {
                     height={1112}
                   />
                 </PhoneFrame>
-                <Meta>{screen.caption}</Meta>
               </li>
             ))}
           </ul>
