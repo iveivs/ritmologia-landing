@@ -28,7 +28,7 @@ export function Platform() {
   return (
     <section id="cabinet" className="section">
       <div className="container split split--7-5 split--reverse split--stretch">
-        <div className="stack">
+        <div className="stack reveal">
           <Eyebrow label="06 / Личный кабинет" tag="Для учеников" />
           <SectionHeading>
             ВСЁ ПО УРОКАМ
@@ -58,7 +58,7 @@ export function Platform() {
             Открыть «Тьюттори»
           </Button>
         </div>
-        <Card tone="sunken" className={styles.stage}>
+        <Card tone="sunken" className={`${styles.stage} reveal reveal--late`}>
           <div className={styles.brand}>
             <Image
               className={styles.logo}

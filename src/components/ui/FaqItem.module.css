@@ -3,9 +3,13 @@
   border-top: var(--border-hairline) solid var(--line-hairline);
 }
 
-/* Zebra: every other row is lifted onto the "raised" surface (lighter than the
-   band in both themes), so the eye follows one row at a time. Not the page
-   colour: that would merge with the neighbouring sections. */
+/* Zebra: both stripes sit slightly above the band, in both themes, so the list
+   reads as one block and the eye follows one row at a time. The page colour is
+   not used: it would merge with the neighbouring sections. */
+.row {
+  background: var(--surface-raised-soft);
+}
+
 .row:nth-child(odd) {
   background: var(--surface-raised);
 }

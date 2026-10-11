@@ -19,7 +19,7 @@ export function Faq() {
     // Same background as the prices above: no top padding.
     <section id="faq" className="section section--sunken">
       <div className="container split split--5-7 split--start">
-        <div className="stack">
+        <div className="stack reveal">
           <SectionLabel>08 / Вопросы</SectionLabel>
           <SectionHeading>
             ЧАСТЫЕ
@@ -37,7 +37,7 @@ export function Faq() {
             Написать в Telegram
           </Button>
         </div>
-        <ul>
+        <ul className="reveal reveal--late">
           {faqItems.map((item) => (
             <FaqItem key={item.q} question={item.q} answer={item.a} />
           ))}

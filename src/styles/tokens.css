@@ -101,6 +101,13 @@
     var(--cream-50),
     var(--ink-725)
   ); /* cards on the page */
+  /* halfway between the band and a raised card: the second stripe of a zebra,
+     so that NEITHER stripe equals the band it lies on */
+  --surface-raised-soft: color-mix(
+    in srgb,
+    var(--surface-sunken) 50%,
+    var(--surface-raised)
+  );
   --surface-inverse: light-dark(var(--ink-900), var(--ink-950));
   --surface-inverse-raised: light-dark(var(--ink-800), var(--ink-750));
   /* the highlighted price card: dark on a light page; on a dark page it is
