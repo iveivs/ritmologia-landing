@@ -19,19 +19,13 @@ export function Hero() {
             If you add/remove/reorder children here, update the nth-child
             order rules there. */}
         <div className={`stack stack--lg ${styles.copy}`}>
-          <SectionLabel>Санкт-Петербург</SectionLabel>
+          <SectionLabel>{heroCopy.eyebrow}</SectionLabel>
           <DisplayHeading>
-            {heroCopy.line1}
+            {heroCopy.title}
             <br />
-            {heroCopy.line2}
-            <br />
-            <Accent>{heroCopy.line3}</Accent>
+            <Accent>{heroCopy.accent}</Accent>
           </DisplayHeading>
-          <Lead>
-            Развиваем чувство ритма, ставим технику и учимся уверенно играть за
-            барабанами. <br />
-            Первый урок — бесплатно.
-          </Lead>
+          <Lead>{heroCopy.lead}</Lead>
           <Button
             variant="primary"
             size="lg"
@@ -40,7 +34,7 @@ export function Hero() {
           >
             Записаться на бесплатный урок
           </Button>
-          <Meta>Сыграй свой первый бит</Meta>
+          <Meta>{heroCopy.note}</Meta>
         </div>
         <div className={styles.photo}>
           <Photo
