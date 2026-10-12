@@ -247,7 +247,7 @@
   --dur-1: 120ms;
   --dur-2: 200ms;
   --dur-3: 1000ms; /* scroll reveal */
-  --dur-loop: 800ms; /* one beat of the drum loader */
+  --dur-loop: 900ms; /* one turn of the spinner */
   --transition-ui:
     color var(--dur-1) var(--ease-out),
     background-color var(--dur-1) var(--ease-out),

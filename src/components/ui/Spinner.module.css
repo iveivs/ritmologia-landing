@@ -1,0 +1,40 @@
+.pill {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-2) var(--space-4) var(--space-2) var(--space-3);
+  color: var(--text-strong);
+  background: var(--surface-raised);
+  border: var(--border-hairline) solid var(--line-hairline);
+  border-radius: var(--radius-pill);
+  box-shadow: var(--shadow-raised);
+}
+
+.ring {
+  flex: 0 0 auto;
+  width: var(--space-5);
+  height: var(--space-5);
+  animation: spin var(--dur-loop) linear infinite;
+}
+
+.track,
+.arc {
+  stroke-width: var(--border-heavy);
+}
+
+.track {
+  stroke: var(--line-strong);
+}
+
+/* a quarter of the circle (the circumference is about 56.5) */
+.arc {
+  stroke: var(--color-accent-text);
+  stroke-linecap: round;
+  stroke-dasharray: 14 43;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}

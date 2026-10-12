@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { Button } from "./Button";
-import { DrumLoader } from "./DrumLoader";
+import { Spinner } from "./Spinner";
 import { Frame } from "./Frame";
 import { Photo } from "./Photo";
 import { Meta } from "./Typography";
@@ -53,7 +53,7 @@ export function MapEmbed({ src, alt }: MapEmbedProps) {
         )}
         {live && !loaded ? (
           <div className={styles.overlay}>
-            <DrumLoader
+            <Spinner
               label={
                 slow
                   ? "Карта не открылась. Попробуйте «Открыть в Яндекс Картах»"
