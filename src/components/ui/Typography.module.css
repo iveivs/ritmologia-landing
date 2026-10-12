@@ -2,7 +2,7 @@
    components instead of styling text themselves. */
 
 .display {
-  font-size: var(--fs-display);
+  font-size: var(--fs-display-fit);
   font-weight: var(--fw-bold);
   line-height: var(--lh-tight);
   letter-spacing: var(--ls-tight);

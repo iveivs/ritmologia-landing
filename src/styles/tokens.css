@@ -191,6 +191,9 @@
   --fs-xl: 2.75rem; /* 44 */
   --fs-h2: clamp(1.375rem, 0.75rem + 3vw, 2.75rem);
   --fs-display: clamp(2.5rem, 6vw, 5.5rem);
+  /* the hero title may be capped by its column (see Hero.module.css); elsewhere
+     it is simply the display size */
+  --fs-display-fit: var(--fs-display);
 
   --lh-none: 1;
   --lh-tight: 1.1;

@@ -143,7 +143,12 @@ const inPage = () => {
       const key = `${cs.fontSize}|${cs.fontWeight}|${cs.fontFamily.split(",")[0]}`;
       if (!seenFont.has(key)) {
         seenFont.add(key);
-        if (!sizes.has(cs.fontSize))
+        // the hero title may shrink below the display size to fit its column
+        const fitsDisplay =
+          e.closest("h1") &&
+          parseFloat(cs.fontSize) <=
+            parseFloat(probe("font-size:var(--fs-display)").size) + 0.5;
+        if (!sizes.has(cs.fontSize) && !fitsDisplay)
           fail("type-size", `${cs.fontSize} is not on the scale («${label}»)`);
         if (!weights.has(cs.fontWeight))
           fail("type-weight", `${cs.fontWeight} («${label}»)`);
@@ -249,6 +254,16 @@ const inPage = () => {
     }
   }
 
+  // --- headings never overflow their box (a long word under a neighbour) --------
+  for (const h of document.querySelectorAll("h1,h2")) {
+    if (h.scrollWidth > h.clientWidth + 1) {
+      fail(
+        "heading-fit",
+        `«${h.textContent.trim().slice(0, 28)}» is wider than its column (${h.scrollWidth} > ${h.clientWidth})`,
+      );
+    }
+  }
+
   // --- accordion lists (FAQ): hairline separators only (the zebra gives the rhythm) -----------
   // (card-like items, e.g. "what we teach", carry their own heavy rule: exempt)
   const topWidth = (li) =>
@@ -329,6 +344,9 @@ try {
   await send("Page.enable");
   await send("Runtime.enable");
   for (const [label, width, mobile, scheme] of [
+    ["tablet 1024 dark", 1024, false, "dark"],
+    ["wide 1440 light", 1440, false, "light"],
+    ["small laptop 920 dark", 920, false, "dark"],
     ["desktop 1280 light", 1280, false, "light"],
     ["desktop 1280 dark", 1280, false, "dark"],
     ["phone 390 light", 390, true, "light"],

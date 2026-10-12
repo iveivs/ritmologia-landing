@@ -1,5 +1,11 @@
 .copy {
   justify-content: flex-end;
+
+  /* The title must always fit its column: its longest word ("БАРАБАНОВ") is about
+     6.8 em wide, so the size is capped at 14.2% of the column width. Below 900px
+     the column is full width and the plain display size fits. */
+  container-type: inline-size;
+  --fs-display-fit: min(var(--fs-display), 14.2cqi);
 }
 
 /* The photo's own background matches --surface-page, so no frame or radius:
@@ -19,6 +25,8 @@
 @media (max-width: 900px) {
   div.copy {
     display: contents;
+    container-type: normal;
+    --fs-display-fit: var(--fs-display);
   }
 
   .photo {
