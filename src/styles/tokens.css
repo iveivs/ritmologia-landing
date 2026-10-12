@@ -257,6 +257,7 @@
   --stagger-step-fine: 40ms; /* ... for many thin items (stripes) */
   --zoom-scale: 1.03; /* photo zoom on hover */
   --dur-zoom: 700ms; /* ... and how long it takes */
+  --dur-nudge: 3200ms; /* the up-arrow nudges once per cycle, then rests */
   --transition-ui:
     color var(--dur-1) var(--ease-out),
     background-color var(--dur-1) var(--ease-out),
@@ -274,5 +275,6 @@
     --stagger-step: 0ms;
     --stagger-step-fine: 0ms;
     --dur-zoom: 0ms;
+    --dur-nudge: 0ms;
   }
 }

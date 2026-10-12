@@ -24,3 +24,20 @@
   height: var(--space-5);
   stroke-width: var(--border-heavy);
 }
+
+/* A small upward nudge now and then, to hint that the button lifts you up:
+   one short move, then a long rest. Only while the button is shown. */
+.dock[data-visible="true"] .arrow {
+  animation: nudge var(--dur-nudge) var(--ease-soft) infinite;
+}
+
+@keyframes nudge {
+  0%,
+  40%,
+  100% {
+    transform: none;
+  }
+  18% {
+    transform: translateY(calc(var(--space-1) * -1));
+  }
+}
