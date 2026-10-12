@@ -25,7 +25,7 @@ export function RevealOnScroll() {
       { threshold: 0.1, rootMargin: "0px 0px -12% 0px" },
     );
     document
-      .querySelectorAll(".reveal")
+      .querySelectorAll(".reveal, .reveal-stagger, .reveal-lines")
       .forEach((element) => observer.observe(element));
     document.documentElement.classList.add("reveal-ready");
     return () => {

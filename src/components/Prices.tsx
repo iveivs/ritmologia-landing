@@ -7,7 +7,7 @@ const NBSP = " "; // keeps "1 800 ₽" on one line
 export function Prices() {
   return (
     <section id="prices" className="section">
-      <div className={`container ${styles.grid}`}>
+      <div className={`container ${styles.grid} reveal-stagger`}>
         <PriceCard
           title="Пробный урок"
           price={`0${NBSP}₽`}

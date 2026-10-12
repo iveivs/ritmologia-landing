@@ -28,3 +28,15 @@
 .r9x16 {
   aspect-ratio: 9 / 16;
 }
+
+/* Photo zoom on hover: a very small scale inside the frame, mouse devices only,
+   never with reduced motion. */
+.zoom img {
+  transition: transform var(--dur-zoom) var(--ease-soft);
+}
+
+@media (hover: hover) and (prefers-reduced-motion: no-preference) {
+  .zoom:hover img {
+    transform: scale(var(--zoom-scale));
+  }
+}

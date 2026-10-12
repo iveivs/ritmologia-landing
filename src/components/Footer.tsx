@@ -13,7 +13,12 @@ export function Footer() {
           <div className={styles.grid}>
             <div className={`stack ${styles.brand}`}>
               <Logo tone="inverse" />
-              <StripeRule count={14} thickness={18} length="180px" />
+              <StripeRule
+                count={14}
+                thickness={18}
+                length="180px"
+                className="reveal-stagger reveal-stagger--bars"
+              />
             </div>
             {footerColumns.map((column) => (
               <div key={column.title} className={styles.column}>
@@ -52,6 +57,7 @@ export function Footer() {
           </div>
         </div>
       </div>
+      <div id="page-end" className={styles.end} aria-hidden="true" />
     </footer>
   );
 }

@@ -1,6 +1,6 @@
 .footer {
   background: var(--surface-inverse);
-  padding-bottom: var(--space-6);
+  padding-bottom: 0;
 }
 
 .rule {
@@ -102,4 +102,10 @@ a.contact:hover {
     align-items: center;
     min-height: var(--hit-min);
   }
+}
+
+/* The empty strip at the very end of the page: the back-to-top button rests
+   here (see ui/BackToTop). */
+.end {
+  height: calc(var(--space-8) + var(--space-4));
 }

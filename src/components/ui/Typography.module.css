@@ -19,6 +19,36 @@
   color: var(--text-strong);
   text-wrap: balance;
 }
+/* Heading lines: each line is masked and rises when the heading is revealed
+   (RevealOnScroll adds .reveal--in). Never hidden without JS. */
+.line {
+  display: block;
+  padding-block: 0.1em;
+  margin-block: -0.1em;
+  overflow: hidden;
+}
+
+.lineInner {
+  display: block;
+  transition: transform var(--dur-3) var(--ease-soft);
+}
+
+:global(.reveal-ready)
+  :global(.reveal-lines):not(:global(.reveal--in))
+  .lineInner {
+  transform: translateY(110%);
+}
+
+.line:nth-child(2) .lineInner {
+  transition-delay: var(--stagger-step);
+}
+.line:nth-child(3) .lineInner {
+  transition-delay: calc(var(--stagger-step) * 2);
+}
+.line:nth-child(4) .lineInner {
+  transition-delay: calc(var(--stagger-step) * 3);
+}
+
 .headingInverse {
   color: var(--text-inverse);
 }

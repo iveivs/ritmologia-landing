@@ -49,7 +49,7 @@ export function Teacher() {
           </div>
         </div>
         <div className={styles.collage}>
-          <Frame ratio="4/5">
+          <Frame ratio="4/5" zoom>
             <Photo
               src="/images/teacher-studio.webp"
               alt="Светослав Богданов за установкой в студии"
@@ -58,14 +58,14 @@ export function Teacher() {
             />
           </Frame>
           <div className={styles.subGrid}>
-            <Frame ratio="4/3">
+            <Frame ratio="4/3" zoom>
               <Photo
                 src="/images/teacher-lesson.webp"
                 alt="Занятие с учеником"
                 sizes="(max-width: 900px) 50vw, 20vw"
               />
             </Frame>
-            <Frame ratio="4/3">
+            <Frame ratio="4/3" zoom>
               <Photo
                 src="/images/teacher-concert.webp"
                 alt="Концерт с группой"

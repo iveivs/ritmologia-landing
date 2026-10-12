@@ -1,0 +1,26 @@
+.dock {
+  position: fixed;
+  right: var(--space-5);
+  bottom: var(--space-5);
+  z-index: 15;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(var(--space-3));
+  transition:
+    opacity var(--dur-2) var(--ease-out),
+    transform var(--dur-2) var(--ease-out),
+    visibility 0s linear var(--dur-2);
+}
+
+.dock[data-visible="true"] {
+  opacity: 1;
+  visibility: visible;
+  transform: none;
+  transition-delay: 0s;
+}
+
+.arrow {
+  width: var(--space-5);
+  height: var(--space-5);
+  stroke-width: var(--border-heavy);
+}

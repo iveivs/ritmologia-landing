@@ -1,0 +1,26 @@
+.bar {
+  display: none;
+}
+
+@supports (animation-timeline: scroll()) {
+  .bar {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 20;
+    display: block;
+    height: calc(var(--border-heavy) * 1.5);
+    background: var(--color-accent);
+    transform: scaleX(0);
+    transform-origin: left;
+    animation: fill linear both;
+    animation-timeline: scroll(root);
+  }
+}
+
+@keyframes fill {
+  to {
+    transform: scaleX(1);
+  }
+}

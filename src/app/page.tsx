@@ -13,6 +13,8 @@ import { Address } from "@/components/Address";
 import { Booking } from "@/components/Booking";
 import { Footer } from "@/components/Footer";
 import { RevealOnScroll } from "@/components/ui/RevealOnScroll";
+import { ScrollProgress } from "@/components/ui/ScrollProgress";
+import { BackToTop } from "@/components/ui/BackToTop";
 
 export default function Home() {
   return (
@@ -21,6 +23,7 @@ export default function Home() {
         Перейти к содержимому
       </a>
       <RevealOnScroll />
+      <ScrollProgress />
       <Header />
       <main id="main">
         <Hero />
@@ -37,6 +40,7 @@ export default function Home() {
         <Booking />
       </main>
       <Footer />
+      <BackToTop />
     </>
   );
 }

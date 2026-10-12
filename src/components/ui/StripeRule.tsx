@@ -3,6 +3,7 @@ type StripeRuleProps = {
   count?: number;
   length?: string;
   thickness?: number;
+  className?: string;
 };
 
 /** The "rhythm lines" motif from the logo, in the accent colour. */
@@ -10,9 +11,11 @@ export function StripeRule({
   count = 16,
   length = "100%",
   thickness = 28,
+  className,
 }: StripeRuleProps) {
   return (
     <div
+      className={className}
       aria-hidden="true"
       style={{
         display: "flex",

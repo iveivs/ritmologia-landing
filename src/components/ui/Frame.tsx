@@ -14,15 +14,18 @@ type FrameProps = {
   bordered?: boolean;
   /** No corner radius (e.g. inside a device screen that clips it). */
   square?: boolean;
+  /** A photo that zooms in slightly on hover (devices with a mouse only). */
+  zoom?: boolean;
   children: ReactNode;
 };
 
-export function Frame({ ratio, bordered, square, children }: FrameProps) {
+export function Frame({ ratio, bordered, square, zoom, children }: FrameProps) {
   const classes = [
     styles.frame,
     ratioClass[ratio],
     bordered ? styles.bordered : "",
     square ? styles.square : "",
+    zoom ? styles.zoom : "",
   ]
     .filter(Boolean)
     .join(" ");

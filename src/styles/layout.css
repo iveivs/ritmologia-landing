@@ -97,3 +97,82 @@
 .reveal--late {
   transition-delay: var(--dur-2);
 }
+
+/* Cascade: the children of a .reveal-stagger block appear one after another
+   (--step apart) when the block comes into view. */
+.reveal-stagger {
+  --step: var(--stagger-step);
+}
+
+.reveal-stagger > * {
+  transition:
+    opacity var(--dur-3) var(--ease-soft),
+    transform var(--dur-3) var(--ease-soft);
+}
+
+.reveal-ready .reveal-stagger:not(.reveal--in) > * {
+  opacity: 0;
+  transform: translateY(var(--space-6));
+}
+
+.reveal-stagger > :nth-child(2) {
+  transition-delay: calc(var(--step) * 1);
+}
+.reveal-stagger > :nth-child(3) {
+  transition-delay: calc(var(--step) * 2);
+}
+.reveal-stagger > :nth-child(4) {
+  transition-delay: calc(var(--step) * 3);
+}
+.reveal-stagger > :nth-child(5) {
+  transition-delay: calc(var(--step) * 4);
+}
+.reveal-stagger > :nth-child(6) {
+  transition-delay: calc(var(--step) * 5);
+}
+.reveal-stagger > :nth-child(7) {
+  transition-delay: calc(var(--step) * 6);
+}
+.reveal-stagger > :nth-child(8) {
+  transition-delay: calc(var(--step) * 7);
+}
+.reveal-stagger > :nth-child(9) {
+  transition-delay: calc(var(--step) * 8);
+}
+.reveal-stagger > :nth-child(10) {
+  transition-delay: calc(var(--step) * 9);
+}
+.reveal-stagger > :nth-child(11) {
+  transition-delay: calc(var(--step) * 10);
+}
+.reveal-stagger > :nth-child(12) {
+  transition-delay: calc(var(--step) * 11);
+}
+.reveal-stagger > :nth-child(13) {
+  transition-delay: calc(var(--step) * 12);
+}
+.reveal-stagger > :nth-child(14) {
+  transition-delay: calc(var(--step) * 13);
+}
+.reveal-stagger > :nth-child(15) {
+  transition-delay: calc(var(--step) * 14);
+}
+.reveal-stagger > :nth-child(16) {
+  transition-delay: calc(var(--step) * 15);
+}
+
+/* Stripes: thin bars "play" like a beat, growing one by one from the baseline
+   (no opacity: each bar keeps its own). */
+.reveal-stagger--bars {
+  --step: var(--stagger-step-fine);
+}
+
+.reveal-stagger--bars > * {
+  transform-origin: bottom;
+  transition: transform var(--dur-3) var(--ease-soft);
+}
+
+.reveal-ready .reveal-stagger--bars:not(.reveal--in) > * {
+  opacity: unset;
+  transform: scaleY(0);
+}

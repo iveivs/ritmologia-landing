@@ -253,6 +253,10 @@
   --dur-2: 200ms;
   --dur-3: 1400ms; /* scroll reveal */
   --dur-loop: 900ms; /* one turn of the spinner */
+  --stagger-step: 100ms; /* pause between items of a cascade */
+  --stagger-step-fine: 40ms; /* ... for many thin items (stripes) */
+  --zoom-scale: 1.03; /* photo zoom on hover */
+  --dur-zoom: 700ms; /* ... and how long it takes */
   --transition-ui:
     color var(--dur-1) var(--ease-out),
     background-color var(--dur-1) var(--ease-out),
@@ -267,5 +271,8 @@
     --dur-2: 0ms;
     --dur-3: 0ms;
     --dur-loop: 0ms;
+    --stagger-step: 0ms;
+    --stagger-step-fine: 0ms;
+    --dur-zoom: 0ms;
   }
 }

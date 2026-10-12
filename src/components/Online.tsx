@@ -43,7 +43,7 @@ export function Online() {
           <Meta ruled>камера · пэд с палочками</Meta>
         </div>
         <div className={styles.media}>
-          <Frame ratio="3/2">
+          <Frame ratio="3/2" zoom>
             <Photo
               src="/images/online-lesson.webp"
               alt="Онлайн-занятие: преподаватель за ноутбуком, пэд и палочки"

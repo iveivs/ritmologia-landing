@@ -34,7 +34,7 @@ export function Studio() {
             <span>звукоизолированный зал</span>
           </Meta>
         </div>
-        <Frame ratio="4/3">
+        <Frame ratio="4/3" zoom>
           <Photo
             src="/images/studio-pro.webp"
             alt="Студия школы: установка Sonor, мониторы Yamaha"

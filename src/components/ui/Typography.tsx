@@ -11,12 +11,15 @@ export function DisplayHeading({ children }: { children: ReactNode }) {
   return <h1 className={styles.display}>{children}</h1>;
 }
 
-/** Section H2 — one size for every section. */
+/** Section H2 — one size for every section. Pass `lines` instead of children
+ *  to make each line rise from under a mask when the heading comes into view. */
 export function SectionHeading({
   children,
+  lines,
   tone = "default",
 }: {
-  children: ReactNode;
+  children?: ReactNode;
+  lines?: ReactNode[];
   tone?: Tone;
 }) {
   return (
@@ -24,9 +27,16 @@ export function SectionHeading({
       className={cx(
         styles.heading,
         tone === "inverse" && styles.headingInverse,
+        lines && "reveal-lines",
       )}
     >
-      {children}
+      {lines
+        ? lines.map((line, i) => (
+            <span key={i} className={styles.line}>
+              <span className={styles.lineInner}>{line}</span>
+            </span>
+          ))
+        : children}
     </h2>
   );
 }

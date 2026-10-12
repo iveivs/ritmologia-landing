@@ -6,16 +6,13 @@ export function Skills() {
   return (
     <section id="programs" className="section section--sunken">
       <div className="container split split--5-7 split--start">
-        <div className="stack reveal">
+        <div className="stack">
           <SectionLabel>01 / Чему учим</SectionLabel>
-          <SectionHeading>
-            НЕ ПРОСТО
-            <br />
-            ПОВТОРЯТЬ —
-            <br />А ИГРАТЬ ОСОЗНАННО
-          </SectionHeading>
+          <SectionHeading
+            lines={["НЕ ПРОСТО", "ПОВТОРЯТЬ —", "А ИГРАТЬ ОСОЗНАННО"]}
+          />
         </div>
-        <ol className={`${styles.grid} reveal reveal--late`}>
+        <ol className={`${styles.grid} reveal-stagger`}>
           {skillsItems.map((item) => (
             <li key={item.index} className={styles.item}>
               <Index>{item.index}</Index>
