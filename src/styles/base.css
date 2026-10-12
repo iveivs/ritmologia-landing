@@ -91,9 +91,16 @@ button {
   color: var(--text-on-action);
   background: var(--surface-inverse-action);
   border-radius: var(--radius-2);
-  transform: translateY(calc(-100% - var(--space-4)));
 }
 
-.skip-link:focus-visible {
-  transform: none;
+/* Hidden the robust way (clipped to nothing, not parked above the page): it
+   stays invisible on overscroll too, and shows only when focused by keyboard. */
+.skip-link:not(:focus-visible) {
+  width: var(--border-hairline);
+  height: var(--border-hairline);
+  padding: 0;
+  margin: calc(var(--border-hairline) * -1);
+  overflow: hidden;
+  white-space: nowrap;
+  clip-path: inset(50%);
 }
