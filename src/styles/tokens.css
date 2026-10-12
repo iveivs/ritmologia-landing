@@ -243,9 +243,11 @@
 
   /* motion */
   --ease-out: cubic-bezier(0.2, 0.7, 0.2, 1);
+  --ease-soft: cubic-bezier(0.4, 0, 0.2, 1); /* gentle start and end */
   --dur-1: 120ms;
   --dur-2: 200ms;
-  --dur-3: 600ms; /* scroll reveal */
+  --dur-3: 1000ms; /* scroll reveal */
+  --dur-loop: 800ms; /* one beat of the drum loader */
   --transition-ui:
     color var(--dur-1) var(--ease-out),
     background-color var(--dur-1) var(--ease-out),
@@ -259,5 +261,6 @@
     --dur-1: 0ms;
     --dur-2: 0ms;
     --dur-3: 0ms;
+    --dur-loop: 0ms;
   }
 }

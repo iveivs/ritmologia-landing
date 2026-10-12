@@ -1,0 +1,34 @@
+.loader {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-4) var(--space-5);
+  color: var(--text-strong);
+  background: var(--surface-raised);
+  border: var(--border-hairline) solid var(--line-hairline);
+  border-radius: var(--radius-2);
+}
+
+.mark {
+  width: var(--space-8);
+  height: var(--space-8);
+  stroke-width: var(--border-heavy);
+}
+
+/* the stick lifts and taps the head; the grip stays put */
+.stick {
+  transform-box: view-box;
+  transform-origin: 82% 10%;
+  animation: tap var(--dur-loop) ease-in-out infinite;
+}
+
+@keyframes tap {
+  0%,
+  100% {
+    transform: rotate(14deg);
+  }
+  45% {
+    transform: rotate(-4deg);
+  }
+}

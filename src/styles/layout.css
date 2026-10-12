@@ -84,16 +84,16 @@
    ready-class is never set, so nothing is hidden. */
 .reveal {
   transition:
-    opacity var(--dur-3) var(--ease-out),
-    transform var(--dur-3) var(--ease-out);
+    opacity var(--dur-3) var(--ease-soft),
+    transform var(--dur-3) var(--ease-soft);
 }
 
 .reveal-ready .reveal:not(.reveal--in) {
   opacity: 0;
-  transform: translateY(var(--space-5));
+  transform: translateY(var(--space-7));
 }
 
 /* the second block of a pair follows a beat later */
 .reveal--late {
-  transition-delay: var(--dur-1);
+  transition-delay: var(--dur-2);
 }

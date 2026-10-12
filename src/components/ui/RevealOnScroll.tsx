@@ -21,7 +21,8 @@ export function RevealOnScroll() {
           observer.unobserve(entry.target);
         }
       },
-      { threshold: 0.12 },
+      // start once the block is well inside the screen, not at its bottom edge
+      { threshold: 0.1, rootMargin: "0px 0px -12% 0px" },
     );
     document
       .querySelectorAll(".reveal")
