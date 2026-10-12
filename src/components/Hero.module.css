@@ -1,5 +1,7 @@
 .copy {
-  justify-content: flex-end;
+  /* Top-aligned: the text starts level with the poster and the button stays on
+     the first screen even though the poster is taller than the text. */
+  justify-content: flex-start;
 
   /* The title must always fit its column: its longest word ("БАРАБАНОВ") is about
      6.8 em wide, so the size is capped at 14.2% of the column width. Below 900px
@@ -12,7 +14,7 @@
    the picture should read as part of the page. */
 .photo {
   position: relative;
-  min-height: 26rem;
+  min-height: 33.5rem; /* keeps the poster large however short the text is */
   overflow: hidden;
   background: var(--surface-poster);
   border-radius: var(--radius-2);
