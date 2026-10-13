@@ -7,11 +7,11 @@
    reads as one block and the eye follows one row at a time. The page colour is
    not used: it would merge with the neighbouring sections. */
 .row {
-  background: var(--surface-raised-soft);
+  background: var(--zebra-b, var(--surface-raised-soft));
 }
 
 .row:nth-child(odd) {
-  background: var(--surface-raised);
+  background: var(--zebra-a, var(--surface-raised));
 }
 
 .row:last-child {

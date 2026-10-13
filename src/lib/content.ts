@@ -141,6 +141,11 @@ export const monthFeatures = [
   "Личный кабинет «Тьюттори»",
 ];
 
+// Practice diary (own project, a public site for now).
+export const beatByBitLink = {
+  href: "https://iveivs.github.io/beat-by-bit/",
+};
+
 // Student cabinet «Тьюттори» (own platform of the owner).
 export const platformLink = {
   href: "https://tyuttori.ru",

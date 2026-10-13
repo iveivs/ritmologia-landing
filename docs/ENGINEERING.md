@@ -80,7 +80,7 @@ public/           статика (images/*.webp)
 | Константы-данные    | camelCase (не SCREAMING)         | `telegramLinks`, `contactLinks` |
 | CSS-класс (module)  | camelCase                        | `.priceRow`, `.linkActive`      |
 | CSS-переменная      | kebab-case с префиксом по группе | `--space-4`, `--color-accent`   |
-| Файл компонента     | PascalCase                       | `Platform.tsx`                  |
+| Файл компонента     | PascalCase                       | `Services.tsx`                  |
 | Файл утилит/данных  | camelCase                        | `basePath.ts`, `content.ts`     |
 | Изображение         | kebab-case, по смыслу            | `teacher-lesson.webp`           |
 | Якорь секции        | kebab-case, английский, короткий | `#prices`, `#cabinet`           |

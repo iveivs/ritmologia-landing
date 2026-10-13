@@ -41,6 +41,11 @@ export function SectionHeading({
   );
 }
 
+/** Title of an item inside a section (service, skill): an h3. */
+export function ItemTitle({ children }: { children: ReactNode }) {
+  return <h3 className={styles.itemTitle}>{children}</h3>;
+}
+
 /** Red highlighted part of a heading. */
 export function Accent({ children }: { children: ReactNode }) {
   return <span className={styles.accent}>{children}</span>;

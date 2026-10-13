@@ -121,7 +121,9 @@
   gap: var(--space-1);
   font-size: var(--fs-md);
   line-height: var(--lh-none);
-  color: var(--color-accent-text);
+  color: var(
+    --color-accent-text-small
+  ); /* AA on the raised card in both themes */
 }
 
 .footer {

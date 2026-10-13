@@ -1,5 +1,11 @@
 import { skillsItems } from "@/lib/content";
-import { Body, Index, SectionHeading, SectionLabel } from "./ui/Typography";
+import {
+  Body,
+  Index,
+  ItemTitle,
+  SectionHeading,
+  SectionLabel,
+} from "./ui/Typography";
 import styles from "./Skills.module.css";
 
 export function Skills() {
@@ -16,7 +22,7 @@ export function Skills() {
           {skillsItems.map((item) => (
             <li key={item.index} className={styles.item}>
               <Index>{item.index}</Index>
-              <h3 className={styles.itemTitle}>{item.title}</h3>
+              <ItemTitle>{item.title}</ItemTitle>
               <Body>{item.text}</Body>
             </li>
           ))}

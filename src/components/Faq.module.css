@@ -1,0 +1,6 @@
+/* The FAQ sits on the plain page colour, so its zebra stripes are taken from
+   the band side: a darker stripe and one barely different from the page. */
+.faq {
+  --zebra-a: var(--surface-sunken);
+  --zebra-b: color-mix(in srgb, var(--surface-page) 45%, var(--surface-sunken));
+}

@@ -1,4 +1,5 @@
 import { Button } from "./ui/Button";
+import styles from "./Faq.module.css";
 import { FaqItem } from "./ui/FaqItem";
 import { Accent, Body, SectionHeading, SectionLabel } from "./ui/Typography";
 import { faqItems, telegramLinks } from "@/lib/content";
@@ -17,10 +18,10 @@ const faqJsonLd = JSON.stringify({
 export function Faq() {
   return (
     // Same background as the prices above: no top padding.
-    <section id="faq" className="section section--sunken">
+    <section id="faq" className={`section ${styles.faq}`}>
       <div className="container split split--5-7 split--start">
         <div className="stack reveal">
-          <SectionLabel>08 / Вопросы</SectionLabel>
+          <SectionLabel>07 / Вопросы</SectionLabel>
           <SectionHeading>
             ЧАСТЫЕ
             <br />

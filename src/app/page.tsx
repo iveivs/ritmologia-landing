@@ -4,8 +4,7 @@ import { Skills } from "@/components/Skills";
 import { Studio } from "@/components/Studio";
 import { Teacher } from "@/components/Teacher";
 import { Online } from "@/components/Online";
-import { Diary } from "@/components/Diary";
-import { Platform } from "@/components/Platform";
+import { Services } from "@/components/Services";
 import { Reviews } from "@/components/Reviews";
 import { Prices } from "@/components/Prices";
 import { Faq } from "@/components/Faq";
@@ -31,8 +30,7 @@ export default function Home() {
         <Studio />
         <Teacher />
         <Online />
-        <Diary />
-        <Platform />
+        <Services />
         <Reviews />
         <Prices />
         <Faq />

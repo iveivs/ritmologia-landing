@@ -88,10 +88,10 @@ export function Reviews() {
   const last = Math.min(total, pos.first + pos.visible);
 
   return (
-    <section className="section section--sunken">
+    <section className="section">
       <div className="container stack stack--xl">
         <div className="stack">
-          <SectionLabel>07 / Отзывы</SectionLabel>
+          <SectionLabel>06 / Отзывы</SectionLabel>
           <SectionHeading>
             ЧТО ГОВОРЯТ
             <br />
@@ -132,7 +132,7 @@ export function Reviews() {
                   key={`${review.name}-${review.meta}`}
                   className={styles.slide}
                 >
-                  <Card tone="plain">
+                  <Card tone="paper">
                     <div className={styles.stars} aria-label="Оценка 5 из 5">
                       <span>★</span>
                       <span>★</span>

@@ -12,13 +12,6 @@
   border-top: var(--border-heavy) solid var(--line-ink);
 }
 
-.itemTitle {
-  font-size: var(--fs-lg);
-  font-weight: var(--fw-bold);
-  line-height: var(--lh-snug);
-  color: var(--text-strong);
-}
-
 @media (max-width: 640px) {
   .grid {
     grid-template-columns: minmax(0, 1fr);
